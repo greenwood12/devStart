@@ -1,0 +1,177 @@
+@charset "utf-9";
+/* 
+외부  css파일은 반드시  상단 맨위에 문자셋 인코딩 셋팅을 해야함!
+@charset "utf-9"; 은 2byte 문자까지 문제 없이 인코딩해주는 형식이다
+*/
+        
+/* 공통클래스 */
+/* box conter의 의미로 이름지음! 자기맘! */
+.bxc{
+    width: 727px;
+    /* 가로크기 */
+    margin: 0 auto;
+    /* 마영오! 블록박스 중앙! */
+    padding: 10px;
+    /* 패딩 */
+    box-sizing: border-box;
+    /* 크기유지 */
+    text-align: center;
+    /* 내부컨텐츠 인라인 중앙 */
+}
+
+/* 다중클래스 적용연습 */
+/* 글자색, 글자그림자 클래스 */
+.fc{
+    color: skyblue;
+    text-shadow: 1px 1px 1px #000;
+}
+
+/* 밑줄 */
+.fu{
+    /* 밑줄 */
+    text-decoration: underline;
+    /* 데코레이션 선 스타일 - 점선 */
+    text-decoration-style: dotted;
+}
+
+header {                  
+        /*블럭박스 셋팅*/
+    width: 727px;
+    /* height: 200px; */
+    border: 1px solid silver;
+    padding: 10px;                
+    margin: 20px auto;
+    /*블록박스 주앙정렬!
+        margin : 0 auto;
+        마영오! 씨
+
+        margin : 값 (4방향)
+        margin : 값 값; (위아래 양쪽)
+        margin : 값 값 값; (위 양쪽 아래)
+        margin : 값 값 값 값; (위 오른 아래 왼)
+        -> padding  도 위와 같음!
+
+        개별설정은
+        margin-top, margin-bottom
+        margin-left, margin-right
+        -> padding  도 위와 같음!
+    */
+
+    /* 
+        width 나 height  크기를 안주면 기본값 auto다 !
+        블록박스인 경우 width는 부모끝까지 차지 하고 height는 내용만큼 늘어남!
+    */
+
+    /* 내부의 텍스트 /인라인요소 중앙정렬 */
+    text-align: center;
+    /* 배경색 주기 */
+    background-color: #bdd0dda9;
+    /* 보더, 패딩 사이즈 내부에 포함시키기 */
+    box-sizing: border-box;
+    /* 월래는 보더와 패딩만큼 커지는게 기본 속성이지만 이것을 내부에 포함시키는 속성은 위와 같다! */
+}
+/* 띄어쓰기는 자손 선택자! */
+/* 아이다가 top인  요소의 자손 중 h1 선택 */
+#top h1{
+    /* 글자색  */
+    color: hotpink;
+    /* 글자 그림자 */
+    text-shadow: 2px 2px 2px #5924eb;   /*젠 tdn*/
+}
+
+/* 메뉴 */
+.gnb a{
+    color: #449c70;
+    /* 밑줄없앰 */
+    text-decoration: none;
+    /* 
+    text-decoration 속성
+        - underline 밑줄
+        - overline 윗줄
+        - linethrough 중간줄
+        - none 없음
+        */
+        /* 글자 두껍게 */
+        font-weight: bold;/* 젠 fwb */
+        /*
+        font-weight 속성
+        - bold  두껍게
+        - bolder 더 두껍게
+        - lighter 얇게
+        - 100~900
+        (기본적으로 글자체가 지원해야됨!)
+        */     
+}
+/* 메뉴 a에 마우스 오버시 */
+/* 선택자 : hover -> 마우스 오버시 가상클래스 */
+.gnb>a:hover{
+    text-decoration: overline; /*밋 tdo*/                
+}
+
+/* 로고이미지 */
+/* 
+    nev 태그인데 클래스가 gnb인 요소 아래 자손중 img 요소 선택 
+    nav.gnb img{}
+*/
+nav.gnb img {                
+    vertical-align: middle;
+    /* 
+        vertical-align: -5px; 젠va 코딩 값
+        값은 수치로 줄 수 있고
+        top, middle, bottom, baseline 등 있음
+    */
+    border:none;
+    /* 이미지에 링크가 걸린경우 서버에 올린 후 보일 수 있다. */
+}
+
+/* 하단 주소 */
+footer#info address {
+    background-color: #ccc;
+    padding: 20px;
+    font-style: normal;
+    /* 
+    글자 스타일
+    - italic 이탤릭체
+    - normal 특징없음
+    */
+    color: #444;
+    font-size: 14px;
+    /* 
+    글자크기
+    - 기본크기는 16px
+    12pt=16px(이육사)
+        */
+    line-height: 1.5;
+    /* 
+    줄간격
+    - 단위없이 사용하면 글자크기배수
+    - px, em 등 여러가지 단위사용가능
+        */
+}
+
+/* 영문이름만 이탤릭체 */
+#info>address>span {
+    font-style: italic;
+}
+
+*{margin:0;padding:0;}
+ul,li{list-style:none;}
+#slide{height:400px;position:relative;overflow:hidden;}
+#slide ul{width:400%;height:100%;transition:1s;}
+#slide ul:after{content:"";display:block;clear:both;}
+#slide li{float:left;width:25%;height:100%;}
+#slide li:nth-child(1){background:#fff;}
+#slide li:nth-child(2){background:#fff;}
+#slide li:nth-child(3){background:#fff;}
+#slide li:nth-child(4){background:#fff;}
+#slide input{display:none;}
+#slide label{display:inline-block;vertical-align:middle;width:10px;height:10px;border:2px solid #666;background:#fff;transition:0.3s;border-radius:50%;cursor:pointer;}
+#slide .pos{text-align:center;position:absolute;bottom:10px;left:0;width:100%;text-align:center;}
+#pos1:checked~ul{margin-left:0%;}
+#pos2:checked~ul{margin-left:-100%;}
+#pos3:checked~ul{margin-left:-200%;}
+#pos4:checked~ul{margin-left:-300%;}
+#pos1:checked~.pos>label:nth-child(1){background:#666;}
+#pos2:checked~.pos>label:nth-child(2){background:#666;}
+#pos3:checked~.pos>label:nth-child(3){background:#666;}
+#pos4:checked~.pos>label:nth-child(4){background:#666;}
