@@ -17,3 +17,10 @@
     text-align: left;
     /* .bxc 에서 중앙정렬값 덮어쓰기! 왼쪽정렬로 ! */
 }
+
+#today {
+    /* 글자색  */
+    color: hotpink;
+    /* 글자 그림자 */
+    text-shadow: 2px 2px 2px #5924eb;   /*젠 tdn*/
+}
