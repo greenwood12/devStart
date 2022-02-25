@@ -3,11 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>나의 아카이브 페이지</title>
+    <style>
+        body {
+            /* 배경이미지 */
+            background-image: url(./01.info_pj/img/worksbg.jpg);
+            /* 배경반복안함 */
+            background-repeat: no-repeat;
+            /* 배경고정 */
+            background-attachment: fixed;
+            /* 배경중앙 */
+            background-position: center;
+            /* 배경크기 빈틈없이 채우기(비율유지) */
+            block-size: cover;            
+        }
+
+        /* 전체박스 */
+        .wrap{
+            width: 1200px;
+            /*  블록 가로중앙 */
+            margin: 50px auto;
+            /* 배경색 반투명 반색 */
+            background-color: #ffffffb6;
+            /* 둥근 모서리 */
+            border-radius: 15px;
+        }
+        /* 1. 전체제목 */
+        .tit{
+            /* 
+            글자중앙전렬
+            -> 글자가 아니어도 인라인요소면 중앙정렬됨!
+             */
+            text-align:center;
+
+        }
+    </style>
 </head>
 <body>
-    <h1>나의아카이브</h1>
-    <h2>
-        <a href="01.info_pj/index.html">네이버요약뉴스</a>
-    </h2>
+    <div class="wrap">
+        <h1 class="tit">
+            <img src="./01.info_pj/img/mylogo_14.png" alt="아카이브로그">
+        </h1>
+        <!-- 2.프로젝트 박스 -->
+         <div class="pbx">
+             <!-- 2-1. 공통 프로젝트 -->
+             <section>
+                 <h2>개인프로젝트</h2>
+                 <ul>
+                     <li>
+                        <a href="01.info_pj/index.html" target="_blank">네이버요약뉴스</a>
+                     </li>
+                     <li>
+                        <a href="01.info_pj/info.html" target="_blank">기본전달사항</a>
+                     </li>
+                 </ul>
+             </section>
+             <!-- 2-2. 개인 프로젝트 -->
+         </div>
+    </div>    
 </body>
 </html>

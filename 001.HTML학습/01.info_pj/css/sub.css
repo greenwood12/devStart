@@ -24,3 +24,151 @@
     /* 글자 그림자 */
     text-shadow: 2px 2px 2px #5924eb;   /*젠 tdn*/
 }
+
+/* 기사제목 */
+.atit{
+    /* 글자크기 */
+    font-size: 30px;    
+
+    /* 글자두께 : 보통  */
+    font-weight: normal;    
+
+    /* 글씨체 : 순서대로 적용됨 */
+    font-family: "굴림", "궁서", "맑은 고딕", serif;    
+
+    /* 자간 : 0을 기준으로 조정 */
+    letter-spacing: -2px;    
+
+    /* 단어간격 : 0을 기준으로 조정 */
+    word-spacing:3px;    
+
+    /* 줄바꿈 방지 */
+    white-space:nowrap;    
+}
+
+/* 이미지 박스 */
+.afig {
+    margin:15px 0;
+}
+
+/* 기사이미지 */
+.afig img {
+    /* 부모박스를 채움 */
+    /* 
+    이미지는 가로, 세로중 하나만 크기를 주면
+    나머지는 자동으로 비율유지를 한다.
+     */
+    width: 100%;
+}
+
+/*  기사설명박스 */
+.afig figcaption {
+    /* 
+    글자정렬 중앙 
+    -> 주의사항 - 글자 정렬은 블록박스에서
+    적용해야 내부의 인라인요소의 
+    정렬이 변경된다!(인라인에서하면 적용안됨!)
+    */    
+    text-align: center;
+
+    padding-bottom: 50px;
+}
+
+/* 기사설명글 */
+.afig small{
+    /* 글자체 */
+    font-family: gulim;
+    /* 글자색 */
+    color:#666;
+    /* 글자정렬 */
+    /* text-align: center;  안됨*/
+}
+
+/* 기사내용박스 */
+.arti {
+    /* 글자체 */
+    font-family: "굴림", gulim, sans-serif;
+    /* 글자크기 */
+    font-size: 17px;    
+    /* 줄간격 (숫자만쓰면 배수) */
+    line-height: 1.6;
+}
+
+/* 기타 타이틀  h3 */
+#cont h3{
+    font-family: gulim;
+    font-size: 14px;
+}
+
+.quote{
+    /* 배경색 */
+    background-color: #d3cdcd;
+    /* 배경색 컨텐트 영역마 넣기! */
+    background-clip: content-box;
+    /* 패딩 */
+    padding: 10px;
+}
+
+.quote h3 {
+    text-align: center;
+}
+
+/* 인용구박스 */
+.quote blockquote{
+    font-size: 12px;
+    /* 첫줄 들여쓰기(마이너스는 내어쓰기) */
+    text-indent: 15px;    
+    /* 글자정렬: 양쪽정렬 */
+    text-align: justify;
+}
+
+#cont article{
+    /* 보더위쪽 : 두께 종류 색상(두종색) */
+    border-top: 1px solid #ccc;
+    /* 위쪽마진 */
+    margin-top: 25px;
+}
+
+/* 
+메인 컨탠츠 아래 a 요소 
+주의사항 - 글자색, 밑줄 셋팅 필수
+*/
+#cont a{
+    /* 글자색 */
+    color: #222;
+    /* 밑줄없앰 */
+    text-decoration: none;
+    /* 글자크기 */
+    font-size: 14px;
+    /* 글자체 */
+    font-family: gulim;
+}
+
+/* 마우스 오버시 */
+#cont a:hover{
+    /* color :red; */
+    text-decoration: underline;
+}
+
+/* 오늘의 작품 */
+.twrok{
+    text-align: center;
+    background-color: lightyellow;
+    /* 
+    배경색 옵션 
+    background-clip 배경색 옵션
+    1.content-box
+    -> 컨텐트영역에만 배경색넣기
+        (보더, 패딩빠짐)
+    2.padding-box
+    -> 패딩영역까지마 배경색 넣기(보더빠짐)
+    3.border-box
+    -> 보더영역까지 배경색넣기(기본값)
+    */
+    background-clip:content-box;
+    padding: 15px;    
+}
+
+.twrok img {
+    width: 210px;
+}
