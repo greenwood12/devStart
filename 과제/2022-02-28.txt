@@ -25,3 +25,9 @@
 	2) 요식 여행은 1주일 단위 업데이트
 		- 점포까지의 이동 방법
 		- 해당 지역 여행지 1~ 2개 추가
+
+
+
+
+//메인 페이지 참조 
+        https://tympanus.net/Development/BookBlock/index.html
