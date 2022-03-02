@@ -1,5 +1,11 @@
 /* 도깨비 메인페이지 css - main.css */
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap');
+
+/* 
+font-family: 'Nanum Brush Script', cursive;
+font-family: 'Nanum Pen Script', cursive; 
+*/
 
 /* 기본태그 초기화 - 마진, 패딩 없애기 */
 html ,body, h1, h2, h3, h4, h5, h6, ul, ol, dl, dt, dd {
@@ -34,8 +40,9 @@ body {
      background : 색상 이미지 반복여부 고정 위치/크기
      background : 색이반고윙/크
      */
-    background: url(../images/bg_mainvisual.jpg)
-    no-repeat fixed center/cover
+    background: 
+        url(../images/bg_logo_a_01.png) no-repeat fixed 10% 30%/10%,
+        url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover
     ;
 
     /* 따로주기 */
@@ -105,7 +112,12 @@ body {
 /*************** 공통 클래스 ***************/
 /* 속박스 */
 .ibx{
-    width: 1200px;    
+    /* width: 1200px; */
+
+    max-width:1200px;
+    /* 최대가로 크기 1200px 이다가 화면이 1200px 보다
+     작아지면 auto로 자동변경 가로스크롤이 생기지 않는다! */
+    
     margin: 0 auto; /* 위아래 양쪽(auto는 등분함) */
     /* 마용오! 블록박스 가로중앙 */
 }
@@ -116,8 +128,117 @@ body {
 }
 /*************** 1. 메인영역 ***************/
 .cont{
+    /* 가장 큰 일반적인 해상도 크기로 셋팅 */
+    max-width: 1920px;
     height: 800px;
+    /* 작식요소 마진탑 포함! */
+    overflow: hidden;
 }
+/* 캐릭터 부모박스 */
+#cbx{
+    /* 부모박스크기의 90%가로크기 */
+    width: 90%;
+    margin: 0 auto;
+    /*윗쪽마진 400px로 설정  */
+    margin-top: 400px;
+    /* height: 300px; */
+    background-color: rgba(144, 238, 144, 0.637);
+    overflow: hidden;
+    /* 마영오! - 블록가로중앙 */
+}
+
+/* 캐릭터박스 공통 */
+.cat {
+    /*
+     4등분 가로 크기는 몇% 25% 
+     25%-1%(양쪽마진) = 24%
+    */
+    width: 24%;
+
+    /* margin: 0 0.5%; 
+       margin: 0 .5%; 
+    양쪽마진은 0.5%ㅆ기 2개이므로 합이 1%임
+    이를 크기에 반영한다! 
+    참고) 0.몇 이런수치값은 보통 0을 생략하는 경우가 많다
+    */
+    margin: 0 .5%;
+    /* 
+        [블록요소를 옆으로 흘러가게 하기!!!]
+        float 속성
+        -> left 값은 나는 왼쪽에 너는 오른쪽에 올라와!
+        -> right 값는 나는 오른쪽에 너는 왼쪽에 올라와!
+
+        [ 자식요소가 float된 경우 부모요소는 높이값 0? ]
+            -> 블록 자식요소 float으로 인해 부모요소가 높이값이 0인 경우 다음과 같이 해결한다!
+            1. 부모요소에 overflow:hidden 설정
+            2. floart 자식요소 중 float이 아닌 마지막 요소에 floart해제 속성인 clear 설정하기!
+     */     
+    float: left;
+    /* height: 200px;
+    outline:4px dotted red; */
+
+    /* 손가락 모양 */
+    cursor: pointer;
+}
+
+/* 캐릭터 이미지 */
+.ci>img{    
+    /* 
+    이미지크기를 싸고 있는 부모박스에 맞춰라! 
+    height크기를 안주면 비율유지함
+    */
+
+    width: 100%;
+    
+}
+
+/* 캐릭터 이름이미지 박스 */
+.ci span{
+    /* 블록으로 변경해서 부모박스 끝까지 차지함! */
+    display: block;
+    /*  인라인요소 중앙정렬 */
+    text-align: center;
+    /* 부모 높이값 기준 21%크기만큼 
+    반대방향(위쪽)으로 위치 이동함 */
+    margin-top: -21%;
+}
+
+/* 캐릭터 이름이미지 */
+.ci span img{
+    /* 부모박스(span)의 가로크기의 40%크기 */
+    width : 40%;
+    
+}
+
+/* 
+    [자식요소 선택 가상클래스]
+    - 전제조건 : 자식요소가 같은 종류일 경우
+    :first-child 첫번째 자식
+    :last-child 마지막 자식
+    :nth-child(순번) 몇번째 자식
+    -순번은 1부터 ~!
+
+    - 전제조건 : 자식요소가 여러가지일 경우
+    :first-of-type 첫번째 자식
+    :last-of-type 마지막 자식    
+    :nth-of-type(순번) 몇번째 자식
+    -순번은 1부터 ~!
+ */
+.ci span img:first-child{
+    display: none;
+}
+
+/* .cat에  마우스 오버시 첫번째 이미지 보이기 */
+.cat:hover .ci span img:first-child{
+    display: inline;
+}
+
+/*.cat에  마우스 오버시 마지막 이미지 숨기기 */
+.cat:hover .ci span img:last-child{
+    display: none;
+}
+
+
 /*************** 1. 하단영역 ***************/
 .info{
     height: 241px;
