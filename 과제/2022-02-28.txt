@@ -31,3 +31,6 @@
 
 //메인 페이지 참조 
         https://tympanus.net/Development/BookBlock/index.html
+
+//[포트폴리오 참조용]
+https://atelier.net/social-mobility/economic-opportunities-for-our-avatars/		
