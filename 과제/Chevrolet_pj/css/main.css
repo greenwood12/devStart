@@ -1,0 +1,8 @@
+/* utf-8설정 */
+@charset "utf-8";
+
+/* 초기설정 */
+html, body{
+    margin: 0;
+    padding: 0;
+}

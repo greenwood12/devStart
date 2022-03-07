@@ -68,6 +68,7 @@
                 이전 브라우저 버전에 적용될 수
                 있도록 접두어를 사용한다
                 (W3C에서 확인 후 사용한다!)
+
                 [ 각 밴더별 접두어 ]
                 -webkit- : 크롬, 사파리
                 (크롱과 사파리로 웹킷을 가지고 놀러간다~!)
@@ -85,6 +86,7 @@
             - 선택요소의 크기, 회전, 이동, 기울임
             등 변형을 하기위한 속성
             - 2D, 3D 지원됨
+
             1. rotateY(각도deg) - Y축회전
             - deg는 각도의 단위(도:degree)
          */
@@ -205,7 +207,7 @@
             /* 0.5배 -> 축소 */
         }
 
-        #trans8:hover img {
+        #trans8.on img {
             transform: scale(2);
             /* transform: scaleY(2); */
         }
@@ -220,11 +222,11 @@
         }
 
         /* 
-        10. 앞뒤로 있는 이미지 뒤집기
-        - 셋팅: 한박스 안에 이미지가 2장 있으므로 겹쳐지게 하기위해 이미지
-        포지션을 absolute로 준다!
-        - 앱솔루트 끼리는 서로 겹쳐진다
-        - 순서는 나중에 그려진요소가 위에 온다
+            10. 앞뒤로 있는 이미지 뒤집기
+            - 셋팅: 한박스 안에 이미지가 2장 있으므로 겹쳐지게 하기위해 이미지
+            포지션을 absolute로 준다!
+            - 앱솔루트 끼리는 서로 겹쳐진다
+            - 순서는 나중에 그려진요소가 위에 온다
         */
         /* 2개의 이미지를 겹치게한다 */
         #trans10 img {
@@ -284,30 +286,32 @@
 
 
         /* 
-                    [ 트랜지션 이징(easing) 가속도 ]
-                    - transition-timing-function
-                    - 설정에 따라 빠르기를 조정함
-                    1. ease : 기본값
-                        - 애니메이션 전후에 약간 느려짐
-                    2. ease-in
-                        - 처음에 천천히 마지막에 원속도
-                    3. ease-out
-                        - 처음에 원속도 마지막에 천천히
-                    4. ease-in-out
-                        - 처음과 마지막에 천천히
-                        (ease보다 가속도가 강하다)
-                    5. linear
-                        - 일정한 속도
-                    (1~5 예시)
-                    https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_transition-timing-function2
-                    6. cubic-bezier : 자유로운 가속도
-                        - 설정은 브라우저에서 가속도
-                        곡선을 변경하여 수치를 생성한다.
-                        생성된 코드를 복사하여 사용한다!
-                    
-                    (6번 예시)
-                    https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_transition-timing-function3
-                 */
+            [ 트랜지션 이징(easing) 가속도 ]
+            - transition-timing-function
+            - 설정에 따라 빠르기를 조정함
+            1. ease : 기본값
+                - 애니메이션 전후에 약간 느려짐
+            2. ease-in
+                - 처음에 천천히 마지막에 원속도
+            3. ease-out
+                - 처음에 원속도 마지막에 천천히
+            4. ease-in-out
+                - 처음과 마지막에 천천히
+                (ease보다 가속도가 강하다)
+            5. linear
+                - 일정한 속도
+
+            (1~5 예시)
+            https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_transition-timing-function2
+
+            6. cubic-bezier : 자유로운 가속도
+                - 설정은 브라우저에서 가속도
+                곡선을 변경하여 수치를 생성한다.
+                생성된 코드를 복사하여 사용한다!
+            
+            (6번 예시)
+            https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_transition-timing-function3
+        */
     </style>
 </head>
 
