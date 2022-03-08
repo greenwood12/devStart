@@ -14,7 +14,7 @@
     </h1>
 
     <!-- 내용보기 링크 타이틀 -->
-    <h2 class="link">
+    <h2 class="link showCall">
         <a href="#dcbx">
             <!-- 
             href 속성값으로 본 페이지의 아이디명을
@@ -25,12 +25,12 @@
     </h2>
 
     <!-- 위로 이동버튼 -->
-    <a href="#" class="btnTop">
+    <a href="#" class="btnTop showCall cT1">
         TOP
     </a>
 
     <!-- 로봇 머리 -->
-    <div id="head">
+    <div id="head" class="rAni">
         <!-- 눈1 -->
         <div id="eye1"></div>
         <!-- 눈2 -->
@@ -46,7 +46,7 @@
     </div>
     <!-- 로봇 머리 끝 -->
     <!-- 로봇몸 -->
-    <div id="body">
+    <div id="body" class="rAni">
         <!-- 몸 -->
         <div id="neck"></div>
         <!-- 팔 -->
@@ -57,8 +57,13 @@
         <div id="leg1" class="part"></div>
         <!-- 다리 -->
         <div id="leg2" class="part"></div>
+        <!-- 어깨1 -->
+        <div id="sh1" class="sh"></div>
+        <!-- 어깨2 -->
+        <div id="sh2" class="sh"></div>
+
         <!-- TV -->
-        <div id="tv">
+        <div id="tv" class="showCall cT2">
             <div id="screen">
                 <!-- 
                     [iframe : 아이프레임 요소]

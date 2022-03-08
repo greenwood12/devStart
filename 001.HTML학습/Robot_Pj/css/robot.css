@@ -21,24 +21,48 @@ html {
 
 html, body{
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 body {
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
+    /* 가로스크롤 숨기기 - html요소에 주지 않도록 주의 (sticky 안됨!) */
+    overflow-x: hidden;
 }
 
 /* 공사중 아웃라인 */
 /* body * {
     outline: 2px dashed lime;
 } */
+/********************************************************************************* 
+    [요소 정중앙 정렬법]
+    1. 50%로 밀고 자기크기의 절반만큼 빼기
+    ((사용예)) calc(50% - 특정px)
+    - 주의 : 마이너스 기호 앞뒤에 띄어쓰기 필수!
+    ->>> calc() 메서드 사용
+    -사칙연산이 모두 가능하며 여기서는 
+     유동적인 %단위에서 특정 px를 빼는데 사용함!
+
+     2. 50%로 밀고 자기자신크기의 절반 반대 방향이동
+    ->>> transform: translate(-50%, -50%) 사용!
+    (참고)
+    https://www.w3schools.com/css/css_math_functions.asp
+ *********************************************************************************/
+
+
 
 /* 로봇 페이지 로고 */
 h1#logo {
     /* fixed의 부모는 항상 보이는 화면! */
     position: fixed;
+    /* 
     top: 50px;
-    left: 50px;
+    left: 50px; 
+    */    
+    z-index: 1; /* 위치 위 */
+    transform: scale(2); /* 크기변경 */
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
     width: 200px;
     height: 200px;
     border: 2px solid #ccc;
@@ -51,17 +75,116 @@ h1#logo {
     color: #070101;
     font-family: 'Roboto Serif', serif;    
     font-size:40px;
+    /* 글자그림자: x y 핑크 색 */
     text-shadow: 2px 2px 2px #000;
     box-shadow: 0 0 20px 5px pink, 
-                insert 0 0 20px 5px #000;
-    /*  */
+                inset 0 0 20px 5px #000;
+    /* 박스그림자: x y 핑크 spread 색 */
 
     /* 배경 */
     background:#00cc33 url(../images/robot_03.png) no-repeat;
     background-position: center 10px;
     background-size: 160px;
-    
+    /* 애니메이션 : 호출(이시이지반방마) */
+    animation: logoAni 2s ease-in-out 2s forwards,
+                   logoAni2 1s ease-in-out 4s infinite alternate;
 }
+
+/************************************************************************ 
+    [CSS로 애니메이션 하기]
+    - 시간에 따라 CSS설정이 변경되어 애니메이션 하도록 키프레임을
+      설정하고 이것을 호출함으로 의도된 연출을 구현하는 것이 CSS
+      애니메이션이다!
+
+      [ 애니메이션 키프레임 만들기 ]
+      - 키프레임이란? 애니메이션 장면을 넣는 코드
+
+      1. 두장면 키프레임      
+      @keyframes 키프레임이름{
+          from{시작 CSS설정}
+          to{끝나는 CSS설정}
+      }
+      또는
+      @keyframes 키프레임이름{
+          0%{시작 CSS설정}
+          100%{끝나는 CSS설정}
+      }
+      -> 만약 from 설정이 초기설정과 같다면 from을 생략가능!
+
+     2. 여러장면 키프레임
+
+     @keyframes 키프레임이름{
+          0%{시작 CSS설정}
+          10%{시작 CSS설정}
+          20%{시작 CSS설정}
+          ....
+          80%{시작 CSS설정}
+          90%{시작 CSS설정}
+          100%{끝나는 CSS설정}
+      }
+
+      (1) 장면에 대한 시간 계산은 어떻게 하나?
+      -> 전체시간 * 설정된% / 100
+      (2) 전체시간은 언제 셋팅하나? -> 호출시에 셋팅
+      [ 설정된 키프레임 호출하는 방법 ]
+
+      animation : 이시이지반방마
+      (이름 시간 이징 지연 반복 방향 마지막상태)      
+      1.이름 (animation-name) : 키프레임 이름
+      2시간 (animation-duration) : 애니메이션 동작시간
+      -> 초단위(s)
+      3. 이징 (animation-timing-function) : easing 가속도
+      4. 지연 (animation-delay) : 애니메이션 시작 지연시간(s)
+      5. 반복(animation-iteration-count) : 애니메이션 반복
+        - 기본값 1, 숫자를 쓰면 숫자만큼 반복함!
+        - 영원히 infinite(인피니트)
+      6. 방향 (animation-direction) : 시작 -> 끝
+        - 반복시 시작과 반대경로로 애니메이션을 만들어줌
+        -> alternate : 시작 -> 끝, 끝 ->시작
+        -> 유의사항 : 반복회수가 2회 이상이어야 적용됨
+      7. 마지막상태 (animation-fill-mode) :
+        - 애니메이션이 끝났을때 처음으로 돌아가는게 기본인데....
+        - forwards (앞쪽에... 즉, 애니끝장면으로 마무리!)
+        - 유의사항 : infinite(영원히) 일때는 해당사항 없음!
+ ************************************************************************/
+
+ /* 로고 애니 키프레임 */
+ @keyframes logoAni {
+     /* 시작값 -초기값과 같으면 생량 */
+     /* from{
+        top: calc(50% - 100px);
+        left: calc(50% - 100px);
+        transform: scale(2);
+     } */
+     80% {
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(0deg);
+     }
+     /* 
+     80%~100% 구간에 rotate각도만 20도로 변경애니
+     후속애니와 자연스럽게 연결됨! 
+     */
+     /* 끝값 */     
+     100% {
+        top: 50px;
+        left: 50px;
+        transform: scale(1) rotate(20deg);
+     }
+ }
+ /* 로고 애니 키프레임 */
+
+/* 로고 흔들기 키프레임 */
+@keyframes logoAni2 {
+    0%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
+    /* logoAni2 */
+}
+/* 로고 흔들기 키프레임 */
 
 /* 내용보기 링크 타이틀 */
 .link{
@@ -70,6 +193,34 @@ h1#logo {
     right: 50px;
     /* 부모는? 보이는화면 */
 }
+
+/* 투명했다 보이는 키프레임호출 클래스 */
+.showCall {
+    opacity: 0;
+    animation: showIt 1s ease-out 6s forwards;
+}
+/* 애니 등장시간 차이 클래스 : 기본설정이 6s인데 덮어씀! */
+.cT1 {
+    animation-delay: 7s;
+}
+
+.cT2 {
+    animation-delay: 8s;
+}
+
+/* 투명했다가 보이는 키프레임 */
+@keyframes showIt {
+    0%{opacity: 0;}    
+    20%{opacity: 0.5;}    
+    30%{opacity: 0;}    
+    40%{opacity: 1;}    
+    50%{opacity: 0.3;}    
+    60%{opacity: 0;}    
+    70%{opacity: 0.7;}    
+    100%{opacity: 1;}    
+}
+/* showIt 키프레임 */
+
 
 /* 링크 a 요소 */
 .link a {
@@ -115,13 +266,31 @@ h1#logo {
 #head {
     /* 부모자격 */
     position: relative;
+    /* 머리 오른쪽 밖타에 나가 있음! */
+    left: 100%;
     width: 250px;
     height: 250px;
     border-radius: 20px 20px 20px 20px;
     background: url(../images/metal01.jpg) no-repeat center/cover;
     margin: 0 auto;
     margin-top: 100px;    
+    /* 애니메이션 : 이시이지반방마 */
+    /* animation: robotAni 1.5s ease-out 3s forwards; */
 }
+
+/* 로봇애니 호출 클래스 : 로봇머리, 로봇몸 요소에서 호출! */
+.rAni{
+    /* 애니메이션 : 이시이지반방마 */
+    animation: robotAni 1.5s ease-out 3s forwards;
+}
+
+/* 로봇머리, 몸 제자리 키프레임 */
+@keyframes robotAni {
+    to{
+        left:0;
+    }
+}
+
 
 /* 눈1 */
 #eye1 {
@@ -165,10 +334,19 @@ h1#logo {
     width: 130px;
     height: 50px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
+    /* 애니메이션 : 이시이지반방마 */
+    animation: mouthAni .1s linear 6s infinite alternate;
 }
 
+@keyframes mouthAni {
+    to {
+        transform: scaleY(.2);
+    }    
+}
+/* mouthAni 키프레임 */
 
-/* 입 */
+
+/* 귀1 */
 #ear1 {
     position: absolute;
     top: 80px;
@@ -180,7 +358,7 @@ h1#logo {
     background: url(../images/metal02.jpg) no-repeat 0/100% 100%;
 }
 
-/* 입 */
+/* 귀2 */
 #ear2 {
     position: absolute;
     top: 80px;
@@ -195,6 +373,8 @@ h1#logo {
 /* 로봇몸 */
 #body {
     position: relative;
+    /* 몸 왼쪽 바깥에 나가 있음 */
+    left: -100%;
     width: 250px;
     height: 350px;
     margin: 0 auto;
@@ -225,13 +405,34 @@ h1#logo {
 
 #arm1 {
     top : 0px;
-    left : -53px;
+    left : -50px;
 }
 
 #arm2 {
     top : 0px;
     left : 250px;
+    transform-origin: top;
+    transform: rotate(0deg);
+    /* 애니메이션 : 이시이지반방마 */
+    /* animation: armAni .8s ease-in-out 5s forwards, armAni2 .4s ease-in-out 5.8s infinite alternate; */
+    animation: armAni .8s ease-in-out 5s forwards, armAni2 .4s ease-in-out 5.8s infinite alternate; 
 }
+/* 오른팔 키프레임 */
+@keyframes armAni {
+    to{
+        transform: rotate(-155deg);
+    }
+    /* armAni 키프레임 */
+}
+
+/* 오른팔 흔들기 키프레임 */
+@keyframes armAni2 {
+    /* 첫번째 애니가 끝난상태에서 출발! from 생략 */
+    to{
+        transform: rotate(-140deg);
+    }
+}
+
 
 #leg1 {
     top : 350px;
@@ -242,6 +443,28 @@ h1#logo {
     top : 350px;
     left : 200px;
 }
+
+.sh {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: url(../images/metal01.jpg) no-repeat center/cover;
+}
+
+/* 왼 어깨 */
+#sh1 {
+    top : -41px;
+    left : -80px;
+    border-radius: 50% 5px 5px 50%;
+}
+
+/* 오른 어깨 */
+#sh2 {
+    top : -41px;
+    right: -80px;
+    border-radius: 5px 50% 50% 5px;
+}
+
 
 /* TV */
 #tv {
@@ -274,7 +497,7 @@ h1#logo {
 #screen iframe {
     position: absolute;
     top: -20;
-    left: -11;
+    left: -30px;
     /* 부모는 ? screen */
     width: 156%;
     height:109%;

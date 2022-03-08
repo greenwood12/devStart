@@ -34,7 +34,7 @@ body * {
     사용법은 border와 유사함
     outline: 두께 종류 색상; 
     */
-    outline: 1px dashed gray;
+    /* outline: 1px dashed gray; */
 }
 
 /* ul, ol 초기화 */
@@ -153,6 +153,7 @@ body {
 /* 겉박스 */
 #top {
     background-color: #fff;
+    border-bottom: 1px solid #666;
 }
 
 /* 속박스 */
@@ -198,6 +199,108 @@ body {
     font-family: 'Nanum Gothic Coding', sans-serif;
     font-size: 17px;
     line-height: 40px;
+}
+
+/* 서브메뉴 */
+.smenu {
+    /* 젠틀 앱솔루트 */
+    position: absolute;
+    /* li 가상요소 after 앱솔루트보다 위! */
+    z-index: 1;
+    /* background-color: #fff; */
+    /* 서브메뉴 숨기기 */
+    height: 0;
+    overflow: hidden;
+    /* 트랜지션 : 속시이지 */
+    transition: height .4s ease-out;        
+}
+
+/* 서브 하위 ol */
+.smenu ol {
+    padding: 10px 0;
+}
+
+/* 서브 a */
+.smenu a {
+    font-size: 14px;
+    line-height: 30px;
+    /* 글자색 +밑줄 변경 */
+    color: #222;
+    text-decoration: none;
+}
+
+/* 
+하위 메뉴가 있는 상위 li요소에 마우스 오버시 가상요소로 
+페이지 끝까지 차지하는 흰색배경 만들기 
+클래스 sm이 부여된 li만 적용된다!
+*/
+.gnb>ul>li.sm::after {
+    content: '';
+    position: absolute;
+    /* div와 비슷 */
+    display: block;
+    /* top에 대한 설정이 없으므로 젠틀앱솔루트!
+    a요소 아래에 그대로 위치함! */
+    left: 0;
+    /* 
+    앱솔루트 크기에 % 사용시 부모를 기준함! 
+    보이는 화면이 부모
+    */
+    width: 100%;
+    height: 0px;
+    background-color: #fff;        
+    /* 세부 위치조정은 마진으로!!! */
+    /* #top의 하단보더 */
+    margin-top: 2px;    
+    /* 트랜지션 : 속시이지 */
+    transition: height .4s ease-out;
+}
+
+/* li.sm에 마우스 오버시 가상요소 내려오기! */
+/* 공통으로 하단보더 설정 */
+.gnb>ul>li.sm:hover::after {
+    /* height: 200px; */
+    border-bottom: 2px solid red;
+}
+
+/* 상위메뉴 li에 마우스 오버시 .smenu 보이기 */
+/* .gnb>ul>li:hover .smenu {
+    height: 190px;
+}
+
+.gnb>ul>li:hover .smenu {
+    height: 190px;
+}
+
+.gnb>ul>li:hover .smenu {
+    height: 190px;
+} */
+
+/* 높이값 각각 다르게 셋팅 */
+
+/*
+ 프로그램 소개 : 메뉴 3개 *30+20=110px
+*/
+.gnb>ul>li.sm.sm1:hover::after,
+.gnb>ul>li.sm1:hover .smenu {
+    height: 103px;
+}
+
+/* 동영상 */
+/*
+ 프로그램 소개 : 메뉴 4개 *30+20=140px
+*/
+.gnb>ul>li.sm.sm2:hover::after,
+.gnb>ul>li.sm2:hover .smenu {
+    height: 135px;
+}
+/*
+ 프로그램 소개 : 메뉴 2개 *30+20=120px
+*/
+/* 사진첩 */
+.gnb>ul>li.sm.sm3:hover::after,
+.gnb>ul>li.sm3:hover .smenu {
+    height: 68px;
 }
 
 /*************** 1. 메인영역 ***************/
