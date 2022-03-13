@@ -1,12 +1,13 @@
-
-
 /* utf-8설정 */
 @charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap');
 
 /* 초기설정 */
 html, body{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .scbar::-webkit-scrollbar{
@@ -51,15 +52,20 @@ body {
     width:100%;    
 }
 
+
+#top div {        
+    width:100%;
+}
+
 header {
+    min-width:1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto;    
 }
 
-.gnb {    
-    min-width: 1200px;
+.gnb {        
     color: #fff;
 }
 
@@ -80,17 +86,38 @@ header {
     float: left; /* 옆으로 흐르게 */
     padding: 0px 0px;
 }
-
+/* 상단 메뉴 사이 간격 조정 */
 .gnb>ul>li:first-child {
     margin-left: 40px;
 }
 
-.gnb>ul>li:last-child {
-    margin-left: 95px;
+.gnb>ul>li:nth-child(2) {
+    margin-left: 20px;
+}
+
+.gnb>ul>li:nth-child(3) {
+    margin-left: 20px;
+}
+
+.gnb>ul>li:nth-child(4) {
+    margin-left: 20px;
+}
+
+.gnb>ul>li:nth-child(5) {
+    margin-left: 20px;
+}
+
+.gnb>ul>li:nth-child(6) {
+    margin-left: 20px;
 }
 
 
-.gnb>span {
+.gnb>ul>li:last-child {
+    margin-left: 267px;
+}
+/* 상단 메뉴 사이 간격 조정 */
+
+.gnb>span {    
     float: left;
 }
 
@@ -120,30 +147,39 @@ header {
     transition: height .4s ease-out;
 }
 
-
+/* 하위 메뉴 오버 메뉴 높이 */
 .gnb>ul>li.sm.sm1:hover::after,
 .gnb>ul>li.sm1:hover .smenu {    
     height: 103px;
 }
 
-/* 동영상 */
-/*
- 프로그램 소개 : 메뉴 4개 *30+20=140px
-*/
 .gnb>ul>li.sm.sm2:hover::after,
-.gnb>ul>li.sm2:hover .smenu {
-    height: 135px;
-}
-/*
- 프로그램 소개 : 메뉴 2개 *30+20=120px
-*/
-/* 사진첩 */
-.gnb>ul>li.sm.sm3:hover::after,
-.gnb>ul>li.sm3:hover .smenu {
-    height: 68px;
+.gnb>ul>li.sm2:hover .smenu {    
+    height: 103px;
 }
 
-.sumenu {
+.gnb>ul>li.sm.sm3:hover::after,
+.gnb>ul>li.sm3:hover .smenu {    
+    height: 103px;
+}
+
+.gnb>ul>li.sm.sm4:hover::after,
+.gnb>ul>li.sm4:hover .smenu {    
+    height: 103px;
+}
+
+.gnb>ul>li.sm.sm5:hover::after,
+.gnb>ul>li.sm5:hover .smenu {    
+    height: 103px;
+}
+
+.gnb>ul>li.sm.sm6:hover::after,
+.gnb>ul>li.sm6:hover .smenu {    
+    height: 103px;
+}
+/* 하위 메뉴 오버 메뉴 높이 */
+
+.smenu {
     /* 젠틀 앱솔루트 */
     position: absolute;
     /* li 가상요소 after 앱솔루트보다 위! */
@@ -151,12 +187,12 @@ header {
     /* background-color: #fff; */
     /* 서브메뉴 숨기기 */
     height: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     /* 트랜지션 : 속시이지 */
     transition: height .4s ease-out;        
 }
 
-.sumenu li {
+.smenu li {
     float: left;
 }
 
@@ -173,3 +209,89 @@ header {
     color: #222;
     text-decoration: none;
 }
+
+/* 메인영역 */
+
+/* 캐릭터 부모박스 */
+.cont {
+    min-width: 1000px;
+    height:800px;
+    overflow: hidden;
+}
+
+#cbx {
+    width:90%;
+    margin-top: 400px;
+}
+
+/* 가상요소로 clear설정하기 */
+#cdx::after{
+    content: '';
+    display: block; /* div와 비슷 */
+    clear: both;
+}
+
+.cat {
+    float: left;
+    cursor: pointer;
+}
+
+/* 이미지 숨기기 */
+.ci span img:first-child{
+    display: none;
+}
+
+/* .cat에  마우스 오버시 첫번째 이미지 보이기 */
+.cat:hover .ci span img:first-child{
+    display: inline;
+}
+
+/*.cat에  마우스 오버시 마지막 이미지 숨기기 */
+.cat:hover .ci span img:last-child{
+    display: none;
+}
+
+/* 캐릭터 설명박스 */
+.cd {    
+    height: 0px;    
+    overflow-y: scroll;    
+    margin-top: 15px;
+    /* 둥근모서리 - border-radius */
+    /* 4개의 값 - 왼쪽 위 부터 시계방향 */
+    border-radius: 20px 0 0 20px;
+    /* 트랜지션: 속시이지 -trs */
+    transition: height .4s ease-out;
+}
+
+/* .cat에 오버시 높이값 변경! */
+.cat:hover .cd{
+    height: 250px;
+}
+
+/* 캐릭터 설명 타이틀 */
+.cd h3{
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: min(1.5vw, 18px);
+    font-weight: normal;
+    padding: 5px 10px 0;
+    /* 패딩 ; 위 양쪽 아래 */
+}
+
+/* 캐릭터 설명 문단 */
+.cd p {
+    font-family: 'Nanum Pen Script', cursive; 
+    font-size: min(1.5vw, 18px);
+    line-height: 1.7;
+    padding: 10px;
+    /* 양쪽정렬 */
+    text-justify: justify;    
+}
+
+/* 캐릭터 설명 첫번째 글자 가상요소로 변경하기! */
+.cd p:first-of-type::first-letter{
+    font-size: min(2vw, 25px);
+    color: #af92f1;
+    /* 4개의 그림자로 글자 테두리 주기! */
+    text-shadow:1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;    
+}
+/* 메인영역 */
