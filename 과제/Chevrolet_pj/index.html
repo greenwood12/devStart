@@ -6,21 +6,95 @@
     <title>쉐보레</title>
     <link rel="shortcut icon" href="/httpobject/images/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+        function MenuChang(Num) {            
+            for(let i = 1; i < 10; i++ ){
+                $("#view"+i).css("display", "none");
+            }
+            
+            switch(Num) {
+                case 1 : 
+                    $("#view1").css("display", "");
+                    $("#view2").css("display", "");         
+                    BackImgChang(1);
+                break;
+                case 2 : 
+                    $("#view3").css("display", "");
+                    $("#view4").css("display", "");
+                    $("#view5").css("display", "");
+                    $("#view6").css("display", "");
+                    BackImgChang(3);
+                break;
+            }
+        }
+
+        function BackImgChang (Num) {
+            let bodyObj = document.body;
+            switch(Num) {
+                case 1 :  
+                    bodyObj.style.backgroundImage = "url('./images/spark_highlight_img01.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        $(this).css('background-image', './images/spark_highlight_img01.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                    break;
+                case 2 : 
+                    bodyObj.style.backgroundImage = "url('./images/malibu_HI_img02_1.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        $(this).css('background-image', './images/malibu_HI_img02_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                    break;
+                case 3 : 
+                    bodyObj.style.backgroundImage = "url('./images/trax1_1_1.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        $(this).css('background-image', './images/trax1_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                    break;                    
+                case 4 : 
+                    bodyObj.style.backgroundImage = "url('./images/trailblazer6_1_1.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        $(this).css('background-image', './images/trailblazer6_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                    break;
+                case 5 : 
+                    bodyObj.style.backgroundImage = "url('./images/traverse1_1_1.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        $(this).css('background-image', './images/traverse1_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                    break;                                        
+                case 6 : 
+                    bodyObj.style.backgroundImage = "url('./images/tahoe_sec0_bg.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        $(this).css('background-image', './images/tahoe_sec0_bg.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                    break;                                                            
+            }            
+        }
+    </script>
 </head>
-<body class="back">
+<body id="back">
     <!-- 상단 -->
     <div id="top">
         <header>
             <div>
-                <!-- 메인로그 -->
-                <h1 id="logo">
+                 <!-- 메인로그 -->
+                <!-- <h1 id="logo">
                     <img src="./images/new_gnb_logo.png" alt="쉐보레">
-                </h1>
+                </h1> -->
                 <!-- GNB 메뉴 -->
                 <nav class="gnb">
                     <ul>
+                        <li>
+                            <img src="./images/new_gnb_logo.png" alt="쉐보레">
+                        </li>
                         <li class="sm sm1">
-                            <a href="">SEDAN</a>
+                            <a href="javascript:MenuChang(1)">SEDAN</a>
                             <div class="smenu">
                                 <ol>
                                     <li>
@@ -37,7 +111,7 @@
                             </div>
                         </li>
                         <li class="sm sm2">
-                            <a href="">SUV</a>
+                            <a href="javascript:MenuChang(2)">SUV</a>
                             <div class="smenu">
                                 <ol>
                                     <li>
@@ -124,47 +198,202 @@
                     </ul>
                 </nav>
             </div>
-        </header>        
+        </header>
     </div>
     <!-- 메인 -->
     <div id="main_div">
         <main class="ibx cont">
-            <div class="cat">
-                <div class="ci">                    
-                    <span>                        
-                        <img src="./images/model_spark_on.png">
-                        <img src="./images/model_spark.png">                        
-                    </span>
-                    <div class="cd scbar">
-                        <h3>스파크</h3>
-                        <p>
-                            스타일과 안전성의 완벽한 조화,THE NEW SPARK
-                        </p>
-                        <p>
-                            업그레이드된 스타일 개성있는 나만의 THE NEW SPARK MYFIT을 만나보세요!
-                            세련된 컬러에 스타일리시 휠과 보타이까지 나를 위한 스파크 마이핏으로 완성해보세요.
-                        </p>
-                        <p>
-                            KCSI 7년 연속 1위
-                            (2015~2021) 한국산업의 고객만족도 조사 경형 승용차 부문 1위 수상
+            <div id="cbx">
+                <div id="view1" class="cat" onmouseover="BackImgChang(1)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_spark_on.png">
+                            <img src="./images/model_spark.png">                        
+                        </span>
+                        <div class="cd scbar">
+                            <h3>스파크</h3>
+                            <p>
+                                스타일과 안전성의 완벽한 조화,THE NEW SPARK
+                            </p>
+                            <p>
+                                업그레이드된 스타일 개성있는 나만의 THE NEW SPARK MYFIT을 만나보세요!
+                                세련된 컬러에 스타일리시 휠과 보타이까지 나를 위한 스파크 마이핏으로 완성해보세요.
+                            </p>
+                            <p>
+                                KCSI 7년 연속 1위
+                                (2015~2021) 한국산업의 고객만족도 조사 경형 승용차 부문 1위 수상
+    
+                                소비자선정 최고의 브랜드 대상 6회차 1위
+                                (2013~2014, 2018~2021) 소형 경차 부문 대상 수상
+    
+                                신차 안전도 평가 (KNCAP) 경차 유일 1등급! (종합등급제 기준)
+                                2016 신차 안전도 평가 종합 안정성 평가 1등급
+                                충돌안전성분야 최고 등급 (★ ★ ★ ★ ★)
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view2" class="cat" onmouseover="BackImgChang(2)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_malibu_on.png">
+                            <img src="./images/model_malibu.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>말리부</h3>
+                            <p>
+                                스타일리시 퍼포먼스 세단 THE NEW MALIBU
+                            </p>
+                            <p>
+                                감각적인 디자인과 스타일리시 퍼포먼스 세단의 감성을 모두 갖춘
+                                도발적이고 날렵한 디자인
+                            </p>
+                            <p>
+                                모던한 크림 베이지의 인테리어 컬러와
+                                8인치 디스플레이로 최상의 프리미엄 인테리어를 완성
+    
+                                새로운 엔진 라인업에 최적화된 세팅으로 보다 완벽해진 말리부
 
-                            소비자선정 최고의 브랜드 대상 6회차 1위
-                            (2013~2014, 2018~2021) 소형 경차 부문 대상 수상
-
-                            신차 안전도 평가 (KNCAP) 경차 유일 1등급! (종합등급제 기준)
-                            2016 신차 안전도 평가 종합 안정성 평가 1등급
-                            충돌안전성분야 최고 등급 (★ ★ ★ ★ ★)
-                        </p>
-                    </div>
+                                진정한 프리미엄은 간결한 디자인에서 완성된다. 
+                                차급을 뛰어넘는 넓고 안락한 실내 공간,
+                                사용자 중심의 인테리어 디자인과 조화를 이룬 첨단 테크놀로지
+                            </p>
+                            <p>
+                                발생 가능한 모든 가능성으로부터 탑승자의 안전을 완벽하게 대비하는
+                                BODY STRUCTURE, ALL AROUND SAFETY SYSTEM, 10개의 최첨단 테크놀로지
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view3" style="display:none;" class="cat" onmouseover="BackImgChang(3)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_trax_on.png">
+                            <img src="./images/model_trax.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>트랙스</h3>
+                            <p>
+                                어제도 오늘도 내일도 매력 있는 THAT’S MY TRAX.
+                            </p>
+                            <p>
+                                시크하고 날렵한 새로운 디자인
+                            </p>
+                            <p>
+                                효율과 편의를 고려한 스마트한 공간
+                            </p>
+                            <p>
+                                SGE 1.4 가솔린 터보 엔진이 제공하는 강력한 퍼포먼스와 효율적인 연비
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view4" style="display:none;" class="cat" onmouseover="BackImgChang(4)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_trailblazer_on.png">
+                            <img src="./images/model_trailblazer.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>트레일 블레이저</h3>
+                            <p>
+                                첫눈에 빠져드는 임팩트
+                                THE IMPACT SUV, TRAILBLAZER
+                            </p>
+                            <p>
+                                투톤 루프와 다양한 바디 컬러로 더 유니크하게!
+                                RS와 ACTIV의 서로 다른 매력을 직접 확인해보세요.
+                            </p>
+                            <p>
+                                스포티한 바디라인과 다양한 투톤컬러로 완성된 트렌디하고 세련된 디자인
+                            </p>
+                            <p>
+                                운전자와 탑승자의 다양한 편의를 고려한 센스 있는 실내 디자인
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view5" style="display:none;" class="cat" onmouseover="BackImgChang(5)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_traverse_on.png">
+                            <img src="./images/model_traverse.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>트래버스</h3>
+                            <p>
+                                LIVE SUPER, LIVE HIGH
+                                SUPER SUV, TRAVERSE
+                            </p>
+                            <p>
+                                남다른 존재감을 추구하는 당신
+                                어디에서도 눈에 띄는 트래버스와 함께라면 더욱 빛나게 될 것입니다.
+                            </p>
+                            <p>
+                                동급 최대 전장의 남다른 존재감과 웅장한 아름다움
+                                당신을 빛나게 해 줄 매력적인 디자인
+                            </p>
+                            <p>
+                                압도적인 차체 크기와 세련된 디자인의 완벽한 조화
+                                지금껏 존재하지 않았던 한 차원 높은 SUPER SUV
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view6" style="display:none;" class="cat" onmouseover="BackImgChang(6)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_tahoe_on.png">
+                            <img src="./images/model_tahoe.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>타호</h3>
+                            <p>
+                                위대한 시작, 존재만으로 분위기를 압도하는 타호와 함께.
+                            </p>
+                            <p>
+                                차원이 다른 카리스마, 타호 다크 나이트 에디션
+                            </p>
+                            <p>
+                                다양한 활용 공간, 통풍&열풍 시트 대용량 트렁크 넉넉한 2열 및 3열 레그룸
+                            </p>
+                            <p>
+                                6.2L V8직분사 가솔린 엔진 다이나믹 퓨얼 매니지 먼트
+                                어댑티브 에어 라이드 서스펜션 & 마그네틱 라이드 컨트롤
+                            </p>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </main>
     </div>
     <!-- 하단 -->
-    <div>
-        <footer>
-
-        </footer>
+    <div id="info">
+        <footer class="ibx info">
+            <!-- 하단 링크 -->
+            <div class="blink">
+                <ul>
+                    <li>
+                        <a href="#">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="#">개인정보처리방침</a>
+                    </li>
+                    <li>
+                        <a href="#">사이트맵</a>
+                    </li>
+                    <li>
+                        <a href="#">한국지엠주식회사</a>
+                    </li>                    
+                </ul>
+            </div>
+            <address class="addr">
+                사업자 : 한국지엠주식회사 | 대표 : 카허 카젬 | 사업자등록번호 : 122-81-74534
+                주소 : 21334 인천광역시 부평구 부평대로 233 | 통신판매업신고 : 2016-인천부평-0902
+                © GM KOREA. ALL RIGHTS RESERVED
+            </address>
+            <!-- 하단로그 -->            
+        </footer>        
     </div>
 </body>
 </html>
