@@ -6,25 +6,36 @@
     <title>쉐보레</title>
     <link rel="shortcut icon" href="/httpobject/images/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/media.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>
         function MenuChang(Num) {            
             for(let i = 1; i < 10; i++ ){
                 $("#view"+i).css("display", "none");
             }
-            
+            let bodyObj = document.body;
             switch(Num) {
                 case 1 : 
                     $("#view1").css("display", "");
                     $("#view2").css("display", "");         
-                    BackImgChang(1);
+
+                    bodyObj.style.backgroundImage = "url('./images/spark_highlight_img01.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        //$(this).css('background-image', './images/spark_highlight_img01.jpg');
+                        $(this).fadeIn(500);
+                    });
                 break;
                 case 2 : 
                     $("#view3").css("display", "");
                     $("#view4").css("display", "");
                     $("#view5").css("display", "");
                     $("#view6").css("display", "");
-                    BackImgChang(3);
+
+                    bodyObj.style.backgroundImage = "url('./images/trax1_1_1.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        //$(this).css('background-image', './images/trax1_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
                 break;
             }
         }
@@ -33,48 +44,34 @@
             let bodyObj = document.body;
             switch(Num) {
                 case 1 :  
-                    bodyObj.style.backgroundImage = "url('./images/spark_highlight_img01.jpg')"; 
-                    $("body").fadeOut(500, function(){
-                        $(this).css('background-image', './images/spark_highlight_img01.jpg');
-                        $(this).fadeIn(500);
-                    });                    
+                    bodyObj.style.backgroundImage = "url('./images/spark_highlight_img01.jpg')";                     
                     break;
                 case 2 : 
-                    bodyObj.style.backgroundImage = "url('./images/malibu_HI_img02_1.jpg')"; 
-                    $("body").fadeOut(500, function(){
-                        $(this).css('background-image', './images/malibu_HI_img02_1.jpg');
-                        $(this).fadeIn(500);
-                    });                    
+                    bodyObj.style.backgroundImage = "url('./images/malibu_HI_img02_1.jpg')";                     
                     break;
                 case 3 : 
-                    bodyObj.style.backgroundImage = "url('./images/trax1_1_1.jpg')"; 
-                    $("body").fadeOut(500, function(){
-                        $(this).css('background-image', './images/trax1_1_1.jpg');
-                        $(this).fadeIn(500);
-                    });                    
+                    bodyObj.style.backgroundImage = "url('./images/trax1_1_1.jpg')";                     
                     break;                    
                 case 4 : 
                     bodyObj.style.backgroundImage = "url('./images/trailblazer6_1_1.jpg')"; 
-                    $("body").fadeOut(500, function(){
-                        $(this).css('background-image', './images/trailblazer6_1_1.jpg');
-                        $(this).fadeIn(500);
-                    });                    
                     break;
                 case 5 : 
-                    bodyObj.style.backgroundImage = "url('./images/traverse1_1_1.jpg')"; 
-                    $("body").fadeOut(500, function(){
-                        $(this).css('background-image', './images/traverse1_1_1.jpg');
-                        $(this).fadeIn(500);
-                    });                    
+                    bodyObj.style.backgroundImage = "url('./images/traverse1_1_1.jpg')";                     
                     break;                                        
                 case 6 : 
-                    bodyObj.style.backgroundImage = "url('./images/tahoe_sec0_bg.jpg')"; 
-                    $("body").fadeOut(500, function(){
-                        $(this).css('background-image', './images/tahoe_sec0_bg.jpg');
-                        $(this).fadeIn(500);
-                    });                    
+                    bodyObj.style.backgroundImage = "url('./images/tahoe_sec0_bg.jpg')";                     
                     break;                                                            
             }            
+        }
+        var chk = 0;
+        function MSmall() {            
+            if(chk == 0) {
+                $(".hm_list").css("width", "100%");
+                chk=1;
+            } else {
+                $(".hm_list").css("width", "0px");
+                chk=0;
+            }
         }
     </script>
 </head>
@@ -195,14 +192,31 @@
                                 로그인 | 회원가입 | 마이 쉐보레
                             </span>
                         </li>
-                    </ul>
+                    </ul>                    
                 </nav>
+                <div class="hm_menu" onmouseover="MSmall()">                    
+                    <img class="hm_over" src="./images/images.png">
+                </div>
             </div>
         </header>
     </div>
     <!-- 메인 -->
     <div id="main_div">
         <main class="ibx cont">
+            <div class="hm_list">
+                <ul>
+                    <li>
+                        <a href="javascript:MenuChang(1)">SEDAN</a>
+                    </li>
+                    <li>
+                        <a href="javascript:MenuChang(2)">SUV</a>
+                    </li>
+                    <li>TRUCK</li>
+                    <li>EV</li>
+                    <li>SPORTS</li>
+                    <li>UPCOMIG</li>
+                </ul>
+            </div>
             <div id="cbx">
                 <div id="view1" class="cat" onmouseover="BackImgChang(1)">
                     <div class="ci">                    
@@ -364,6 +378,12 @@
                         </div>
                     </div>                    
                 </div>
+            </div>
+            <div class="Main_Text">
+                FIND NEW ROADS™
+            </div>
+            <div class="Main_Text2">
+                최고의 고객케어를 지향하는 쉐보레의 대 고객 약속입니다.
             </div>
         </main>
     </div>
