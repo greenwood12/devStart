@@ -772,6 +772,8 @@ body {
 
 /* 속박스 */
 .info{
+    /* 부모자격 - .sel 선택박스 */
+    position: relative;
     height: 241px;
     padding: 15px;
     /* 크기유지 - 보더,패딩포함 */
@@ -837,3 +839,15 @@ body {
 .blogo {
     text-align: center;
 }
+
+/* 브랜드 바로가기 선택박스 */
+#sel {
+    position: absolute;
+    top:20px;
+    right:20px;
+    /* 부모는? .info */
+    font: 1.4rem/2 'Nanum Gothic Coding', sans-serif;
+    padding:5px;
+}
+
+

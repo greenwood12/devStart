@@ -19,7 +19,7 @@
     /* 1. 숨기기 
     -GNB 메뉴, 문구이미지, 하단링크, 서브메뉴, 메뉴가상요소, SNS메뉴박스
      */
-    .gnb,#dtxt,.blink,.smenu,.gnb>ul>li.sm::after,.snsbox {
+    .gnb,#dtxt,.blink,.smenu,.gnb>ul>li.sm::after,.snsbox,#sel {
         display: none;
     }
 
