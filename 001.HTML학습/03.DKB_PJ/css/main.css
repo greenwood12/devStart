@@ -45,6 +45,39 @@ body * {
     /* outline: 1px dashed gray; */
 }
 
+body {
+    /* 가로스크롤바 없앰! */
+    overflow-x: hidden;
+}
+
+/* 애니가 진행하는 동한 투명막 만들기 */
+body::after {
+    content:'';
+    display:block;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    z-index: 999;
+    background-color: #fff;
+    opacity:0;
+    /* 애니메이션으로 일정시간뒤 없앰 */
+    animation:coverDel .1s 7s forwards;
+}
+
+/* 
+애니후 없애기 
+disply:none 애니메이션 요소 아님
+*/
+@keyframes coverDel {
+    to {
+        height:0;
+    }
+}
+/* coverDel  키프레임 */
+
+
 /* ul, ol 초기화 */
 ul,ol{
     /* 블릿 표시자 없앰 */
@@ -162,11 +195,26 @@ body {
 #top {
     /* 앱솔을 준이유는 아래쪽 스테틱박스에 영향을 주기 때문에 */
     position: absolute;    
+    /* 위쪽에 숨겼다가 내려오는 애니위해 셋팅!  */
+    top:-127px;
     /* 크기를 화면에 채움! */
     width: 100%;
     background-color: #fff;
     border-bottom: 1px solid #666;
+    /* 상단박스 위치 가장위! */
+    z-index:9999;
+    /* 애니메이션: 이시이지반방마*/
+    animation: topAni .8s ease-out 6s forwards;
 }
+
+/* 상단박스 애니 키프레임 */
+@keyframes topAni {
+    to {
+        top:0;
+    }
+}
+/* topAni 키프레임 */
+
 
 /* 속박스 */
 .top {
@@ -184,6 +232,94 @@ body {
 #logo img{
     width: 100px;
 }
+
+/***************** sns 메뉴 ******************/
+.snsbox {
+    /* 부모자격 */
+    position: absolute;
+    top:25px;
+    left: 50%;
+    /* x축방향으로 자기 크기 절반 반대방향이동(중앙정렬) */
+    transform:translateX(-50%);
+    overflow: hidden;    
+    width:1200px;
+    /* 1200px 이었다가 화면이 작아지면 100% 변경 */
+    max-width: 100%;
+    /* outline: 2px dotted blue; */
+}
+
+.sns {
+    float: right;
+    margin-right: 50px;
+    /* outline:2px dotted red;     */
+}
+
+.sns ul::after {
+    /* clear 셋팅 */
+    content: '';
+    display:block;
+    clear: both;
+}
+
+/* sns 메뉴용 li 만 디자인 */
+.sns li {
+    float:left;
+    margin:0 15px;
+}
+
+/* 회원가입 li */
+.sns li:nth-child(2) {
+    margin-right: 20px;
+}
+
+
+/* 두번째 li 이후 모든 li형제들 */
+.sns li:nth-child(2)~li {
+    width:30px;
+    height:30px;
+    background-image:url(../images/icons.png);
+    background-repeat:no-repeat;
+    margin: 0 1px;
+}
+
+/* 스프라이츠 기법으로 배경이미지 셋업 */
+/* 트위터 오버시 */
+.sns li:nth-child(3):hover {
+    background-position: 0 -30px;    
+}
+
+/* 페북 */
+.sns li:nth-child(4) {
+    background-position: -30px 0;    
+}
+/* 페북 오버시 */
+.sns li:nth-child(4):hover {
+    background-position: -30px -30px;    
+}
+
+/* 인스타 */
+.sns li:nth-child(5) {
+    background-position: -60px 0;    
+}
+/* 인스타 오버시 */
+.sns li:nth-child(5):hover {
+    background-position: -60px -30px;    
+}
+
+.sns a {
+    color: #222;
+    text-decoration: none;
+    font-family: 'Nanum Gothic Coding', sans-serif;
+    font-size: 1.5rem;
+    line-height: 30px;
+}
+
+/* sns 설명글 숨기기 */
+.ir {
+    display:none;
+}
+
+/***************** sns 메뉴 ******************/
 
 /* GNB 메뉴 */
 .gnb {
@@ -323,6 +459,25 @@ body {
     height: 68px;
 }
 
+/* 모바일용 햄버거 버튼 */
+.ham {
+    position: absolute;
+    top:18px;
+    right: 20px;
+    font-size: 40px;
+    transform:scaleX(1.5);
+    /* 버튼 기본없애기 */
+    background-color:transparent;
+    border: none;
+    /* 모바일 아닐때 안보임 */
+    display:none;
+}
+
+/* 버튼 모양 변경위해 가상요소로 내용 넣기 */
+.ham::before{
+    content: '≡';
+}
+
 /*************** 1. 메인영역 ***************/
 .cont{
     /* 가장 큰 일반적인 해상도 크기로 셋팅 */
@@ -330,6 +485,7 @@ body {
     height: 800px;
     /* 작식요소 마진탑 포함! */
     overflow: hidden;
+    padding-bottom:130px;
 }
 /* 캐릭터 부모박스 */
 #cbx{
@@ -392,7 +548,38 @@ body {
 
     /* 손가락 모양 */
     cursor: pointer;
+
+    /* 애니위한 변경 속성 */
+    transform:translateY(-200%);
+    opacity:0;
+    /* 애니메이션 : 이시이지반방마*/
+    animation: catAni 1s ease-out 3s forwards;
 }
+
+/* 캐릭터박스 애니 시차 주기 */
+/* 지은탁 */
+.cat:nth-child(2) { 
+    animation-duration: 4s;
+}
+/* 저승사자 */
+.cat:nth-child(3) {
+    animation-duration: 5s;
+}
+/* 써니 */
+.cat:nth-child(4) {
+    animation-duration: 6s;
+}
+
+
+/* 키프레임  */
+@keyframes catAni {
+    to {
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+/* catAni 키프레임 */
+
 
 /* 캐릭터 이미지박스 */
 .ci{
@@ -550,6 +737,32 @@ body {
     /* 4개의 그림자로 글자 테두리 주기! */
     text-shadow:1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;    
 }
+
+/* 도깨비 문구 이미지 */
+#dtxt {
+    position: absolute;
+    top: 200px;
+    right: 50px;   
+    /* 부모는?  보이는 화면*/
+    /*이미지 최대 크기 제한하기  */
+    width : (25vw, 327px);    
+    /* 변경애니 속성 */
+    transform : translate(100%, 50%);
+    opacity: 0;
+    /* 애니메이션 : 이시이지반방마 */
+    animation:dtxtAni 2s ease-in-out 1s forwards;
+}
+
+/* 문구 키프레임 */
+@keyframes dtxtAni {
+    /* dtxt  ani */
+    to {
+        transform : translate(0, 0);
+        opacity: 1;
+    }
+}
+
+
 
 /*************** 1. 하단영역 ***************/
 /* 겉박스 */

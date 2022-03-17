@@ -6,7 +6,7 @@
         font-size: 8px;
     }
     /* 메뉴 글자 크기에 따른 gnb 가로크기변경 */
-    .gnb {
+    .gnb,.blink {
         display : none;
         /* width: 597px; */
     }
