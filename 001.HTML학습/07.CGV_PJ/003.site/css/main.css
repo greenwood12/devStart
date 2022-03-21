@@ -1,0 +1,38 @@
+/* CGV PJ 메인 페이지 CSS - main.css */
+@charset "utf-8";
+
+/* 외부 CSS 합치기 */
+@import url(reset.css);
+@import url(core.css);
+
+
+body {
+    background-color: #000;
+}
+
+/* 공사중표시 */
+body * {
+    outline : 1px dashed #ccc;
+}
+
+/* 레이아웃 공통 class. */
+.part {
+    /* 최대 1200px, 이하일탠 auto */
+    max-width: 1200px;
+    /* 마영오! -가로정렬 */
+    margin:0 auto;
+}
+/**************************************** 1.상단영역 *****************************************************/
+#top {
+    height: 80px;
+    background:url(../images/curtain.jpg) repeat-x;
+}
+/**************************************** 2.메인영역 *****************************************************/
+#cont {
+    height: 788px;
+    background:url(../images/bg.jpg) no-repeat;
+}
+/**************************************** 3.하단영역 *****************************************************/
+#info {
+    height: 100px;
+}
