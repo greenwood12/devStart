@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>
         function MenuChang(Num) {            
-            for(let i = 1; i < 10; i++ ){
+            for(let i = 1; i < 11; i++ ){
                 $("#view"+i).css("display", "none");
             }
             let bodyObj = document.body;
@@ -32,6 +32,34 @@
                     $("#view6").css("display", "");
 
                     bodyObj.style.backgroundImage = "url('./images/trax1_1_1.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        //$(this).css('background-image', './images/trax1_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                break;
+                case 3 :                     
+                    $("#view7").css("display", "");
+
+                    bodyObj.style.backgroundImage = "url('./images/colorado_hi_img01.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        //$(this).css('background-image', './images/trax1_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                break;
+                case 4 :                     
+                    $("#view8").css("display", "");
+                    $("#view9").css("display", "");
+
+                    bodyObj.style.backgroundImage = "url('./images/bolteuv-visual.jpg')"; 
+                    $("body").fadeOut(500, function(){
+                        //$(this).css('background-image', './images/trax1_1_1.jpg');
+                        $(this).fadeIn(500);
+                    });                    
+                break;
+                case 5 :                                         
+                    $("#view10").css("display", "");
+
+                    bodyObj.style.backgroundImage = "url('./images/camaro1_1_1.jpg')"; 
                     $("body").fadeOut(500, function(){
                         //$(this).css('background-image', './images/trax1_1_1.jpg');
                         $(this).fadeIn(500);
@@ -61,9 +89,22 @@
                 case 6 : 
                     bodyObj.style.backgroundImage = "url('./images/tahoe_sec0_bg.jpg')";                     
                     break;                                                            
+                case 7 : 
+                    bodyObj.style.backgroundImage = "url('./images/colorado_hi_img01.jpg')";                      
+                    break;
+                case 8 : 
+                    bodyObj.style.backgroundImage = "url('./images/bolteuv-visual.jpg')";                      
+                    break;
+                case 9 : 
+                    bodyObj.style.backgroundImage = "url('./images/boltev-visual.jpg')";                      
+                    break;                    
+                case 10 : 
+                    bodyObj.style.backgroundImage = "url('./images/camaro1_1_1.jpg')";                      
+                    break;                                        
             }            
         }
-        var chk = 0;
+
+        let chk = 0;
         function MSmall() {            
             if(chk == 0) {
                 $(".hm_list").css("width", "100%");
@@ -378,6 +419,102 @@
                         </div>
                     </div>                    
                 </div>
+                <div id="view7" style="display:none;" class="cat" onmouseover="BackImgChang(7)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_colorado_on.png">
+                            <img src="./images/model_colorado.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>COLORADO</h3>
+                            <p>
+                                정통 픽업트럭 헤리티지를 품은 디자인
+                            </p>
+                            <p>
+                                콜로라도 Z71-X 미드나잇 에디션의 익스테리어와 인테리어 디자인을 확인해보세요!
+                            </p>
+                            <p>
+                                픽업트럭에 최적화된 실용적이고 대담한 인테리어 디자인
+                            </p>
+                            <p>
+                                험준한 주행환경에서 더욱 돋보이는 압도적 퍼포먼스
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view8" style="display:none;" class="cat" onmouseover="BackImgChang(8)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_bolteuv_on.png">
+                            <img src="./images/model_bolteuv.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>BOLT EUV</h3>
+                            <p>
+                                전기차 100년, 당신을 위해 모두를 위해
+                            </p>
+                            <p>
+                                사용자 중심의 직관적인 인터페이스와
+                                전기차 전용 플랫폼으로 완성한 실내공간
+                            </p>
+                            <p>
+                                WIRELESS AND LIMITLESS EXCITEMENT
+                            </p>
+                            <p>
+                                CHEVROLET PROVEN SAFETY
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view9" style="display:none;" class="cat" onmouseover="BackImgChang(9)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_boltev_on.png">
+                            <img src="./images/model_boltev.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>COLORADO</h3>
+                            <p>
+                                정통 픽업트럭 헤리티지를 품은 디자인
+                            </p>
+                            <p>
+                                콜로라도 Z71-X 미드나잇 에디션의 익스테리어와 인테리어 디자인을 확인해보세요!
+                            </p>
+                            <p>
+                                픽업트럭에 최적화된 실용적이고 대담한 인테리어 디자인
+                            </p>
+                            <p>
+                                험준한 주행환경에서 더욱 돋보이는 압도적 퍼포먼스
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+                <div id="view10" style="display:none;" class="cat" onmouseover="BackImgChang(10)">
+                    <div class="ci">                    
+                        <span>                        
+                            <img src="./images/model_camaro_on.png">
+                            <img src="./images/model_camaro.png">
+                        </span>
+                        <div class="cd scbar">
+                            <h3>THE NEW CAMARO SS</h3>
+                            <p>
+                                당신이 완벽한 드라이빙을 경험할 수 있도록 아메리칸 레이싱 머신 카마로는
+                                최고의 퍼포먼스를 선사할 것입니다.
+                            </p>
+                            <p>
+                                레이서의 질주 본능을 자극하는 짜릿한 다이내믹 드라이빙
+                            </p>
+                            <p>
+                                공기역학적 디자인으로 퍼포먼스 효율을 극대화 하고 차체의 무게를 최소화하여 스피드와 파워를 모두 잡았습니다.
+                            </p>
+                            <p>
+                                1970년대부터 카마로의 상징으로 쓰였던 방패 모양의 뱃지는 세대를 거치며 다양하게 변모하였습니다.
+                                6세대 카마로에는 미국 국기를 대변하는 레드, 블루, 화이트의 3색 뱃지를 다시 적용함으로써 어메리칸 머슬카의 상징으로 나타냈습니다.
+                            </p>
+                        </div>
+                    </div>                    
+                </div>
+
             </div>
             <div class="Main_Text">
                 FIND NEW ROADS™
