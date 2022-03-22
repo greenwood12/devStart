@@ -28,9 +28,11 @@
 
 
 
+// 만리동 정보
+https://www.3hoursahead.com/articles/972
 
 //메인 페이지 참조 
-        https://tympanus.net/Development/BookBlock/index.html
+https://tympanus.net/Development/BookBlock/index.html
 
 //[포트폴리오 참조용]
 https://atelier.net/social-mobility/economic-opportunities-for-our-avatars/		
