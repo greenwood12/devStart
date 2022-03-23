@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">    
+    <title>JS 3-1.제어문 - if문, switch문, case문, for문, while문</title>
+</head>
+<script>
+    // 함수는 호출시에만 실행되는 코드 저장소!
+    /********************************************************************
+        함수명 : jumsu
+        기능 : 평가점수를 평가결과로 변환하여 출력
+    ********************************************************************/ 
+    function jumsu() {
+        // 1. 함수호출확인
+        console.log("점수가 뭐야?");
+        // 2. 대상선정 :
+        // 2-1. 점수를 가져올 대상 : #jumsu 인 input요소
+        let jumsu = document.getElementById("jumsu");        
+        // 2-2 입력된 값 읽어 오기
+        // value는 값을 읽어오는 속성
+        let score = jumsu.value;
+        console.log("입력값", score);
+
+        // 2-3. 출력대상 : #jexp
+        let jexp = document.querySelector("#jexp");        
+        // 결과에 따른 글자색 변수        
+        let fc = "";
+        // 점수에 따른 메시지 변수
+        let msg;
+
+        // 2-4. 칭찬스티커 대상 : #jshow
+        let jshow = document.querySelector("#jshow");
+
+        //결과에 따른 칭찬스티커 위치변수
+        let bgp;
+
+
+        //3. 점수 환산하기//////////////////////////////////////////////////////////////
+        // 셋팅내용 :
+        // msg - 메시지, fc - 글자색, bgp - 배경위치
+        if(score >= 90) {
+            msg = "매우 잘함";
+            fc = "blue";
+            bgp = "0 0";
+        } else if (score >= 80) {
+            msg = "잘함";
+            fc = "green";
+            bgp = "-322px 0";
+        } else if (score >= 70) {
+            msg = "보통";
+            fc = "purple";
+            bgp = "-322px -322px";
+        } else if (score >= 60) {
+            msg = "노력요함";
+            fc = "orange";
+            bgp = "0 -644px";
+        } else {
+            msg = "재시험";
+            fc = "red";
+            bgp = "-644px -644px";
+        }
+
+        //할당된 변수값 확인
+        console.log("msg:", msg, "/fc:", fc);
+        //4.결과 출력
+        jexp.innerText = "평가 결과는 " + msg;
+        //5. 글자색 변경하기
+        //-> fc라는 변수에 각 조건별 색상명이 할당됨!
+        // 선택자.style.color = 값
+        jexp.style.color = fc;
+
+        //6. 칭찬 스티커 나오게 하기
+        // -> bgp라는 변수에 각 조건별 배경 이미지 위치값 할당
+        jshow.style.backgroundPosition = bgp;
+    }
+    //////////////////////////////// jumsu  함수 //////////////////////////////////////
+
+    /*********************************************************************************
+        [ if 문 ]
+        - 조건문을 검사하여 true 이면 중괄호안의 코드가 실행되는 제어문
+        - 조건문이란 결과가 true / false 로 나오는 구문
+        - 보통 비교연산자 논리연산자가 사용된다!
+
+        ((구문))
+        _______________________________________________________________________________
+        if(조건문) {
+            실행코드
+        } else if(조건문) {
+            실행코드
+        } ..............
+        else {
+            실행코드
+        }
+        _______________________________________________________________________________
+        ((구문해석))
+        1. if 문은 단독으로 따로 사용가능
+        2. else if 문은 if문 뒤에 또는 다른 else if 문 뒤에 사용 가낭함!
+            if 와 else if 문으로 구성된 조건문은 하나의 조건에 들어가면 다른 조건은 통과한다!
+        3. else 문은 조건에 해당이 없을때 사용하며 필요할 경우 if문 맨 끝에 코딩함
+        ※ 주의사항 : else if나 else 문은 단독으로 사용못함!
+        ※ 참고 : 만약 if문의 실행문이 한줄일 경우 중괄호 생략이 가능하다
+            예)
+            if(aa>10) {my="야야";}
+            아래처럼 중괄호 생략가능
+            if(aa>10) my="야야";
+    *********************************************************************************/ 
+</script>
+<style>
+    #jshow {
+        position: absolute;
+        top: -17px;
+        left: 149px;
+        width: 322px;
+        height: 322px;
+        background: url(./images/ifshow.jpg) no-repeat;
+        background-position: 322px 0;        
+        transform: scale(.3); /* 크기줄이기 */
+        transition : all .4s ease-out;
+        /* outline: 1px solid silver; */
+    }
+
+    /* IR(배경이미지 설명 숨기기)  */
+    .ir {
+        display:block;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+
+</style>
+<body>
+    <h1>JS 제어문</h1>
+    <hr>
+    <!-- if문 연습 -->
+    <h2>if문 연습</h2>
+    <h3 id="jexp">
+        평가출력
+    </h3>
+    <!-- 
+        [input 요소 : 입력양식 요소]
+        - 텍스트, 라디오버튼, 체크박스, 버튼 등
+        - type="text" 택스트 입력 양식        
+        - placeholder 속성 : 안내문구 출력(글자입력시 사라짐)
+        - maxlength 속성 : 최대입력 글자수 제한
+
+        [ lable 요소 : 입력양식 설명요소 ]
+        -for 속성은 연결된 input 요소의 아이디명을 써줌
+         (라벨 클릭시 해당 input 요소로 포커스가 들어감)
+         - 웹접근성(평등의 원칙) 측면에서 라벨은 input요소의 필수요소로
+           사용할 것을 권고하고 있다!(리더기가 읽음)
+     -->
+    <label for="jumsu">점수입력:</label>
+    <input id="jumsu" type="text" maxlength="3" placeholder="점수를 입력하세요!">
+    <button class="sbtn" onclick="jumsu();">평가하기</button>
+     <!-- 칭찬 스티커 -->
+     <div id="jshow">
+         <span class="ir">칭찬스티커</span>
+     </div>
+
+</body>
+</html>
