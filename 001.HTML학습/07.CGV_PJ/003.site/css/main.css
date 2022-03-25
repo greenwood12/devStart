@@ -1,313 +1,200 @@
-@charset "utf-8";
 /* CGV PJ 메인 페이지 CSS - main.css */
+@charset "utf-8";
 
-/* 외부CSS합치기 */
+/* 외부 CSS 합치기 */
 @import url(reset.css);
 @import url(core.css);
 
-body{
+
+body {
     background-color: #000;
 }
 
 /* 공사중표시 */
-/* body *{
-    outline: 2px dotted lime;
+/* body * {
+    outline : 1px dashed #ccc;
 } */
 
-/* 레이아웃 공통 class */
-.part{
+/* 레이아웃 공통 class. */
+.part {
+    /* 최대 1200px, 이하일탠 auto */
     max-width: 1200px;
-    /* 최대 1200px, 이하일땐 auto */
-    margin: 0 auto;
-    /* 마영오! - 가로중앙 */
+    /* 마영오! -가로정렬 */
+    margin:0 auto;
 }
-
-/******************* 1. 상단영역 *******************/
-#top{
+/**************************************** 1.상단영역 *****************************************************/
+#top {    
     position: relative;
-    /* z-index적용위해 relative줌 + 부모자격 */
+    /* z-index 적용위해 relative줌 + 부모자격 */
     z-index: 999;
     height: 80px;
-    background: url(../images/curtain.jpg) repeat-x;
+    background:url(../images/curtain.jpg) repeat-x;
 }
+
 /* 1-1. 페이지 타이틀 */
-h1.tit{
+h1.tit {
     font-family: 'Jua', sans-serif;
     color: aquamarine;
     font-size: 40px;
     text-align: center;
     line-height: 80px;
-
     /* 그림자를 이용한 Glow효과 */
     text-shadow: 0 0 4px aquamarine;
-
-    /* 애니메이션: 이시이지반방마 */
+    /* 애니메이션 : 이시이지반방마 */
     animation: titAni .5s ease-in infinite alternate;
-
 }
+
 /* 타이틀 글루우 효과 애니메이션 키프레임 */
 @keyframes titAni {
     to{
         text-shadow: 0 0 12px aquamarine;
     }
-} /* 키프레임 */
+}
+/* 키프레임 */
 
-/* 1-2. 전체메뉴(GNb) */
-.gnb{
+/* 1-2. 전체메뉴(GNB) */
+.gnb {
     position: absolute;
-    bottom: 5px;
-    right: 15px;
-    /* 부모는? #top */
+    bottom:10px;
+    right:15px;
+    /* 부모는 ? #top */
 }
-/* GNB ul */
-.glist{
-    display: flex;
-    z-index: 1;
-    /* 메뉴가 영사기보다 위! */
-    /* 플렉스박스 */
-    position: relative;    
+
+/* gnb ul */
+.glist {
+    display:flex;
 }
+
 /* GNB li 리스트 */
-.glist>li{
-    position: relative;
+.glist>li {
     /* 부모자격 - .smenu */
+    position: relative;
     padding: 0 10px;
-    /* 아래쪽 패딩으로 서브메뉴 간극없앰 */
-    padding-bottom: 5px;
     font-family: 'Jua', sans-serif;
-    font-size: 20px;
+    font-size:20px;
 }
+
 /* GNB 서브메뉴 */
-.smenu{
+.smenu {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 5px);
-    /* 
-    x축방향으로 자신의 크기의 절반 왼쪽이동(중앙맞춤)
-    y축방향으로 5px이동
-    */
+    /* x축 방향으로 자신의 크기의 절반 왼쪽이동(중앙맞춤) */
+    transform: translateX(-50%);
     width: 140px;
-    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    background:url(../images/bg_smenu.png) no-repeat center/cover;
     padding: 3px;
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
-    /* 처음에 안보임! */
-    display:none;
-}
-/* 상위메뉴 li에 마우스 오보시 하위메뉴 보이기 */
-.glist>li:hover .smenu {
-    display:block;
 }
 
 /* 가상요소로 삼각형 만들기 */
 .smenu::before{
-    content: '';
-    display: block;
+    content:'';
+    display:block;
     position: absolute;
     top: -10px;
     left: 50%;
-    /* 부모는? .smenu */
-    transform: translateX(-50%);
     /* x축 정중앙이동 */
-
+    transform:translateX(-50%);
+    /* 부모는? .smenu */
     /* 삼각형만들기 */
     width: 0;
     height: 0;
     border-bottom: 10px solid #353535;
+    /* 
+    양쪽보더는 투명색(transparent) 
+    border-top 으로 하면 역삼각형이 나옴
+    */
     border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    /* 양쪽보더는 투명색(transparent) 
-    border-top으로 하면 역삼각형이 나옴 */
-
+    border-right: 10px solid transparent;    
+    
 }
 
 /* 서브메뉴 ol */
-.smenu ol{
+.smenu ol {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 10px;    
 }
+
 /* 서브메뉴 li */
-.smenu li{
+.smenu li {
     font-size: 16px;
     line-height: 2;
 }
 /* 서브메뉴 li중 보더탑 구분선 class */
-.bdt{
+.bdt {
     border-top: 1px solid #ccc;
 }
 
-/* 서브메뉴 a요소 확장 */
-.smenu a {
-    /* li 부모요소 가로 끝까지 차지함! */
-    display: block;
-}
-
-/* 서브메뉴 a에 마우스 오버시 글자색 빨강 */
-.smenu a:hover {
-    color: red;
-}
-
-/* 서브메뉴 a에 오보시 가상요소로 이모지 보이기 */
-/* 이모지는 윈도우키+세미콜론(;) 단축키임! */
-/* "영화" 메뉴 이모지 */
-.glist>li:nth-child(1) .smenu li a:hover::after {
-    content: '😍';
-    float: right;
-    /* 인라인요소 오른쪽 끝으로 보냄! */
-}
-
-/* "예매" 메뉴 이모지 */
-.glist>li:nth-child(2) .smenu li a:hover::after {
-    content: '🎫';
-    float: right;
-    /* 인라인요소 오른쪽 끝으로 보냄! */
-}
-
-/* "극장" 메뉴 이모지 */
-.glist>li:nth-child(3) .smenu li a:hover::after {
-    content: '🎬';
-    float: right;
-    /* 인라인요소 오른쪽 끝으로 보냄! */
-}
-
-/* "이벤트&컬쳐" 메뉴 이모지 */
-.glist>li:nth-child(4) .smenu li a:hover::after {
-    content: '🎉';
-    float: right;
-    /* 인라인요소 오른쪽 끝으로 보냄! */
-}
-
-/* 영사기 박스 */
-#cam {
-    position: absolute;
-    bottom: -14px;
-    right:-51px;
-    /* 부모는? .gnb */
-}
-
-/* 영사기이미지 */
-#cam img {    
-    /* 
-    영사기 이미지 빔박스보다 위!
-    static  형태는  z-index  사용불가
-     */
-    position: relative;
-    z-index: 1;    
-    width: 50px;   
-    /*
-     영사기 회전 양수값은 시계방향
-    */
-    transform: rotate(25deg);
-    /* 트랜지션 : 속시이지*/
-    /* 돌아올땐 0.3초 기다려! */
-    transition: .5s ease-out .3s;
-}
-
-/* GNB에 마우스 오버시 영사기 회전하기 */
-.gnb:hover #cam img {
-    transform:rotate(0deg);
-    /* 오버시엔 기다리지마 */
-    transition-delay:0s;
-}
-
-
-/* 빔박스 */
-.beam {
-    position: absolute;
-    top : -16px;
-    right : 8px;
-    /* 부모는? #cam */
-    width: 0; /*200px;*/
-    height: 70px;
-    background: url(../images/bim.png) no-repeat;
-    background-position: right center;
-    background-size: auto 100%;
-    /* outline: 2px dotted yellow; */
-    /* 트랜지션 : 속시이지 */
-    transition: width .3s linear;
-}
-
-/* GNB 마우스 오버시 영사기 쏘기 */
-.gnb:hover .beam {
-    width:200px;
-    /* 오버시엔 0.5초 기다려 */
-    transition-delay: .5s;
-    /* 애니메이션: 이시이지반방마*/
-    animation:beamAni .04s linear infinite alternate;
-}
-
-/* 빔이 너울너울 거리도록 애니메이션 키프레임 */
-@keyframes beamAni {
-    from {
-        opacity: 0.9;
-    }
-    to{
-        opacity: 0.5;
-    }
-}
-/* beamAni 키프레임 */
-
-
-/******************* 2. 메인영역 *******************/
-#cont{
-    position: relative;
+/**************************************** 2.메인영역 *****************************************************/
+#cont {
     /* 부모자격 */
+    position: relative;
     height: 788px;
-    background: url(../images/bg.jpg) no-repeat;
+    background:url(../images/bg.jpg) no-repeat;
 }
+
 /* 2-1. 스크린 박스 */
-#screen{
+#screen {
     position: absolute;
-    top: 136px;
-    left: 257px;
-    /* 부모는? #cont */
+    top:136px;
+    left:257px;
+    /* 부모는? cont  */
     width: 701px;
     height: 398px;
     background-color: #000;
+
 }
+
 /* 스크린 아이프레임 */
-#screen iframe{
+#screen iframe {
     width: 100%;
     height: 100%;
-    border: none;
+    
     /* 아이프레임 기본보더 없앰! */
+    border: none;
+    
 }
-/* 2-2. 예고편 선택메뉴 */
-.mlist{
+
+/* 2-2. 예고편 선택메뉴  */
+.mlist {
     position: absolute;
-    bottom: 58px;
-    left: 50%;
+    bottom:58px;    
+    left:50%;    
     /* 부모는? #cont */
     transform: translateX(-50%);
     /* x축 중앙이동 -> 정중앙 */
 
-    overflow: hidden;
-    /* 영화설명 숨기기 
+    /* 영화 설명 숨기기 
     - 부모자격이 있는 요소가 숨길수 있음! */
-}
-/* ul 플렉스박스 */
-.mlist ul{
-    display: flex;
-}
-/* 각 리스트 */
-.mlist ul>li{
-    margin: 0 9px;
+    overflow: hidden;
 }
 
-.mlist img{
+/* ul 플렉스 박스 */
+.mlist ul {
+    display:flex;
+}
+
+/* 각 리스트  */
+.mlist ul>li {
+    margin:0 9px;
+}
+
+
+/* 이미지 사이즈 조정 */
+.mlist img {
     width: 99px;
-    height: 140px;
+    height : 140px;
 }
 
 /* 영화정보박스 */
-.movtxt{
-    position: absolute;
-    top: 100%;/* 부모의 높이값 만큼 */
+.movtxt {
     /* 부모는? .mlist */
+    position: absolute;
+    top: 100%; /* 부모의 높이값 만큼 */
     width: 99px;
-    height: 140px;
-
-    background-color: rgba(0, 0, 0, 0.7);
+    height: 140px;    
+    background-color: #000000b4;
 
     /* 글자셋팅 */
     font-family: 'Cute Font', cursive;
@@ -315,94 +202,24 @@ h1.tit{
     line-height: 2;
     text-align: center;
 
-    /* 트랜지션: 속시이지 */
-    transition: top .4s ease-out;
+    /* 트랜지션 : 속시이지 */
+    transition:top .4s ease-out;
 }
-/* 부모li에 마우스 오버시 설명박스 올라오기 */
-.mlist ul>li:hover .movtxt{
+/* 부모 li에 마우스 오버시 설명박스 올라오기 */
+.mlist ul>li:hover .movtxt {
     top: 0;
 }
 
+
 /* 첫번째 li 영화제목 */
-.movtxt li:first-child{
+.movtxt li:first-child {
     color: aqua;
     font-size: 17px;
     letter-spacing: -1px;
-    margin-top: 30%;
+    margin-top: 30%;    
 }
 
-
-/******************* 3. 하단영역 *******************/
-#info{
-    /* 부모자격  - .sns */
-    position: relative;
+/**************************************** 3.하단영역 *****************************************************/
+#info {
     height: 100px;
-}
-
-/* 3-1 회사정보 */
-#info address {
-    color: #c3c3c3;
-    font-style: normal;
-    font-family: 'Cute Font', cursive;
-    font-size:18px;
-    line-height: 20px;
-
-    /* 안쪽여백 */
-    padding-top: 20px;
-    padding-left: 20px;
-}
-
-/* 하단로그 이미지 */
-#info img {
-    /* 이미지 자신은 왼쪽, 글자는 오른쪽에 흐르게함  */
-    float: left;    
-    margin-right: 20px;
-}
-
-/* 3-2. sns 박스 */
-ul.sns {
-    position: absolute;
-    top: 35px;
-    right: 20px;
-    /* 부모는? #info */
-    display:flex;
-}
-
-.sns li {
-    width:34px;
-    height:34px;
-    background: url(../images/sprites_logo.png) no-repeat;  
-    /* outline : 1px solid lime; */
-    margin: 0 2px;
-    /* 필터: 흑백처리 */
-    filter:grayscale(100%);
-}
-
-/* 오버시 칼라 */
-.sns li:hover {
-    filter:grayscale(0%);
-}
-
-
-/* 배경위치 */
-/* 페이스북 */
-.sns li:first-child{
-    background-position: -510px -429px;
-}
-
-/* 트위치 */
-.sns li:nth-child(2){
-    background-position: -552px -429px;
-}
-
-/* 인스타그램 */
-.sns li:last-child{
-    background-position: -594px -429px;
-}
-
-/* sns a링크 확장 */
-.sns a {
-    display:block;
-    width: 100%;
-    height: 100%;    
 }

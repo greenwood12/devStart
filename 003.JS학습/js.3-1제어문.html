@@ -31,10 +31,63 @@
         // 2-4. 칭찬스티커 대상 : #jshow
         let jshow = document.querySelector("#jshow");
 
+        //////////////////////////////////////
+         //2.5-1. 숫자여부 판별하기
+        //////////////////////////////////////
+        // 숫자여부 판별 JS 내장함수 : isNaN(값)
+        // is Not a Number? 숫자가 아니니?
+        // 만약 숫자가 아니면 true
+
+        console.log("숫자가 아니니?", isNaN(score));
+
+        if(isNaN(score)) {
+            // 1. 숫자가 아닌 경우 메시지 출력
+            jexp.innerText ="숫자를 입력하세요!";            
+            // 2. 글자색 초기화 (바뀌었을 수 있으므로)            
+            jexp.style.color = "#000";
+            // 3. 칭찬스티커 초기화(바뀌었을 수 있으므로)
+            jshow.style.backgroundPosition ="-322px, 0";
+            // 4. 입력창 내용 지우기
+            jumsu.value = ""; // 빈 문작ㅄ을 넣으면 지워짐            
+            // 5. 입력창에 포커스 주기(버튼클릭 한 경우)
+            // focus() js 내장함수 입력창에 커서가 간다!
+            jsmsu.focus();
+
+            // 아래쪽 코드를 실행하지 않도록 함수 나가기!
+            return;
+            // 리턴은 함수를 나가는 키워드!
+            // return 값 -> 어떤 값을 가지고 나감
+            // 함수에서 어디로 돌아가나?
+        }
+        //////// if ///////////
+
+        //////////////////////////////////////
+         //2.5-2. 숫자범위 판별하기
+        //////////////////////////////////////
+        // 0~100 사이수가 아닌 경우 걸러내기!
+        // 조건 : 0미만 이거나 100 초과인 경우
+        if(score < 0 || score > 100) {
+            //1. 숫자범위가 아닌 경우 메시지 출력
+            jexp.innerText = "0이상 100 이하의 숫자만 입력하세요!";
+            // 2. 글자색 초기화 (바뀌었을 수 있으므로)            
+            jexp.style.color = "#000";
+            // 3. 칭찬스티커 초기화(바뀌었을 수 있으므로)
+            jshow.style.backgroundPosition ="-322px, 0";
+            // 4. 입력창 내용 지우기
+            jumsu.value = ""; // 빈 문작ㅄ을 넣으면 지워짐            
+            // 5. 입력창에 포커스 주기(버튼클릭 한 경우)
+            // focus() js 내장함수 입력창에 커서가 간다!
+            jsmsu.focus();
+            // 아래쪽 코드를 실행하지 않도록 함수 나가기!
+            return;
+        }
+        //////////////// if ///////////////////
+
+
         //결과에 따른 칭찬스티커 위치변수
         let bgp;
 
-
+        ///////////////////////////////////////////////////////////////////////////////
         //3. 점수 환산하기//////////////////////////////////////////////////////////////
         // 셋팅내용 :
         // msg - 메시지, fc - 글자색, bgp - 배경위치
@@ -104,6 +157,204 @@
             아래처럼 중괄호 생략가능
             if(aa>10) my="야야";
     *********************************************************************************/ 
+
+    /*********************************************************************************
+        함수명 : local
+        기능 : 지역명을 입력하면 지역국번을 안내 한다.
+    *********************************************************************************/ 
+    function local() {
+        // 1. 함수호출 확인
+        console.log("지역국번이 모야?");
+         // 2-1. 대상선정: 읽어올 대상 - input#local
+        let tg = document.querySelector("#local");        
+        //2-2 입력된 값 읽어오기
+        let txt = tg.value;
+        //input 요소에 입력된 값 읽어옴(value)
+        console.log("지역명", txt);
+        // 2-3. 대상선정 : 출력대상 - #info
+        let info = document.querySelector("#info");
+        // 메시지변수
+        let msg ; //선언만 하고 할당은 제어문에서!
+
+        //3. 지역명을 switch case 문으로 분류하여 메시지 넣기
+        switch (txt) {
+            case "서울" : msg = "02"; break;            
+            case "부산" : msg = "051"; break;
+            case "대구" : msg = "053"; break;
+            case "인천" : msg = "032"; break;
+            case "광주" : msg = "062"; break;
+            case "대전" : msg = "042"; break;
+            case "울산" : msg = "052"; break;
+            case "세종" : msg = "044"; break;
+            case "경기" : msg = "031"; break;
+            case "강원" : msg = "033"; break;
+            case "충북" : msg = "043"; break;
+            case "충남" : msg = "041"; break;
+            case "전북" : msg = "063"; break;
+            case "전남" : msg = "061"; break;
+            case "경북" : msg = "054"; break;
+            case "경남" : msg = "055"; break;
+            case "제주" : msg = "064"; break;
+            default : msg = "esc";
+        }
+        ////////////////// switch case ////////////////////
+        console.log(msg);
+        //4. 메시지 만들기
+        // msg 변수에 최종 출력내용을 다시 담아서 변경함
+        if(msg === "esc") {
+            msg = "등록되지 않은 지역 입니다!";
+        } 
+        /// if ///
+        else {
+            msg = `${txt} 의 지역번호 ${msg} 입니다.`;
+        }
+        /// else ///
+        //5. 화면 출력
+        // 출력대상 : #info -> info 변수
+        info.innerText = msg;
+    }
+    //////////////////////////////// local  함수 //////////////////////////////////////
+    /*********************************************************************************
+        [ switch case 문 ]
+        - 단일조건을 분류하여 실행문을 만들어 줄때 사용하는 제어구문
+
+        ((구문구조))
+        _____________________________________________________________________________
+        switch(변수) {
+            case 경우1 : 실행코드 ; break;
+            case 경우2 : 실행코드 ; break;
+            case 경우2 : 실행코드 ; break;
+            ...
+            default : 실행코드;
+        }
+        _____________________________________________________________________________
+        ((구문해석))
+        1. 변수값에 해당하는 경우 그 값에 해당하는 case에 들어가서 실행코드를 실행함
+        2. 각 case 끝에 break 예약어를 반드시 써야함!
+            - 안쓰면 다른 case에 또 들어가는 경우가 생김
+            -> 일반적으로 break 키워드는 제어문을 빠져나감!
+        3. default 는 if문의 else 문과 비슷하여 해당 케이스가 없으면 이곳이 실행됨
+           (단, 필요시 사용 default에는 break문을 쓰지 않는다!)
+    *********************************************************************************/   
+   /*********************************************************************************
+        함수명 : gugu
+        기능 : 선택박스에서 선택된 구구단을 출력함
+        연결이벤트 : change
+            -> 선택박스(select)의 option 선택이 변결될때 발생하는 이벤트            
+    ********************************************************************************/   
+    //U - select 요소 자신을 전달하는 변수
+    //함수 내부로 전달하는 변수를 파라미터 변수라고 함
+    function gugu(U) {
+        //0. 전달값 읽기
+        //value는 선택된 option의 value값!
+        let opt = U.value;
+        // es6 for문은 객체나 배열에 특화?
+        // for(let x of 9)  {
+        //     console.log(x);
+        // }       
+
+        //1. 함수호출확인
+        console.log("구구단을 외자!", opt);
+        
+        //2. 대상선정 : 출력대상 -.gugu
+        let gugu = document.querySelector(".gugu");
+        //3. 구구단 만들기
+        let code = `<h2>${opt} 단 <h2>`;
+        //구구단 내용만들기
+        //기존내용에 더함 += 대입연산자사용!        
+         // for(시;한;증){코드}
+        for (let i=1; i <= 9; i++) {
+            code +=`${opt} × ${i} = ${opt * i} <br>`;
+        }
+        //4. 화면출력
+        gugu.innerHTML = code;        
+    }
+    //////////////////////////////// gugu 함수 //////////////////////////////////////
+    /*********************************************************************************
+            [ for문 ]
+            - 어떤 실행문을 순서대로 여러번 반복
+            실행할 경우 사용하는 제어문
+            ((구문구조))
+            ______________________________
+            for(시;한;증){실행코드}
+            - 시 -> 시작값(변수선언과 함께 숫자를 할당)
+            - 한 -> 한계값(숫자를 조건문으로 사용)
+            - 증 -> 증감(1씩증가 ++ / 1씩감소 --)
+            [ for문 진행순서 ]
+            1. 먼저 시작값을 변수에 선언 후 할당함
+            2. 중앙에 있는 한계값 조건에 맞는지 검사함
+            3. 맞으면(true) for문의 중괄호{}안 코드실행
+            4. 중괄호안의 코드실행후 세번째 증감으로 감
+                ++ / -- 로 1씩 증감함
+            5. 중앙에 있는 한계값 조건에 맞는지 검사함
+            6. 조건에 맞는동안 중괄호안의 코드를 실행함
+            7. 중앙에 한계값 조건에 맞지 않으면(false)
+                for문을 빠져나온다!
+    ********************************************************************************/   
+
+    /*********************************************************************************
+        함수명 : gugu2
+        기능 : 선택박스에서 선택된 구구단을 출력함
+        연결이벤트 : change
+            -> 선택박스(select)의 option 선택이 변결될때 발생하는 이벤트            
+    ********************************************************************************/   
+    //U - select 요소 자신을 전달하는 변수
+    //함수 내부로 전달하는 변수를 파라미터 변수라고 함
+    function gugu2(U) {
+        //0. 전달값 읽기
+        //value는 선택된 option의 value값!
+        let opt = U.value;
+        // es6 for문은 객체나 배열에 특화?
+        // for(let x of 9)  {
+        //     console.log(x);
+        // }       
+
+        //1. 함수호출확인
+        console.log("구구단을 외자!", opt);
+        
+        //2. 대상선정 : 출력대상 -.gugu
+        let gugu2 = document.querySelector(".gugu2");
+        //3. 구구단 만들기
+        let code = `<h2>${opt} 단 <h2>`;
+        //구구단 내용만들기
+        //기존내용에 더함 += 대입연산자사용!        
+
+        // while문 
+        // 시작값
+        let i = 1;
+        while (i <= 15) { //소괄호 -> 한계값
+            code +=`${opt} × ${i} = ${opt * i} <br>`;
+            //증감
+            i++;
+        }
+        //////////////////////// while문///////////////////////////////
+        //4. 화면출력
+        gugu2.innerHTML = code;        
+    }
+    //////////////////////////////// gugu2 함수 //////////////////////////////////////   
+    /********************************************************************************************
+     [ while ]
+      - 반복실행코드를 위한 조건으로 만드는 제어문
+    ((구문구조))
+    _____________________________________________________________________________________________
+    시작갑;
+    while(한계값) {
+        실행코드;
+        증감;
+    }
+    _____________________________________________________________________________________________
+
+    - for 문과 유사하나 시작값이 while 문 윗쪽에 나옴
+    - 한계값은 while문 소괄호 안에 씀
+    - 증감은 while문 실행코드 내부에 씀
+    (주의 : 증감을 안쓰면 무한 루프에 빠짐!)
+
+    - while문은 사용용도에 따라 for문과 달리 조건에 맞을때 까지 반복실행 구문으로 사용할 수 있다!
+      (시작값, 증감 이 필요없을 수 있다)
+      예) 중복숫자 피하기 프로그램 등
+
+    *********************************************************************************************/ 
+
 </script>
 <style>
     #jshow {
@@ -127,7 +378,16 @@
         overflow: hidden;
     }
 
-
+    /* 구구단 출력박스 */
+    .gugu {
+        width: 300px;
+        height: 300px;
+        border: 2px dashed blue;
+        text-align: center;
+        margin-top:10px;
+        overflow-y: scroll;
+        /* 박스의 y축 스크롤생성 */
+    }
 </style>
 <body>
     <h1>JS 제어문</h1>
@@ -151,12 +411,97 @@
            사용할 것을 권고하고 있다!(리더기가 읽음)
      -->
     <label for="jumsu">점수입력:</label>
-    <input id="jumsu" type="text" maxlength="3" placeholder="점수를 입력하세요!">
+    <!-- 
+        onkeypress 키보드를 치면 발생하는 이벤트
+        if조건문
+        조건식 : event.keyCode === 13
+        -> 키보드의 키코드가 13이냐? 엔터키를 눌렀냐?
+        -> 엔터키의 키코드는 13번이다!
+        -> treu이면 jumsu() 라는 함수를 호출해라!
+        참고) 키코드 참고
+        https://www.w3schools.com/charsets/ref_html_ascii.asp
+     -->
+    <input id="jumsu" type="text" maxlength="3" onkeypress="if(event.keyCode === 13)jumsu();" placeholder="점수를 입력하세요!">
     <button class="sbtn" onclick="jumsu();">평가하기</button>
      <!-- 칭찬 스티커 -->
      <div id="jshow">
          <span class="ir">칭찬스티커</span>
      </div>
+     
+     <hr>
+     <!-- switch case 문 -->
+     <h2>switch case문 연습</h2>
+     <h3 id="info">국번안내</h3>
+     <label for="local">지역명 입력:</label>
+     <input type="text" id="local" onkeypress="if(event.keyCode === 13)local();" placeholder="지역명에 ''를 빼고 쓰세요">
+     <button class="sbtn" onclick="local();">국번문의</button>
+
+     <hr>
+     <!-- for 문 -->
+     <h2>for문 연습</h2>
+     <h3>구구단 출력하기</h3>
+     <select name="sel" id="sel" onchange="gugu(this);">
+        <!-- this 키워드 : select 박스 자신의 정보를 보냄 -->
+        <option value="" selected="selected">구구단을 선택하세요</option>
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+        <option value="10">10단</option>
+        <option value="11">11단</option>
+        <option value="12">12단</option>
+        <option value="13">13단</option>
+        <option value="14">14단</option>
+        <option value="15">15단</option>
+        <option value="16">16단</option>
+        <option value="17">17단</option>
+        <option value="18">18단</option>
+        <option value="19">19단</option>
+        <option value="20">20단</option>
+     </select>
+     <br>
+     <!-- 구구단 출력박스-->
+     <div class="gugu">
+
+     </div>
+
+     <hr>
+     <!-- while 문 -->
+     <h2>while문 연습</h2>
+     <h3>구구단 출력하기</h3>
+     <select name="sel2" id="sel2" onchange="gugu2(this);">
+        <!-- this 키워드 : select 박스 자신의 정보를 보냄 -->
+        <option value="" selected="selected">구구단을 선택하세요</option>
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+        <option value="10">10단</option>
+        <option value="11">11단</option>
+        <option value="12">12단</option>
+        <option value="13">13단</option>
+        <option value="14">14단</option>
+        <option value="15">15단</option>
+        <option value="16">16단</option>
+        <option value="17">17단</option>
+        <option value="18">18단</option>
+        <option value="19">19단</option>
+        <option value="20">20단</option>
+     </select>
+     <br>
+     <!-- 구구단 출력박스-->
+     <div class="gugu gugu2">
+
+     </div>
+
 
 </body>
 </html>
