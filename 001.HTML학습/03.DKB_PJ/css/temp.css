@@ -1,0 +1,12 @@
+/* 도깨비 템플릿 페이지 - temp.css */
+@charset "utf-8";
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 컨텐츠 영역 최소높이 설정 */
+.cont {
+    min-height: 600px;
+}
