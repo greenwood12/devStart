@@ -61,19 +61,19 @@ h1.tit{
 }
 /* GNB ul */
 .glist{
-    display: flex;
+    position: relative;
     z-index: 1;
     /* 메뉴가 영사기보다 위! */
+    display: flex;
     /* 플렉스박스 */
-    position: relative;    
 }
 /* GNB li 리스트 */
 .glist>li{
     position: relative;
     /* 부모자격 - .smenu */
     padding: 0 10px;
-    /* 아래쪽 패딩으로 서브메뉴 간극없앰 */
     padding-bottom: 5px;
+    /* 아래쪽 패딩으로 서브메뉴 간극없앰 */
     font-family: 'Jua', sans-serif;
     font-size: 20px;
 }
@@ -81,22 +81,21 @@ h1.tit{
 .smenu{
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 5px);
-    /* 
-    x축방향으로 자신의 크기의 절반 왼쪽이동(중앙맞춤)
-    y축방향으로 5px이동
-    */
+    transform: translate(-50%,5px);
+    /* x축방향으로 자신의 크기의 절반 왼쪽이동(중앙맞춤)
+    y축방향으로 5px이동 */
     width: 140px;
-    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    background: 
+    url(../images/bg_smenu.png) no-repeat center/cover;
     padding: 3px;
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
-    /* 처음에 안보임! */
-    display:none;
+
+    display: none;/* 처음에 안보임! */
 }
-/* 상위메뉴 li에 마우스 오보시 하위메뉴 보이기 */
-.glist>li:hover .smenu {
-    display:block;
+/* 상위메뉴 li에 마우스 오버시 하위메뉴 보이기 */
+.glist>li:hover .smenu{
+    display: block;
 }
 
 /* 가상요소로 삼각형 만들기 */
@@ -135,117 +134,106 @@ h1.tit{
 .bdt{
     border-top: 1px solid #ccc;
 }
-
 /* 서브메뉴 a요소 확장 */
-.smenu a {
-    /* li 부모요소 가로 끝까지 차지함! */
+.smenu a{
     display: block;
+    /* li부모요소 가로 끝까지 차지함! */
 }
-
 /* 서브메뉴 a에 마우스 오버시 글자색 빨강 */
-.smenu a:hover {
+.smenu a:hover{
     color: red;
 }
-
-/* 서브메뉴 a에 오보시 가상요소로 이모지 보이기 */
+/* 서브메뉴 a에 오버시 가상요소로 이모지 보이기 */
 /* 이모지는 윈도우키+세미콜론(;) 단축키임! */
-/* "영화" 메뉴 이모지 */
-.glist>li:nth-child(1) .smenu li a:hover::after {
+/* "영화"메뉴 이모지 */
+.glist>li:nth-child(1) .smenu li a:hover::after{
     content: '😍';
     float: right;
     /* 인라인요소 오른쪽 끝으로 보냄! */
 }
-
-/* "예매" 메뉴 이모지 */
-.glist>li:nth-child(2) .smenu li a:hover::after {
-    content: '🎫';
-    float: right;
-    /* 인라인요소 오른쪽 끝으로 보냄! */
-}
-
-/* "극장" 메뉴 이모지 */
-.glist>li:nth-child(3) .smenu li a:hover::after {
+/* "예매"메뉴 이모지 */
+.glist>li:nth-child(2) .smenu li a:hover::after{
     content: '🎬';
     float: right;
     /* 인라인요소 오른쪽 끝으로 보냄! */
 }
-
-/* "이벤트&컬쳐" 메뉴 이모지 */
-.glist>li:nth-child(4) .smenu li a:hover::after {
-    content: '🎉';
+/* "극장"메뉴 이모지 */
+.glist>li:nth-child(3) .smenu li a:hover::after{
+    content: '🔔';
+    float: right;
+    /* 인라인요소 오른쪽 끝으로 보냄! */
+}
+/* "이벤트&컬처"메뉴 이모지 */
+.glist>li:nth-child(4) .smenu li a:hover::after{
+    content: '📣';
     float: right;
     /* 인라인요소 오른쪽 끝으로 보냄! */
 }
 
 /* 영사기 박스 */
-#cam {
+#cam{
     position: absolute;
     bottom: -14px;
-    right:-51px;
+    right: -51px;
     /* 부모는? .gnb */
 }
-
 /* 영사기이미지 */
-#cam img {    
-    /* 
-    영사기 이미지 빔박스보다 위!
-    static  형태는  z-index  사용불가
-     */
+#cam img{
     position: relative;
-    z-index: 1;    
-    width: 50px;   
-    /*
-     영사기 회전 양수값은 시계방향
-    */
+    z-index: 1;
+    /* 영사기 이미지가 빔박스보다 위! */
+    width: 50px;
+
+    /* 영사기 회전 */
     transform: rotate(25deg);
-    /* 트랜지션 : 속시이지*/
-    /* 돌아올땐 0.3초 기다려! */
+    /* 양수값은 시계방향 */
+
+    /* 트랜지션: 속시이지 */
     transition: .5s ease-out .3s;
+    /* 돌아올땐 0.3초 기다려! */
 }
-
 /* GNB에 마우스 오버시 영사기 회전하기 */
-.gnb:hover #cam img {
-    transform:rotate(0deg);
-    /* 오버시엔 기다리지마 */
-    transition-delay:0s;
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    transition-delay: 0s;
+    /* 오버시엔 기다리지마! */
 }
-
 
 /* 빔박스 */
-.beam {
+.beam{
     position: absolute;
-    top : -16px;
-    right : 8px;
+    top: -16px;
+    right: 8px;
     /* 부모는? #cam */
-    width: 0; /*200px;*/
+    width: 0;/* 200px; */
     height: 70px;
     background: url(../images/bim.png) no-repeat;
     background-position: right center;
     background-size: auto 100%;
     /* outline: 2px dotted yellow; */
-    /* 트랜지션 : 속시이지 */
+
+    /* 트랜지션: 속시이지 */
     transition: width .3s linear;
 }
-
 /* GNB 마우스 오버시 영사기 쏘기 */
-.gnb:hover .beam {
-    width:200px;
-    /* 오버시엔 0.5초 기다려 */
+.gnb:hover .beam{
+    width: 200px;
     transition-delay: .5s;
-    /* 애니메이션: 이시이지반방마*/
-    animation:beamAni .04s linear infinite alternate;
+    /* 오버시엔 0.5초 기다려! */
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: beamAni .04s linear infinite alternate;
 }
 
 /* 빔이 너울너울 거리도록 애니메이션 키프레임 */
 @keyframes beamAni {
-    from {
+    from{
         opacity: 0.9;
     }
     to{
         opacity: 0.5;
     }
-}
-/* beamAni 키프레임 */
+} /*  beamAni 키프레임 */
 
 
 /******************* 2. 메인영역 *******************/
@@ -334,75 +322,71 @@ h1.tit{
 
 /******************* 3. 하단영역 *******************/
 #info{
-    /* 부모자격  - .sns */
     position: relative;
+    /* 부모자격 - .sns */
     height: 100px;
 }
-
-/* 3-1 회사정보 */
-#info address {
+/* 3-1.회사정보 */
+#info address{
     color: #c3c3c3;
     font-style: normal;
     font-family: 'Cute Font', cursive;
-    font-size:18px;
+    font-size: 18px;
     line-height: 20px;
 
     /* 안쪽여백 */
     padding-top: 20px;
     padding-left: 20px;
 }
-
-/* 하단로그 이미지 */
-#info img {
-    /* 이미지 자신은 왼쪽, 글자는 오른쪽에 흐르게함  */
-    float: left;    
+/* 하단로고 이미지 */
+#info img{
+    float: left;
+    /* 이미지 자신은 왼쪽, 글자는 오른쪽에 흐르게함 */
     margin-right: 20px;
 }
 
-/* 3-2. sns 박스 */
-ul.sns {
+/* 3-2. sns박스 */
+ul.sns{
     position: absolute;
     top: 35px;
     right: 20px;
     /* 부모는? #info */
-    display:flex;
-}
 
-.sns li {
-    width:34px;
-    height:34px;
-    background: url(../images/sprites_logo.png) no-repeat;  
-    /* outline : 1px solid lime; */
+    display: flex;
+    /* 플렉스박스 */
+
+}
+.sns li{
+    width: 34px;
+    height: 34px;
+    background: url(../images/sprites_logo.png) no-repeat;
+    /* outline: 1px solid lime; */
     margin: 0 2px;
+    
+    filter: grayscale(100%);
     /* 필터: 흑백처리 */
-    filter:grayscale(100%);
 }
-
 /* 오버시 칼라 */
-.sns li:hover {
-    filter:grayscale(0%);
+.sns li:hover{
+    filter: grayscale(0%);
 }
-
 
 /* 배경위치 */
 /* 페이스북 */
 .sns li:first-child{
     background-position: -510px -429px;
 }
-
-/* 트위치 */
+/* 트위터 */
 .sns li:nth-child(2){
     background-position: -552px -429px;
 }
-
 /* 인스타그램 */
 .sns li:last-child{
     background-position: -594px -429px;
 }
-
 /* sns a링크 확장 */
-.sns a {
-    display:block;
+.sns a{
+    display: block;
     width: 100%;
-    height: 100%;    
+    height: 100%;
 }
