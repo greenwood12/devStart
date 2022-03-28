@@ -36,23 +36,53 @@
             함수명: insMini
             기능: 미니언즈 이미지를 파란박스에 넣기
         */ ////////////////////////////////////////
-        function insMini(num) { // num - 전달값 변수
+        let numchk = 0;
 
-            
+
+        function insMini(num) { // num - 전달값 변수
+            //1. 호출 및 전달값 확인
+            console.log("미니언즈!", num);
+
+            //2. 대상선정 .Bcase
+            let tg = document.querySelector(".Bcase");
+            //3. 변경내용: 대상 내부에 이미지태그 넣기
+            //html 넣기 -> innerHTML = 값
+            //+= 대입연산자를 사용하여 기존값에 더함
+            // for(시;한;증){코드} 를 이용한 반복코드 실행!
+            for(let i=1; i <=num; i++) {
+                tg.innerHTML += '<img src="./images/Minions.png" alt="미니언즈">';
+            }            
+
+            // let bluebox = document.querySelector(".Bcase");
+            // let Imghtml = "";            
+            // if (numchk !== num) {
+            //     bluebox.innerHTML = "";
+            //     numchk = num;
+            //     for(let i=0; i < num; i++) {
+            //         Imghtml +="<img src='./images/Minions.png' alt='미니언즈'>";
+            //     }
+            // } else {
+            //     let tagHtml = bluebox.innerHTML;
+            //     for(let i=0; i < num; i++) {
+            //         Imghtml +="<img src='./images/Minions.png' alt='미니언즈'>";
+            //     }
+            //     Imghtml = Imghtml + tagHtml;
+            // }
+            // console.log(numchk+":"+num);
+            // bluebox.innerHTML = Imghtml;
 
         } ////////// insMini 함수 /////////////////
         ///////////////////////////////////////////
     </script>
 </head>
+    <body>
+        <h1>for문 연습1 - 파란상자에 미니언즈 집어넣기</h1>
+        <img src="./images/Minions.png" alt="미니언즈" onclick="insMini(1)" class="mini" title="나를 클릭하면 한개씩 가방에 들어갈꼬얌~!" >
+        <img src="./images/Minions.png" alt="미니언즈" onclick="insMini(5)" class="mini" title="나를 클릭하면 다섯개씩 가방에 들어갈꼬얌~!" >
+        <img src="./images/Minions.png" alt="미니언즈" onclick="insMini(10)" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!" >
+        <!-- 파란상자 -->
+        <div class="Bcase">
 
-<body>
-    <h1>for문 연습1 - 파란상자에 미니언즈 집어넣기</h1>
-    <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 한개씩 가방에 들어갈꼬얌~!" >
-    <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 다섯개씩 가방에 들어갈꼬얌~!" >
-    <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!" >
-    <!-- 파란상자 -->
-    <div class="Bcase"></div>
-
-</body>
-
+        </div>
+    </body>
 </html>

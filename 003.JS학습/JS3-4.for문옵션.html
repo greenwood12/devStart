@@ -15,9 +15,36 @@
             기능: for문으로 숫자이미지를 추가한다
         */ ///////////////////////////////////////
         function addNum(num) { // num - 전달변수
-            
-            
+            //1. 호출 및 전달값 확인
+            console.log("나야나", num);
+            //2번 대상선정 : .forCls -> 3개 있음
+            let tg = document.querySelectorAll(".forCls");
+            //length는 컬렉션 집합의 개수
+            //전달변수 num과 일치하는 순번의 .forCls에 출력한다!.
+            console.log("대상개수:", tg.length);
+            let valsrc = ""
 
+            //3. 출력하기
+            // 대상[순번] 또는 대상.item(순번)
+            // 순번은 0부터!
+            // for(시;한;증){코드}
+            // += 대입연산자 사용(기존데이터에 더하기!)            
+            for (let i=1; i<=10; i++ ) {
+                //[4번과 7번 빼고 돌리기]
+                // continue 키워드 사용!
+                // -> 해당순번을 빼고 계속하라
+                // 제외란 ? continue 하단의 코드가 실행안됨!
+                // 조건 :num 이 1이고 i가 4또는 7일때
+                if(num ===1 && (i===4 || i===7)) continue;
+
+                //[5번까지만 돌리기]
+                // break 키워드 사용!
+                //-> break 를 만나는 순간 제어문을 빠져나감!
+                // 조건 : num이 2이고 i가 6이면 나가라!
+                if(num ===2 && i ===6) break;
+
+                tg[num].innerHTML +=`<img src="images/num/num_0${i}.png" alt="숫자">`;
+            }
         } ///////// addNum함수 ///////////////////
         //////////////////////////////////////////
     </script>
@@ -26,7 +53,6 @@
 <body>
     
     <h1>for문 옵션</h1>
-
     <hr>
 
     <button onclick="addNum(0)">기본호출</button>
@@ -48,5 +74,4 @@
     <hr>
 
 </body>
-
 </html>
