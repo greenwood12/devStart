@@ -1,0 +1,27 @@
+@charset "utf-8";
+/*  도깨비 인물관계도 페이지 CSS - cat.css */
+
+/* 외부 파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 컨텐츠 영역 겉박스 */
+#cont {
+    background-color: #ececec;
+}
+
+/* 컨텐츠 영역 최소높이  */
+.cont {
+    min-height:600px;
+    text-align: center;
+}
+
+/* 컨텐츠 이미지 가로크기 자동변경 */
+.cont img {    
+    /* 
+    최대가로크기 100%의 의미는? 자신의 크리보다 부모가 작아지면
+    자신의 가로크기를 100%로 채운다!
+     */
+    max-width:100%;    
+}

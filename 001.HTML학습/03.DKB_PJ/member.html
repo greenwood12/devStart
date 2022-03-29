@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- meta  태그에 사이트 설명 넣기 -->
+        <meta name="description" content="드라마 도깨비의 캐릭터를 소개하는 tvN 서브 페이지 입니다!">
+        <!-- 메타태그 뷰포트 필수 ! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>쓸쓸하고 찰란하신(神) 도깨비</title>
+        <link rel="stylesheet" href="./css/memeber.css">
+        <!-- 미디어 쿼리 -->
+        <link rel="stylesheet" href="./css/media.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- 자바스크립트 구역 -->
+        <script src="./js/common.js"></script>
+        <!-- 자바스크립트 구역 -->
+    </head>
+    <body class="scbar">
+        <!-- 
+            레이아웃 : 기본적으로 이중박스구조 
+            1. 겉박스 : width 가 auto 인 끝까지 가는 블록박스
+            2. 속박스 : width가 특정 px을 가지는 중앙정렬 블록박스
+        -->
+        <!-- 상단영역 -->
+        <div id="top">
+            <header class="ibx top">
+                <!-- 메인로고 -->
+                <h1 id="logo">
+                    <img src="./images/tvnlogo2.png" alt="tvN로고">
+                </h1>
+                <!-- SNS 메뉴 -->
+                <div class="snsbox ibx">
+                    <nav class="sns">
+                        <ul>
+                            <li>
+                                <a href="#">로그인</a>
+                            </li>
+                            <li>
+                                <a href="#">회원가입</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ir">
+                                        트위터 바로가기
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ir">
+                                        패이스북 바로가기
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ir">
+                                        인스타그램 바로가기
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- SNS 메뉴 -->
+                <!-- GNB 메뉴 -->
+                <nav class="gnb">
+                    <ul>
+                        <li class="sm sm1">
+                            <a href="#">프로그램 소계</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">프로그램 소개</a>
+                                    </li>                                
+                                    <li>
+                                        <a href="#">인물소개</a>
+                                    </li>                                
+                                    <li>
+                                        <a href="#">인물관계도</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">미리보기</a>
+                        </li>
+                        <li class="sm sm2">
+                            <a href="#">동영상</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">클립영상</a>
+                                    </li>                                
+                                    <li>
+                                        <a href="#">다시보기</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">예고편</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">스폐셜</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li class="sm sm3">
+                            <a href="#">사진첩</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">현장 포토</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">대표 포스터</a>
+                                    </li>
+                                </ol>                             
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">OST</a>
+                        </li>
+                        <li>
+                            <a href="#">시청자 계시판</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- 모바일용 햄버거 버튼 : 햄버거모양(ㄷ한자키) -->
+                <button class="ham" onclick="바꿔()"></button>
+            </header>
+        </div>
+        <!-- 메인영역 -->
+        <div id="cont">
+            <main class="ibx cont">
+
+                <!-- 1. 서브페이지 탑영역 -->
+                <header class="subtop">
+                    <!-- 서브타이틀 -->
+                    <h2 class="stit">Member</h2>
+                </header>
+                <!-- 2. 서브컨텐츠박스 -->
+                <section class="scont">
+                    <div id="meminfo">
+                        <form action="process.php" method="POST">
+                            <ul>
+                                <li>
+                                    <label for="mid">아이디</label>
+                                    <input type="text" id="mid" name="mid" maxlength="25" placeholder="영문자로 시작하는 6~20글자 영문자/숫자">
+                                    <span class="msg"></span>
+                                </li>
+                                <li>
+                                    <label for="mpw">비밀번호</label>
+                                    <input type="password" id="mpw" name="mpw" maxlength="20" placeholder="특수문자,문자,숫자포함 형태의 5~15자리">
+                                    <span class="msg"></span>
+                                </li>
+                                <li>
+                                    <label for="mpw2">비밀번호확인</label>
+                                    <input type="password" id="mpw2" name="mpw2" maxlength="20" placeholder="비밀번호 확인을 입력해 주세요">
+                                    <span class="msg"></span>
+                                </li>
+                                <li>
+                                    <label for="mnm">이름</label>
+                                    <input type="text" id="mnm" name="mnm" maxlength="20" placeholder="이름을 입력해 주세요">
+                                    <span class="msg"></span>
+                                </li>
+                                <li>
+                                    <label for="gen1">성별</label>
+                                    남성
+                                    <input type="radio" name="gen" id="gen1">
+                                    여성
+                                    <input type="radio" name="gen" id="gen2" checked="">
+                                    <!-- 라디오버튼은 name속성값을 같은
+                                    이름으로 하면 하나만 선택되는
+                                    그룹핑이된다 
+                                        checked속성은 미리선택되게 함
+                                    -->
+                                </li>
+                                <li>
+                                    <label for="email1">이메일</label>
+                                    <input type="text" id="email1" name="email1" placeholder="이메일앞주소">
+                                    @
+                                    <select name="seleml" id="seleml">
+                                        <option value="init">선택해주세요</option>
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="daum.net">daum.net</option>
+                                        <option value="hotmail.com">hotmail.com</option>
+                                        <option value="hanmail.net">hanmail.net</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="free">직접입력</option>
+                                    </select>
+                                    <span class="msg"></span>
+                                </li>
+                                <li>
+                                    <label for="email2"></label>
+                                    <input type="text" id="email2" name="email2" placeholder="이메일뒷주소">
+                                </li>
+                                <li>
+                                    <!-- 서브밋버튼 -->
+                                    <input type="submit" value="가입하기" id="btnj">
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </section>                
+            </main>
+        </div>
+        <!-- 하단영역 -->
+        <div id="info">
+            <footer class="ibx info">
+                <!-- 하단 링크 -->
+                <div class="blink">
+                    <ul>
+                        <li>
+                            <a href="#">법적고지</a>
+                        </li>
+                        <li>
+                            <a href="#">영상정보처리기기운영/관리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">이메일무단수집거부</a>
+                        </li>
+                        <li>
+                            <a href="#">사이버감사실</a>
+                        </li>
+                        <li>
+                            <a href="#">찾아오시는길</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보처리방침</a>
+                        </li>
+                    </ul>
+                </div>
+                <address class="addr">
+                    (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br>
+                    주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br>
+                    © CJ ENM. All Rights Reserved.
+                </address>
+                <!-- 하단로그 -->
+                <div class="blogo">
+                    <img src="./images/blogo.png" alt="하단로그">
+                </div>
+                <select id="sel" name="sel">
+                    <option value="opt">브랜드 바로가기</option>
+                    <option value="tvN">tvN</option>
+                    <option value="OCN">OCN</option>
+                    <option value="MNET">MNET</option>
+                </select>
+            </footer>
+        </div>
+    </body>
+</html>

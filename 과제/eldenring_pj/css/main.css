@@ -17,7 +17,7 @@ body {
 } */
 /*  */
 .Pat_back{
-    border:1px solid rgb(22, 248, 78);
+    /* border:1px solid rgb(22, 248, 78); */
     width: 100%;
     height: 100%;    
     display:flex;
