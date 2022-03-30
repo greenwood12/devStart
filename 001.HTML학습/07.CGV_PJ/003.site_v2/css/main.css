@@ -257,13 +257,15 @@ h1.tit{
     */
 }
 /* 2-1. 스크린 박스 */
+/* 비율유지박스 자식으로 위치와 크기를 %로 설정하면
+부모를 따라 자연스럽게 비율유지가 된다!!! */
 #screen{
     position: absolute;
-    top: 136px;
-    left: 257px;
+    top: 17.2%;
+    left: 21.3%;
     /* 부모는? #cont */
-    width: 701px;
-    height: 398px;
+    width: 58.6%;
+    height: 50.7%;
     background-color: #000;
 }
 /* 스크린 아이프레임 */
@@ -276,7 +278,7 @@ h1.tit{
 /* 2-2. 예고편 선택메뉴 */
 .mlist{
     position: absolute;
-    bottom: 58px;
+    bottom: 7%;/* 퍼센트로 변경! */
     left: 50%;
     /* 부모는? #cont */
     transform: translateX(-50%);
@@ -292,12 +294,16 @@ h1.tit{
 }
 /* 각 리스트 */
 .mlist ul>li{
-    margin: 0 9px;
+    /* 양쪽 마진만 9px과 1vw중 작은것! */
+    margin: 0 min(1vw, 9px);
 }
 
 .mlist img{
-    width: 99px;
-    height: 140px;
+    width: min(8vw,99px);
+    /* min(유동사이즈,특정사이즈) 작은쪽선택
+    -> 최대크기 지정의 효과! */
+    /* height: 140px; 
+    -> 가로크기만 줘서 비율유지함! */
 }
 
 /* 영화정보박스 */
@@ -305,14 +311,15 @@ h1.tit{
     position: absolute;
     top: 100%;/* 부모의 높이값 만큼 */
     /* 부모는? .mlist */
-    width: 99px;
-    height: 140px;
+    width: min(8vw,99px);
+    /* 이미지 가로크기와 똑같이 잡는다! */
+    height: 100%;
 
     background-color: rgba(0, 0, 0, 0.7);
 
     /* 글자셋팅 */
     font-family: 'Cute Font', cursive;
-    font-size: 14px;
+    font-size: min(1.2vw,14px);
     line-height: 2;
     text-align: center;
 
@@ -327,7 +334,8 @@ h1.tit{
 /* 첫번째 li 영화제목 */
 .movtxt li:first-child{
     color: aqua;
-    font-size: 17px;
+    font-size: min(1.3vw,17px);
+    white-space: nowrap;/* 줄바꿈방지 */
     letter-spacing: -1px;
     margin-top: 30%;
 }
