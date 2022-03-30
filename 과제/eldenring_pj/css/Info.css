@@ -45,6 +45,7 @@ body * {
     width: 800px;
     height:600px;
     color: rgb(226, 224, 89);
+    text-shadow: 2px 2px 2px #000;
     background:url(../image/thumb_info.png) no-repeat center/cover;
     font-size:20px;
 }
@@ -86,4 +87,34 @@ body * {
 
 .btn_list>li:last-child:hover {
     background-color: #382F75;
+}
+
+.sub_container {
+    background-color:rgba(0, 0, 0, 0.671);
+}
+
+.sub_container>div>h2 {
+    color: #fff;
+    font-size: 20px;
+    margin: 15px 0px 15px 0px;
+    text-shadow: 2px 2px 2px #000;
+}
+
+.sub_img {
+    width: 150px;
+    height: 65px;
+}
+
+.info_ul {
+    margin-top: 130px;
+    display:flex;
+}
+
+.info_ul>li>p {
+    font-size: 14px;
+}
+
+.updateInfo {
+    width: 150px;
+    height: 100px;
 }
