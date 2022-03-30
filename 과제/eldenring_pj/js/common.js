@@ -6,11 +6,47 @@ function getParameterByName(name) {
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); 
 }
 
+// const open = (val) => {
+//     alert(val);
+//     return;
+//     let popupText = new Array("11", "22", "33");
+//     document.querySelector(".txt_info").innerHTML = popupText[val];
+//     document.querySelector(".modal").classList.remove("hidden");
+// }
+
+//https://goddino.tistory.com/74
+
+const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+}
+
+
+
 // ulr 파라미터 값 추출
 const loadFn = function () {    
     let pageNum = getParameterByName("page");    
     //console.log(pageNum);
     page_Select(parseInt(pageNum));    
+
+    document.querySelector("#openBtn1").onclick = () => {
+        let popupText = "1111";
+        document.querySelector(".txt_info").innerHTML = popupText;
+        document.querySelector(".modal").classList.remove("hidden");
+
+    };
+
+    document.querySelector("#openBtn2").onclick = () => {
+        let popupText = "2222";
+        document.querySelector(".txt_info").innerHTML = popupText;
+        document.querySelector(".modal").classList.remove("hidden");
+
+    };
+
+    document.querySelector("#openBtn3").onclick = () => {
+        let popupText = "333";
+        document.querySelector(".txt_info").innerHTML = popupText;
+        document.querySelector(".modal").classList.remove("hidden");
+    };
 };
 
 // 버튼 변경
@@ -60,6 +96,14 @@ function page_Select(num) {
         }
     });
 }
+
+
+// document.querySelector(".openBtn1").addEventListener("click", open(0));
+// document.querySelector(".openBtn2").addEventListener("click", open(1));
+// document.querySelector(".openBtn3").addEventListener("click", open(2));
+// document.querySelector(".closeBtn").addEventListener("click", close);
+// document.querySelector(".bg").addEventListener("click", close);
+
 
 // 로딩 후 실행 함수
 //window.addEventListener("DOMContentLoaded",loadFn);
