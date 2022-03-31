@@ -10,7 +10,11 @@ html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
 
 /* 가로스크롤 생김 방지!(특히 모바일) */
 html,body{
-    width: 100vw;
+    width: 100%; 
+}
+
+body {
+    /* 가로스크롤 없앰은 body만 준다! */
     overflow-x: hidden;
 }
 
@@ -32,4 +36,15 @@ ul,ol{
 h1,h2,h3,h4,h5,h6{
     font-size: 100%;
     /* html의 기본글자크기(16px)와 일치 초기화 */
+}
+
+/* 5. 이미지 리셋 */
+.img {
+    /* 링크시 보더 없앰 */
+    border :none;
+    /* 
+    박스안에 이미지 하단간극 없앰 
+    -값은 bottom, middle, top 상관없음! 
+    */
+    vertical-align: bottom;
 }

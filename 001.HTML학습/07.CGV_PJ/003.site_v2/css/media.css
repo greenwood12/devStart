@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CGV PJ 미디어쿼리 CSS - media.css */
+
+/************** 1300px 이하 시작 **************/
+@media screen and (max-width:1300px) {
+
+    /* GNB 메뉴 */
+    .gnb {
+        right: 60px;
+    }
+}
+/************** 1300px 이하 끝 **************/
+
+
+/************** 1050px 이하 시작 **************/
+@media screen and (max-width:1050px) {
+
+    /* GNB ul */
+    .glist {
+        top: 139px;
+        left: 54px;
+        padding-top: 6px;
+        flex-direction: column;
+        /* 수직방향 */
+        align-items: flex-end;
+        /* 진행방향 수직으로 아래쪽(오른쪽) */
+        display: none;
+    }
+
+    /* GNB에 마우스 오버시 .glist보이기 */
+    .gnb:hover .glist {
+        display: flex;
+        /* 원본 display로감! */
+    }
+
+    /* 마우스 오버시 서브메뉴 숨기기 */
+    .glist>li:hover .smenu {
+        display: none;
+    }
+}
+/************** 1050px 이하 끝 **************/
+
+
+/************** 780px 이하 시작 **************/
+@media screen and (max-width:780px) {
+    /* 하단영역 */
+    #info {
+        height: auto;
+    }
+
+    /* 회사정보 */
+    #info address {
+        text-align: center;
+        padding: 0;
+        /* 기존 패딩 위,왼쪽 없앰 */
+    }
+
+    /* 회사정보 */
+    #info address span {
+        display: block;
+        padding: 5vw;
+    }
+
+    /* 하단로고 이미지 */
+    #info img {
+        float: none;
+        margin-right: 0;
+    }
+
+    /* sns박스 */
+    ul.sns {
+        position: static;
+        justify-content: center;
+        padding: 20px 0;
+    }
+}
+/************** 780px 이하 끝 **************/
+
+
+/************** 600px 이하 시작 **************/
+@media screen and (max-width:600px) {
+    h1.tit {
+        /* 줄바꿈방지 */
+        white-space : nowrap;
+        /* 글자크기 */
+        font-size: 9vw;
+    }
+
+    /* 메인영역 비율변경 */
+    #cont.rbx::before {
+        padding-top: 150%;
+    }
+
+    /* 메인 배경 속성변경 */
+    #cont {
+        background-position: top;
+        /* 배경위치 top만 쓰면 가로는 자동 center */
+        background-size: 130%;
+        /* 배경크기에 수치를 하나만쓰면 
+        가로크기임(세로자동) */
+    }
+
+    /* 스크린 위치,크기조정 */
+    #screen {
+        top: 9.8%;
+        left: 12.8%;
+        width: 76%;
+        height: 28.8%;
+    }
+
+    /* 예고편 선택메뉴 */
+    .mlist {
+        width: 90vw;
+        /* 가로크기지정 */
+        bottom: 3%;
+    }
+
+    /* ul 플렉스박스 */
+    .mlist ul {
+        flex-wrap: wrap;
+        /* 줄바꿈 */
+    }
+
+    /* 포스터 이미지크기 */
+    .mlist img {
+        width: 28vw;
+        /* 한줄에 3개 오도록 크기조정 */
+    }
+    /* 이미지설명박스 */
+    .movtxt {
+        width: 28vw;
+        /* 한줄에 3개 오도록 크기조정 */
+        font-size: 4vw;
+    }
+    .movtxt li:first-child{
+        font-size: 4.2vw;
+    }
+
+}
+/************** 600px 이하 끝 **************/
+
+
+/************** 600px 이하 끝 **************/
+@media screen and (max-width:600px){
+    /* Click Hear 글자박스 */
+    #enter span {
+        /* 줄바꿈방지 */
+        white-space : nowrap;
+        /* 글자크기 */
+        font-size:6vm;
+    }
+}
+/************** 600px 이하 끝 **************/
+

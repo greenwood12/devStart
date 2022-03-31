@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELDEN RING 정보</title>
     <link rel="stylesheet" href="../css/Info.css">
+    <link rel="stylesheet" href="../css/media.css">
     <script src="../js/common.js"></script>
 </head>
 <body>
@@ -62,7 +63,6 @@
                     </li>
                 </ul>
             </li>
-
             <!-- 2.정보 정보창 -->
             <li class="container2">
                 <div class="main_text">
@@ -119,29 +119,30 @@
             <!-- 3.컨셉 정보창 -->
             <li class="container3">
                 <div class="main_text">
-                    <img src="../image/tit_prologue.png" alt="프롤로그">
+                    <img src="../image/tit_concept.png" alt="컨셉">
                     <div class="text_box">
-                        <p>
-                            영원의 여왕 마리카를 받드는 틈새의 땅에서 황금 나무의 근원인 엘든 링이 부서졌다.
-                        </p>
-                        <p>
-                            마리카의 피를 이은 아이, 「데미갓」들은 엘든 링의 파편인 거대한 룬을 손에 넣었고
-                            그 힘에 미쳐 뒤틀리고, 끝내 파쇄전쟁을 일으켜……
-                        </p>
-                        <p>
-                            위대한 뜻으로부터 버림받았다.
-                        </p>
-                        <p>
-                            그리고 과거 눈동자에서 황금의 축복을 잃고 틈새의 땅에서 쫓겨난 빛바랜 자들에게 축복의 인도가 내린다.
-                        </p>
-                        <p>
-                            축복을 잃고 미처 죽지 못한 죽은 자들이여.
-                            인도를 따라 안개의 바다를 넘어 틈새의 땅으로 향해
-                            엘든 링을 알현하라.
-                        </p>
-                        <p>
-                            그리고 엘데의 왕이 되어라.
-                        </p>
+                        <div class="rolring">
+                            <!-- 왼쪽버튼 -->
+                            <div>
+                                <img class="arrowTo" src="../image/arrow_left.png" alt="왼쪽버튼">
+                            </div>
+                            <!-- 메인이미지 -->
+                            <div class="concept_img">
+                                <img id="setImg" src="../image/img_concept_02.jpg" alt="컨셉이미지">
+                            </div>
+                            <!-- 오른쪽버튼 -->
+                            <div>
+                                <img class="arrowTo" src="../image/arrow_right.png" alt="오른쪽버튼">
+                            </div>
+                        </div>                        
+                        <!-- 텍스트 영역 -->
+                        <div class="text_box">
+                            <p class="txtdetail">                                
+                                기동력이 뛰어나 험준한 벼랑을 타고 내려갈 수 있는 영마와<br>                                
+                                공략의 폭을 넓히는 점프 액션을 채용.<br>
+                                광대한 필드와 복잡한 던전을 자유롭고 쾌적하게 탐색할 수 있습니다.
+                            </p>
+                        </div>
                     </div>                    
                 </div>
                 <ul class="btn_list">
@@ -171,29 +172,16 @@
             <!-- 4.게임스팩 정보창 -->
             <li class="container4">
                 <div class="main_text">
-                    <img src="../image/tit_prologue.png" alt="프롤로그">
+                    <img src="../image/tit_spec.png" alt="게임스팩">
                     <div class="text_box">
-                        <p>
-                            영원의 여왕 마리카를 받드는 틈새의 땅에서 황금 나무의 근원인 엘든 링이 부서졌다.
-                        </p>
-                        <p>
-                            마리카의 피를 이은 아이, 「데미갓」들은 엘든 링의 파편인 거대한 룬을 손에 넣었고
-                            그 힘에 미쳐 뒤틀리고, 끝내 파쇄전쟁을 일으켜……
-                        </p>
-                        <p>
-                            위대한 뜻으로부터 버림받았다.
-                        </p>
-                        <p>
-                            그리고 과거 눈동자에서 황금의 축복을 잃고 틈새의 땅에서 쫓겨난 빛바랜 자들에게 축복의 인도가 내린다.
-                        </p>
-                        <p>
-                            축복을 잃고 미처 죽지 못한 죽은 자들이여.
-                            인도를 따라 안개의 바다를 넘어 틈새의 땅으로 향해
-                            엘든 링을 알현하라.
-                        </p>
-                        <p>
-                            그리고 엘데의 왕이 되어라.
-                        </p>
+                        <p>권장 사양</p>
+                        <p>운영체제: Windows 11</p>
+                        <p>프로세서: Intel Core i7-8700K or AMD Ryzen 5 3600X</p>
+                        <p>메모리: 16 GB RAM</p>
+                        <p>그래픽: NVIDIA GeForce GTX 1070, 8 GB 또는 AMD Radeon RX Vega 56, 8 GB</p>
+                        <p>DirectX: DirectX 12 (Feature Level 12.0)</p>
+                        <p>저장 공간 60 GB</p>
+                        <p>사운드카드: Windows-Compatible Audio Device</p>
                     </div>                    
                 </div>
                 <ul class="btn_list">
@@ -258,9 +246,7 @@
     <div class="modal hidden">
         <div class="bg"></div>
             <div class="modalBox">
-            <p class="txt_info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quam nobis
-                quis corrupti amet maxime neque, optio, in illo, voluptatibus consequuntur! 
-                Rerum quo ea nulla qui, maxime consectetur magni soluta!
+            <p class="txt_info">
             </p>
             <button class="closeBtn">✖</button>
         </div>

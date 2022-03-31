@@ -1,0 +1,35 @@
+@charset "utf-8";
+/************** 1300px 이하 시작 **************/
+@media screen and (max-width:1130px) {
+    /* 크기가 줄면서 ul 정렬방식 변경 */
+    .main_ul {
+        display:flex;
+        flex-direction: column;
+    }
+
+    /* 하단 버튼 수정 */
+    .btn_list {        
+        width: 100vw;
+    }
+
+    /* 오른쪽 서브메뉴 */
+    .sub_container {
+        width: 100vw;
+    }
+
+    .sub_container>ul {
+        width: 100vw;        
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .sub_container>ul>li {
+        margin-left:5px;
+    }
+
+    .sub_container>div {        
+        text-align:center;
+    }
+    /* 오른쪽 서브메뉴 */
+}
+/************** 1300px 이하 시작 **************/

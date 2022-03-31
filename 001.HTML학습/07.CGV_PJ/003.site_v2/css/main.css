@@ -284,22 +284,40 @@ h1.tit{
     transform: translateX(-50%);
     /* x축 중앙이동 -> 정중앙 */
 
-    overflow: hidden;
-    /* 영화설명 숨기기 
-    - 부모자격이 있는 요소가 숨길수 있음! */
 }
 /* ul 플렉스박스 */
 .mlist ul{
     display: flex;
+    perspective: 480px;
+    /* 원근설정-적용할 요소의 부모박스에 설정 */
 }
 /* 각 리스트 */
 .mlist ul>li{
-    /* 양쪽 마진만 9px과 1vw중 작은것! */
-    margin: 0 min(1vw, 9px);
+    position: relative;
+    /* 부모자격 */
+    overflow: hidden;
+    /* 영화설명 숨기기 
+    - 부모자격이 있는 요소가 숨길수 있음! */
+    margin: 0 min(1vw,9px);
+    /* 양쪽마진만 9px과 1vw중 작은것! */
+    transform: rotateX(40deg);
+    /* x축회전 */
+    transform-origin: bottom;
+    /* 회전축 세로방향 하단으로 변경 */
+
+    /* 트랜지션: 속시이지 */
+    transition: transform .4s ease-out;
+}
+/* li에 마우스 오버시 x축회전 일어남! */
+.mlist ul>li:hover,
+.mlist ul>li.on {
+    transform: rotateX(0deg);
+    z-index: 1;
+    outline:1px solid aquamarine;
 }
 
 .mlist img{
-    width: min(8vw,99px);
+    width: min(8vw,99px);    
     /* min(유동사이즈,특정사이즈) 작은쪽선택
     -> 최대크기 지정의 효과! */
     /* height: 140px; 
@@ -310,7 +328,7 @@ h1.tit{
 .movtxt{
     position: absolute;
     top: 100%;/* 부모의 높이값 만큼 */
-    /* 부모는? .mlist */
+    /* 부모는? .mlist ul>li*/
     width: min(8vw,99px);
     /* 이미지 가로크기와 똑같이 잡는다! */
     height: 100%;
@@ -323,8 +341,8 @@ h1.tit{
     line-height: 2;
     text-align: center;
 
-    /* 트랜지션: 속시이지 */
-    transition: top .4s ease-out;
+    /* 트랜지션: 속시이지 - 지연시간 0.3초 */
+    transition: top .4s ease-out .3s;
 }
 /* 부모li에 마우스 오버시 설명박스 올라오기 */
 .mlist ul>li:hover .movtxt{
