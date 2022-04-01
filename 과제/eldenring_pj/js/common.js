@@ -40,6 +40,8 @@ const close = () => {
 /****************************************************************************************************************/ 
 //세번째 페이지 전역변수
 let textNm = 0;
+let widthChk = 0;
+
 let txt_Third = new Array("다채로운 상황이 기다리고 있는 오픈 필드와<br>"+
                     "복잡하면서도 입체적으로 만들어진 거대한 던전이<br>"+
                     "끊임없이 이어지는 광대한 세계.<br>"+
@@ -102,6 +104,7 @@ const loadFn = function () {
     }
 };
 
+
 // 버튼 변경
 function page_Select(num) {
     //document.getElementById("btn"+num).style.marginTop ="50px";
@@ -137,8 +140,13 @@ function page_Select(num) {
         x.style.background =`url(../image/${backImgArray[num-1]}) no-repeat center/cover`;
         count++;
     }
+    widthChk =document.body.offsetWidth;
 
-    document.getElementById(btn_data[num-1]).style.marginBottom ="50px";
+
+    if(widthChk > 800) {
+        document.getElementById(btn_data[num-1]).style.marginBottom ="50px";
+    }
+
     document.getElementById(btn_data[num-1]).style.backgroundColor = save_color;
     document.querySelector(contentArray[num-1]).style.display = "block";
 
@@ -151,11 +159,18 @@ function page_Select(num) {
     
     // 버튼에 애니메이션효과
     btn_data.forEach((val, idx) =>{
-        if(idx !== (num-1)){            
-            document.getElementById(btn_data[idx]).style.transition = "0.5s ease-out 1s, background-color 0.1s";
-            document.getElementById(btn_data[idx]).style.marginTop ="50px";  
+        if(idx !== (num-1)){
+            console.log(widthChk);
+            if(widthChk > 800) {
+                document.getElementById(btn_data[idx]).style.transition = "0.5s ease-out 1s, background-color 0.1s";
+                document.getElementById(btn_data[idx]).style.marginTop ="50px";  
+            }
         }
     });
+
+    window.onresize =() => {
+        widthChk = document.body.offsetWidth;
+    };
 }
 
 // 로딩 후 실행 함수

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Cube 3D Animation</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* 높이값 기준 보이는 화면 채우기! */
+        }
+
+        body {
+            background-image:
+                linear-gradient(to bottom, #777 30%, #ccc 70%);
+            /* 
+               [선형 그라데이션]
+            linear-gradient(방향,색1 몇%,색2 몇%,...); 
+            - 방향: to top, to bottom, to left, to right
+            - 색: 웹표시법
+            - 몇% : 색상영역 비율
+
+            */
+        }
+
+        /* 버튼박스 */
+        .btns{
+            text-align: center;
+            padding: 50px;
+        }
+        .btns button{
+            font-size: 40px;
+            border-radius: 10px;
+        }
+
+        /* 큐브 */
+        .cube{
+            position: absolute;
+            top: calc(50% - 150px);
+            left: calc(50% - 150px);
+            /* 큐브 정중앙 계산정렬 */
+            width: 300px;
+            height: 300px;
+
+            /* 
+                [ 입체로 설정하기 ]
+                - 입체로 설정할 요소의 부모박스에 아래와 같이
+                설정한다!
+
+                transform-style: preserve-3d;
+
+                - 기본값 flat, 즉 2D
+                - preserve-3d 는 3D 전환설정!
+            */
+            transform-style: preserve-3d;
+
+            /* 입체를 잘보이게 x,y축으로 약간 회전하기 */
+            transform: rotateX(10deg) rotateY(30deg);
+        }
+        /* 큐브 각면 공통 */
+        .cube>span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            outline: 1px solid #000;
+        }
+        /* 1. 앞면 */
+        .cube>span:first-child{
+            /* background-color: red; */
+            background: url(images/newyorkCity.jpg) no-repeat right/cover;
+            /* 화면방향(Z축)으로 이동하기 */
+            transform: rotateY(0deg) translateZ(150px);
+        }
+        /* 2. 오른쪽면 */
+        .cube>span:nth-child(2){
+            /* background-color: green; */
+            background: url(images/seoulCity.jpg) no-repeat center/cover;
+            /* 화면방향(Z축)으로 이동하기 */
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        /* 3. 뒷면 */
+        .cube>span:nth-child(3){
+            /* background-color: orange; */            
+            background: url(images/parisCity.jpg) no-repeat center/cover;
+
+            /* 화면방향(Z축)으로 이동하기 */
+            transform: rotateY(180deg) translateZ(150px);
+        }
+        /* 4. 왼쪽면 */
+        .cube>span:nth-child(4){
+            background-color: yellow;        
+            background: url(images/cityMain.jpg) no-repeat center/cover;
+
+            /* 화면방향(Z축)으로 이동하기 */
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+        /* 5. 왼쪽면 */
+        .cube>span:nth-child(5){
+            background-color: blue;   
+            background: url(images/citys.jpg) no-repeat center/cover;
+
+            /* 화면방향(Z축)으로 이동하기 */
+            transform: rotateX(90deg) translateZ(150px);
+        }
+        /* 6. 아랫면 */
+        .cube>span:last-child{
+            background-color: purple;   
+            background: url(images/img2.jpg) no-repeat center/cover;
+
+            /* 화면방향(Z축)으로 이동하기 */
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        /* 큐브회전 애니메이션 클래스 */
+        .cube-ani{
+            /* 애니메이션: 이시이지반방마 */
+            animation: rolling 5s linear infinite;
+            /* 처음에 애니메이션 멈춰있기 */
+            animation-play-state: paused;
+        }
+        /* 클래스 on추가시 애니메이션 작동! */
+        .cube-ani.on{
+            animation-play-state: running;
+        }
+
+        /* 큐브회전 키프레임 */
+        @keyframes rolling {
+            to{
+                transform: rotateX(370deg) rotateY(-330deg);
+                /* 
+                    Y축 양의 방향으로 30도만큼 더해야
+                    처음 위치로 한바퀴 돈것이다!
+                    360도 + 30도 = 390도
+                    반대방향이면
+                    -360도 + 30도 = -330도
+
+                    X축 양의 방향으로 10도만큼 더해야
+                    처음 위치로 한바퀴 돈것이다!
+                    360도 + 10도 = 370도
+                */
+            }
+        }
+    </style>
+    <script>
+        //// 로드 구역 ///////////////////////////////////////////
+        window.addEventListener("load", ()=>{
+            let btns = document.querySelectorAll(".btns button");
+            // 변경대상 : .cube
+            let cube = document.querySelector(".cube");
+
+            //돌아! 버튼 클릭시
+            btns[0].onclick =() =>{
+                console.log("22");
+                cube.classList.add("on");
+            };
+
+            //멈춰! 버튼 클릭시
+            btns[1].onclick =() =>{
+                cube.classList.remove("on");
+            };
+        });
+        //// 로드 구역 ///////////////////////////////////////////
+    </script>
+</head>
+<body>
+
+    <!-- 버튼박스 -->
+    <div class="btns">
+        <button>돌아!</button>
+        <button>멈춰!</button>
+    </div>
+
+    <!-- 큐브 -->
+    <div class="cube cube-ani">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+</body>
+
+</html>

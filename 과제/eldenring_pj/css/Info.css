@@ -4,6 +4,7 @@
 
 body {
     background-color: #000;
+    overflow-x: hidden;
 }
 
 
@@ -58,7 +59,7 @@ body {
 }
 
 .btn_list {
-    margin-top: 25px;
+    margin: 25px 30px 30px 25px;
     display: flex;
     justify-content: space-evenly;
 }
