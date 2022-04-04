@@ -31,3 +31,26 @@ font-family: 'Nanum Pen Script', cursive;
     /* 패딩탑값 %로 비율에 맞게 각각셋팅 */
     /* padding-top: 50%; */
 }
+
+.main.rbx::before {
+    padding-top: 55.69%;
+}
+
+
+
+/* 비율유지속박스 */
+.rbxIn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* 컨텐츠박스 */
+.cbx{
+    height: 100%;
+    position: relative;
+    /* 부모자격 */
+}

@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* 보그 PJ 메인 페이지 CSS - main.css */
+
+/* 외부파일 합치기 */
+@import url(reset.css);
+@import url(core.css);
+
+
+/* 박스표시 */
+body * {
+    outline : 1px dashed gray;
+}
+
+/* 1. 상단 영역 */
+.top {
+    height: 206px;
+}
+
+
+/*3. 하단 영역 */
+.info {
+    height: 285px;
+}
+
+
+/* 2. 메인영역 */
+.select {
+    display: flex;    
+    justify-content: space-around;
+}
+
+.bg1 {
+    background-image: url(../images/dosilok.jpg);
+}
+
+.bg2 {
+    background-image: url(../images/sul.jpg);
+}
+
+.bg3 {
+    background-image: url(../images/couple.jpg);    
+}
