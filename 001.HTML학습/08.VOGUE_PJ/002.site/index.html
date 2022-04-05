@@ -4,13 +4,15 @@
         <meta charset="UTF-8">    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>보그 코리아 2022(Vogue Korea)</title>
+        <!-- 탭메뉴 아이콘(favicon:favorite icon) -->
+        <link rel="shortcut icon" href="images/icon.jpg" type="image/x-icon">
         <!-- 폰티스토 sns 아이콘 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
         <link rel="stylesheet" href="./css/main.css">        
     </head>
     <body>
         <!-- 1. 상단영역 -->
-        <div id="top">
+        <div id="top" class="on">
             <header class="top ibx">
                 <!-- 1-1. 상단메뉴 -->
                 <div class="tmenu">
@@ -44,7 +46,25 @@
                     </div>
                     <!-- 1-1-2. 사이드 메뉴 -->
                     <div class="sideMenu">
-                        
+                        <ul class="smbx">
+                            <li>
+                                <a href="#">SIDE MENU</a>
+                                <ol class="smsub">
+                                    <li>
+                                        <a href="#">회사 소개</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">광고 및 제휴</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">개인정보 처리방침</a>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <a href="#">SUBSCRIBE</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <!-- 1-2. 로고박스 -->
@@ -76,6 +96,11 @@
                         </li>
                         <li>
                             <a href="#">SHOPPING</a>
+                        </li>
+                        <li>
+                            <a href="#" class="fi fi-search">
+                                <span class="ir">search</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -203,7 +228,33 @@
 
         <!-- 3. 하단영역 -->
         <div>
-            <section class="info ibx"></section>
+            <footer class="info ibx">
+                <!-- 3-1 하단로고 -->
+                <div class="blogo">
+                    <img src="images/footer_logo.png" alt="하단로고">
+                </div>
+                <!-- 3-2 하단주소 -->
+                <div>
+                    <address class="addr">
+                        WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED. VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.
+                    </address>
+                </div>
+                <!-- 3-3 하단링크 -->
+                <ul class="blik">
+                    <li>
+                        <a href="#">정기구독</a>
+                    </li>
+                    <li>
+                        <a href="#">회사소개</a>
+                    </li>
+                    <li>
+                        <a href="#">광고 및 제휴</a>
+                    </li>
+                    <li>
+                        <a href="#">개인정보 처리방침</a>
+                    </li>
+                </ul>
+            </footer>
         </div>
     </body>
 </html>
