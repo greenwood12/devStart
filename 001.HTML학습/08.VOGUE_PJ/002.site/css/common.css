@@ -2,6 +2,13 @@
 /* 보그 PJ 공통모듈 CSS - common.css */
 
 /************************************* 1. 상단영역 *************************************/
+#top {
+    /* 포지션이 있어야 z-index 적용됨! */
+    position:relative;     
+    z-index: 999;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.158);
+}
+
 .top{
     min-height: 206px;
 }
@@ -74,7 +81,7 @@
 .smbx{
     display:flex;
     /* 플렉스박스 수평방향 오른쪽 정렬 */
-    justify-content:flex-start;
+    justify-content:flex-end;
 
     /* 글자셋팅 */
     font-family: 'Roboto', nbg, sans-serif;
@@ -82,7 +89,7 @@
 }
 
 /* 메뉴 사이 구분선 넣기 */
-.smbox>li:first-child{
+.smbx>li:first-child{
     border-right: 1px solid #e5e5e5;
 }
 
@@ -219,16 +226,18 @@
     width: 100px;
  }
  /* GNB */
- #top.on .gnb{
+ #top.on .gnb{    
     font-size: 14px;
+    padding: 5px 30px 5px 155px;
  }
  /* GNB a요소 */
  #top.on .gnb a{
     color: #333;
  }
- 
- #top.on{
- 
+
+ /* GNB li 오른쪽 패딩 */  
+ #top.on .gnb li{
+     padding-right: 35px;
  }
 
 /************************************* 2 하단영역 *************************************/
@@ -268,10 +277,26 @@
 .blik a {
     color: #747474;
     font-size: 13px;
-    margin: 0 7px;
+    margin: 0 6px;
 }
 
 /* 마지막 li만 그자 두껍게 */
 .blink li:last-child a{
     font-weight: bold;
+}
+
+/* 위로가기 버튼 */
+.tbtn {
+    position: fixed;
+    bottom: 0;
+    right: 75px;
+    width: 48px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #333;
+    border-radius: 4px 4px 0 0;
+    color: #fff;    
+    z-index: 9999;
+    font-size: 12px;
 }
