@@ -10,9 +10,10 @@ font-family: 'Nanum Pen Script', cursive;
 
 
 /************* 2. 공통 class *************/
-/* .body {
-
-} */
+html {
+    /* a요소의 #아이디명 또는 #으로 위치이동 부드러운 스크롤 */
+    scroll-behavior: smooth;
+}
 
 /* 속박스 class */
 .ibx{
@@ -100,4 +101,34 @@ font-family: 'Nanum Pen Script', cursive;
 /* .cbx에 마우스 오버시 보더애니 */
 .cbx:hover::after{
     border: 5px solid lightgreen;
+}
+
+
+
+
+
+ /* 3-2. 회사주소 */
+ .addr {
+    color:#747474;
+    text-align: center;
+    font-size: 11px;
+    /* 이텔릭 해제 */
+    font-style: normal;
+    /* 마진 : 위 양쪽 아래 */
+    margin:20px 0 10px;     
+}
+
+
+ /* 3-2. 하단링크 */
+ .blik {
+    display: flex;
+    justify-content:center;
+    /* 자동줄바꿈 */
+    flex-wrap: wrap;     
+}
+
+.blik a {
+   color: #747474;
+   font-size: 13px;
+   margin: 0 6px;
 }

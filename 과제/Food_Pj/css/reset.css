@@ -11,6 +11,7 @@ html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
 /* 가로스크롤 생김 방지!(특히 모바일) */
 body{
     overflow-x: hidden;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.877) 60%, rgb(131, 126, 126, 0.400) 40%);
 }
 
 /* 2. a요소 리셋 */
