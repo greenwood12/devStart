@@ -41,6 +41,7 @@ body * {
     top:0;
     left:0;
     color: #fff;
+    opacity: 0;
     font-family: 'Nanum Pen Script', cursive;    
     animation: main1 3s ease-out both;
 }
@@ -48,17 +49,61 @@ body * {
 /* 글자 크기 변경 애니메이션 */
 @keyframes main1 {
    to{       
+        opacity: 1;
         top:40%;
         left:18%; 
         font-size: 50px;
    }
 }
 
-
-
 .bg2 {
     background-image: url(../images/sul.jpg);
     background-position: -450px 0px;
+}
+
+/* 메인 처음 텍스트 문자 */
+.tx2 {
+    position:absolute;    
+    font-size: 20px;
+    bottom:0;
+    left:0;
+    color: #fff;    
+    opacity: 0;
+    font-family: 'Nanum Pen Script', cursive;
+    animation: main2 3s ease-out both;
+    animation-delay: 2s;
+}
+
+/* 글자 크기 변경 애니메이션 */
+@keyframes main2 {
+   to{  
+        opacity: 1;
+        bottom:40%;
+        left:18%; 
+        font-size: 50px;
+   }
+}
+
+/* 메인 처음 텍스트 문자 */
+.tx3 {
+    position:absolute;    
+    font-size: 20px;
+    top:45%;
+    left:100%;
+    color: #fff;
+    opacity: 0;
+    font-family: 'Nanum Pen Script', cursive;
+    animation: main3 3s ease-out both;
+    animation-delay: 4s;
+}
+
+/* 글자 크기 변경 애니메이션 */
+@keyframes main3 {
+   to{  
+        opacity: 1;
+        left:30%; 
+        font-size: 50px;
+   }
 }
 
 .bg3 {
