@@ -6,19 +6,84 @@
         <title>당신의 음식을 응원합니다.</title>
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="./css/main.css">
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/common.js"></script>
     </head>
     <body>
         <div style="position: absolute; left:200px; top:50px;">
             <img src="./images/logo.png" style="width:242px; height:72px;">
         </div>
 
-
-
         <!-- 버튼형 메뉴-->
         <div id="top">
             <header class="top ibx">
-
+                <nav class="gnb">
+                    <ul class="fll">
+                        <li>
+                            <a href="#">HOME</a>                            
+                        </li>
+                        <li>
+                            <a href="">나혼자</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">김치찌게</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">도시락</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">비빔밥</a>
+                                    </li>                                    
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">둘이서</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">커리</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">파스타</a>
+                                    </li>                                  
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">모두함께</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">고기고기</a>
+                                    </li>                                  
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">여행여행</a>
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">춘천닭갈비</a>
+                                    </li>                                  
+                                </ol>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- 닫기버튼 -->
+                    <button id="cbtn" class="btns" onclick="보여숨겨()">
+                        <span>×</span>
+                    </button>
+                </nav>
             </header>
+            <!-- 햄버거 버튼 -->
+            <div>
+                <button id="ham" class="btns">
+                    <span>＝</span>
+                </button>
+            </div>
         </div>
 
         <!-- 메인 페이지 -->

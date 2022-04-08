@@ -19,18 +19,45 @@
     // $(선택자).css()
     // 이것보다 한번에 이어서 사용하자!!!
 
-    // 미션: h2태그를 클릭하면
-    
+    // 미션: h2태그를 클릭하면    
+    $("header>h2").click(()=>{
+      $("#sub").text("이승기")
+               .css({
+                    backgroundColor :"yellow",
+                    border:" 1px solid yellow",                    
+                    color : "#blue",
+                    fontSize:"42px",
+                    transition :".8s ease-in-out"
+                });
+      $("#main").text("공유")
+                .css({
+                    backgroundColor :"blue",
+                    border:" 3px solid yellow",                    
+                    color : "#fff",
+                    fontSize:"52px",
+                    transition :".8s ease-in-out 1s"
+                });
+      $("#total").text("사랑해요~!")
+                 .css({
+                    backgroundColor :"#000",
+                    border:" 2px solid purple",                    
+                    color : "red",
+                    fontSize:"52px",
+                    transition :".8s ease-in-out 2s"
+                  });      
+    });
 
-  
-      // 아이디가 #main 는 글자를 "공유"로 바꾸고
-      // 배경파랑, 글자색흰색,보더3px solid yellow,
-      // 글자크기 52px, 트랜지션 0.8초 -> 1초후
-      
-  
-      // 아이디가 #total 는 글자를 "싸랑해요~!"로 바꾸고
-      // 배경검정, 글자색빨강,보더2px solid purple,
-      // 글자크기 152px, 트랜지션 0.8초 -> 2초후
+    // 아이디가 #sub 는 글자를 "이승기"로 바꾸고
+    // 배경파랑, 글자색흰색,보더1px solid yellow,
+    // 글자크기 42px, 트랜지션 0.8초
+
+    // 아이디가 #main 는 글자를 "공유"로 바꾸고
+    // 배경파랑, 글자색흰색,보더3px solid yellow,
+    // 글자크기 52px, 트랜지션 0.8초 -> 1초후
+
+    // 아이디가 #total 는 글자를 "싸랑해요~!"로 바꾸고
+    // 배경검정, 글자색빨강,보더2px solid purple,
+    // 글자크기 152px, 트랜지션 0.8초 -> 2초후
       
 
 

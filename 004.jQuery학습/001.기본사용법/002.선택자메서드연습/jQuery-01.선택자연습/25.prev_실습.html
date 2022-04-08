@@ -5,6 +5,7 @@
 <title> Traversal- prev </title>
 <!-- jQuery library -->
 <script src="jquery-1.7.2.min.js"></script>
+<!-- 색상애니멩션은 jQuery UI가 필수! -->
 <script src="jquery-ui-1.8.23.custom.min.js"></script>
 <script>
 $(document).ready(function(e) {
@@ -15,21 +16,42 @@ $(document).ready(function(e) {
 	
 	// 미션: 마지막 p태그를 클릭하면 0.5초 간격으로 
   //      이전 형제요소의 배경색을 차례로 넣으시오.(p태그만!)
-  
+
+  $("#container").children("p").last().click(function(){
+    // 클릭된 마지막 p태그
+    console.log("111");
+    $(this).animate({
+      backgroundColor:"red"
+    },500).prev().delay(500).animate({
+      backgroundColor:"yellow"
+    },500).prev().delay(1000).animate({
+      backgroundColor:"lime"
+    },500).prev().find("p").delay(1500).animate({
+      backgroundColor:"green"
+    },500);//이전형제요소;
+  });
+  // click///////////////////////////////////////////////  
 
   // 추가미션:
   // .sub 아래 마지막 p태그를 클릭하면
   // 이전 p태그 모두를 배경색 yellow, 가로,세로 크기 100px로
   // 애니메이션 하시오!
   // prevAll() 사용!
-
-  
-
-
-
+  $(".sub").children("p").last().click(function(){
+    //마지막 p태그
+    $(this).animate({
+      backgroundColor:"yellow",
+      width:"100px",
+      hight:"100px"
+    },500).prevAll().animate({
+      backgroundColor:"yellow",
+      width:"100px",
+      hight:"100px",
+      borderRadius:"50%"
+    },7000);
+  });
 	// animate({CSS설정},시간,이징,함수) 사용.
-	// first(), last() 사용
-	
+	// first(), last() 사용	
 	
 });//jQuery실행구역
 </script>
