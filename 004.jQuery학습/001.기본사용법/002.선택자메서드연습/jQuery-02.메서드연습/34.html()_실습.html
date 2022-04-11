@@ -17,9 +17,52 @@
 		// img태그를 5개 만들고 css설정을 absolute로 하여 
 		// 차례대로 left이동 애니메이션을 하시오.
 		
-		
-	
-		
+		$("#main>p").first().click(function () {
+			//호출확인
+			console.log("나야나");
+
+			// this는 첫번째 p 태그
+			//출발   다음   html
+			$(this).next().html(`
+					<img src="pic1.jpg" alt="이미지">
+					<img src="pic2.jpg" alt="이미지">
+					<img src="pic3.jpg" alt="이미지">
+					<img src="pic4.jpg" alt="이미지">
+					<img src="pic5.jpg" alt="이미지">				 
+				 `) // 5개의 img로 주인공변경!
+			.find("img").css({
+				position:"absolute",
+				left :"0"
+			}).first().css({
+				width:"300px"
+			}).next().css({
+				width:"250px"
+			}).next().css({
+				width:"200px"
+			}).next().css({
+				width:"150px"
+			}).next().css({
+				width:"100px"
+			}).parent() /// 애니메이션 주기 /// 마지막 이미지에서 부모로 이동 // 5개 이미지 선택
+			             //^두번째 이미지 ^1초후 ^애니메이션
+			.find("img").eq(1).delay(1000).animate({left:"300px"},400)
+					//다음 이미지 ^ 1.4초후 ^애니메이션
+			.next().delay(1400).animate({left:"550px"},300)
+			.next().delay(1700).animate({left:"750px"},200)
+			.next().delay(1900).animate({left:"900px"},100)
+			// 짝수 이미지(0부터)    위의 총 액션 + 2초 기다림    아래로 이동 액션
+			.parent().find("img:even").delay(2000).animate({top:"200px"}, 500)
+			// 추가 홀수 이동 애니메이션 ^처음   2초 딜레이 ^높이값 변경 애니메이션
+			.parent().find("img:odd").first().delay(2000).animate({top:"-50px"}, 500)
+			.parent().find("img:odd").last().delay(2000).animate({top:"50px"}, 500)
+			;
+			//추가 짝홀수 이동 애니메이션
+			// 마지막 이미지로 부터 다시 부모로 이동하여 선택!
+
+			/// html 태그 찍어보기 ///////////////////////////////////////////////////////////
+			console.log("현재 html", $("#main").html());
+			
+		});
 	});/////////// jQB ///////////////////////
 	
 	

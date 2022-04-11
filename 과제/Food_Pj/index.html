@@ -9,14 +9,15 @@
         <script src="./js/jquery-3.6.0.min.js"></script>
         <script src="./js/common.js"></script>
     </head>
-    <body>
-        <div style="position: absolute; left:200px; top:50px;">
-            <img src="./images/logo.png" style="width:242px; height:72px;">
-        </div>
-
+    <body>        
         <!-- 버튼형 메뉴-->
         <div id="top">
-            <header class="top ibx">
+            <header class="top ibx" style="outline: 1px solid rgb(110, 102, 102);">
+                <div class="topMain">
+                    <div class="logo">
+                        <img src="./images/logo.png" alt="로고">
+                    </div>                  
+                </div>
                 <nav class="gnb">
                     <ul class="fll">
                         <li>
@@ -73,17 +74,19 @@
                         </li>
                     </ul>
                     <!-- 닫기버튼 -->
-                    <button id="cbtn" class="btns" onclick="보여숨겨()">
-                        <span>×</span>
-                    </button>
+                    <div>
+                        <button id="cbtn" class="btns">
+                            <span>×</span>
+                        </button>
+                    </div>
                 </nav>
-            </header>
-            <!-- 햄버거 버튼 -->
-            <div>
-                <button id="ham" class="btns">
-                    <span>＝</span>
-                </button>
-            </div>
+                <!-- 햄버거 버튼 -->
+                <div>
+                    <button id="ham" class="btns">
+                        <span>＝</span>
+                    </button>
+                </div>              
+            </header>           
         </div>
 
         <!-- 메인 페이지 -->
@@ -104,30 +107,59 @@
                 </div>                
             </main>
         </div>
+        
+        <!-- 베너 -->
+        <div>
+            <main class="cont ibx">
+                <div class="main rbx">
+                    <div class="rbxIn select">
+                        <div class="cbx bg1">
+                            <p class="tx1">나 홀로 편안한 휴식</p>                            
+                        </div>
+                        <div class="cbx bg2">
+                            <p class="tx2">설렁설렁 하게</p>
+                        </div>
+                        <div class="cbx bg3">
+                            <p class="tx3">푸짐한 한끼</p>
+                        </div>
+                    </div>
+                </div>                
+            </main>
+        </div>
+        <!-- 베너 -->
 
         <!-- 회사 소계 -->
         <div>
             <section class="info ibx">
-                <div>
-                    <address class="addr">
-                        WWW.FOODSK.COM
-                    </address>
+                <div class="addr_btm">
+                    <div class="addr_img">
+                        <img src="./images/logo.png" alt="하단로그">                    
+                    </div>                
+                    <div style="margin-top: 30px; width:70%">
+                        <div style="margin-top: 0px;">
+                            <address class="addr" >
+                                WWW.FOODSK.COM
+                            </address>
+                        </div>
+                        <div style="margin-top: 0px;">
+                            <ul class="blik">
+                                <li>
+                                    <a href="#">정기구독</a>
+                                </li>
+                                <li>
+                                    <a href="#">회사소개</a>
+                                </li>
+                                <li>
+                                    <a href="#">광고 및 제휴</a>
+                                </li>
+                                <li>
+                                    <a href="#">개인정보 처리방침</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <!-- 3-3 하단링크 -->
-                <ul class="blik">
-                    <li>
-                        <a href="#">정기구독</a>
-                    </li>
-                    <li>
-                        <a href="#">회사소개</a>
-                    </li>
-                    <li>
-                        <a href="#">광고 및 제휴</a>
-                    </li>
-                    <li>
-                        <a href="#">개인정보 처리방침</a>
-                    </li>
-                </ul>
+                <!-- 3-3 하단링크 -->                
             </setcion>
         </div>
     </body>

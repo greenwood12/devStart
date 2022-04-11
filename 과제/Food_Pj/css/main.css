@@ -8,12 +8,49 @@
 
 /* 박스표시 */
 body * {
-    outline : 1px dashed gray;
+    /* outline : 1px dashed gray; */
 }
 
 /* 1. 상단 영역 */
 .top {
-    height: 180px;
+    height: 150px;
+}
+
+/* 로고 */
+.logo>img {
+    width:"242px"; 
+    height:"72px";
+    margin-top: 20px;
+    border: 5px solid gray;
+    margin-left: 15px;
+}
+
+.topMain {
+    display: flex;    
+}
+
+.logoText {
+    margin-top: 20px;
+    margin-left: 50px;
+    /* font-size: 3vw; */
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+/* 로고 애니메이션 */
+.logo>img:hover {
+    animation: logoRotate 1s linear infinite;
+}
+
+@keyframes logoRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(40deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 /* 햄버거 메뉴 만들기 */
@@ -25,7 +62,7 @@ body * {
 /* GNB메뉴 */
 .gnb {
     position: fixed;
-    /* top: -100%; */
+    top: -100%;
     /* 위에 올라가있음(숨김) */
     left: 0;
     width: 100vw;
@@ -35,6 +72,10 @@ body * {
     transition: top 1s ease-in-out;
     z-index: 9999;
     /* 가장위! */
+}
+
+.gnb.on {
+    top: 0;
 }
 
 .gnb>ul {
@@ -70,8 +111,8 @@ body * {
 
 /* li에 마우스 오버시 a요소 디자인 변경 */
 .gnb>ul>li:hover>a {
-    background-color: #d5eeff;
-    color: navy;
+    background-color: #85b7d8;
+    color: rgb(86, 155, 201);
 }
 
 /* 서브메뉴 ol */
@@ -95,7 +136,7 @@ body * {
 
 /* 서브메뉴 a에 오버시 */
 .smenu a:hover {
-    background-color: #f0f0f0;
+    background-color: #bed8b4;
     color: #ff5411;
 }
 
@@ -110,7 +151,6 @@ body * {
     white-space: nowrap;
     /* 줄바꿈방지 */
     color: rgb(255, 0, 191);
-
     margin: 0;
     padding: 0;
 }
@@ -127,16 +167,17 @@ body * {
 /* 버튼공통 */
 .btns {
     top: 0.5vw;
-    right: 12.5vw;
+    right: 9.5vw;
     width: 45px;
     height: 45px;
     border-radius: 7px 7px 7px 7px;
     border: 2px solid #975a44;
     background-color: #fff;
-    font-size: 50px;
+    font-size: 42px;
     line-height: 0px;
     padding: 0;
     margin: 0;
+    margin-right: 15px;
     cursor: pointer;
     /* 오버시 손가락모양 */
 }
@@ -149,8 +190,8 @@ body * {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
-    border-radius: 50%;
+    background-color: #975a44;
+    border-radius: 5px 5px 5px 5px;
     /* 원 */
     transform: scale(0);
     /* 스케일이 0이면 중앙에 사라짐! */
@@ -177,12 +218,6 @@ body * {
 }
 
 /********************************************************************************************************************************************************/
-/*3. 하단 영역 */
-.info {
-    height: 180px;
-}
-
-
 /* 2. 메인영역 */
 .select {
     display: flex;    
@@ -270,4 +305,43 @@ body * {
 .bg3 {
     background-image: url(../images/couple.jpg);    
     background-position: -450px 0px;
+}
+
+/********************************************************************************************************************************************************/
+/*3. 하단 영역 */
+.info {
+    height: 180px;        
+    background-color: #975a44;
+    border:3px solid  #fff;
+}
+
+.addr_btm  {    
+    display: flex;
+    width: 100%;
+    /* justify-content: center; */
+}
+
+.addr_img {
+    border: 5px solid gray;
+    margin-left: 35px;
+}
+
+.addr_btm div {
+    margin-top: 30px;
+}
+
+.addr{
+    font-size: 17px;
+    font-family: 'Nanum Pen Script', cursive;
+    color: #fff;
+}
+
+.blik {
+    display: flex;        
+}
+
+.blik>li a{
+    font-size: 17px;
+    font-family: 'Nanum Pen Script', cursive;
+    color: #fff;
 }
