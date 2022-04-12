@@ -7,9 +7,9 @@
 
 
 /* 박스표시 */
-body * {
-    /* outline : 1px dashed gray; */
-}
+/* body * {
+    outline : 1px dashed gray;
+} */
 
 /* 1. 상단 영역 */
 .top {
@@ -226,8 +226,47 @@ body * {
 
 .bg1 {    
     background-image: url(../images/dosilok.jpg);
-    background-position: -250px 0px;
-    
+    background-position: -250px 0px;    
+}
+
+.bener {
+    display: flex;
+}
+
+.bener_window {
+    margin-left: 2%;
+    position: relative;
+    display: flex;
+}
+
+.bener_li {    
+    overflow: hidden;
+}
+
+.bener_Text {
+    margin-left: 55px;
+    margin-top: 15px;
+    font-size: 19px;
+    width: 245%;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.bener li {    
+    margin: 10px 5px 0px 5px;    
+}
+
+.bener li>img {
+    width: 450px;
+    height: 450px;
+}
+
+.abtn {
+    position: absolute;
+    margin-top: 13%;
+}
+
+.ab2 {
+    margin-left: 90%;
 }
 
 /* 메인 처음 텍스트 문자 */

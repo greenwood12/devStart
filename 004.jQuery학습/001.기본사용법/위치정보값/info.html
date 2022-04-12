@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>위치정보 알아내기</title>
@@ -76,7 +76,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function() { /// jQB //////////////////////////
-            var offtop, offleft, postop, posleft;
+            var offtop, offleft, postop, posleft,js1,js2,js3,js4;
             setInterval(function() {
                 // offset() 메서드의 top, left
                 // 기준: document 전체
@@ -87,15 +87,40 @@
                 postop = Math.floor($("#bird").position().top);
                 posleft = Math.floor($("#bird").position().left);
 
+
+                let bird = document.querySelector("#bird");                
+                /*
+                    [제이쿼리 :]
+                    1) offset() 
+                       ->보이는 화면 기준 맨위와 왼쪽끝기준 절대값
+                    2)position() 
+                       ->은 부모자격 박스 기준 절대값
+
+                    [자바스크립트 :]
+                    1) offsetTop, offsetLeft 
+                       -> 제이쿼리 position()과 같음
+                       
+                    2) getBoundingClientRect() 
+                       -> 스크롤 위치를 뺀 화면 기준
+                       -> 제이쿼리의 offset() 과 같은 절대값을 구하려면
+                          스크롤위치값을 본 값에 더해야함!
+                */ 
+                js1 = bird.offsetTop;
+                js2 = bird.offsetLeft;
+                js3 = bird.getBoundingClientRect().top;
+                js4 = bird.getBoundingClientRect().left;
+
+
+
                 /// 화면표시 ////
                 $(".i1").text(offtop);
                 $(".i2").text(offleft);
                 $(".i3").text(postop);
                 $(".i4").text(posleft);
-
-
-
-
+                $(".i5").text(js1);
+                $(".i6").text(js2);
+                $(".i7").text(js3);
+                $(".i8").text(js4);
 
             }, 100); ///// setInterval //////
             
@@ -112,13 +137,10 @@
         /////////////////////////////////////////////////
         /////////////////////////////////////////////////
     </script>
-
-
 </head>
 
 <body>
     <div class="page">
-
         <div class="inbox">
             <!--날아다니는 새-->
             <img id="bird" src="bird.gif" alt="벌새">
@@ -126,14 +148,17 @@
 
         <!--위치정보표시-->
         <div id="info">
+            <h2>제이쿼리</h2>
             <h2>offset().top 값 : <span class="i1"></span>px</h2>
             <h2>offset().left 값 : <span class="i2"></span>px</h2>
             <h2>position().top 값 : <span class="i3"></span>px</h2>
             <h2>position().left 값 : <span class="i4"></span>px</h2>
+            <h2>(JS 비교)</h2>
+            <h2>JS의 offsetTop 값 : <span class="i5"></span>px</h2>
+            <h2>JS의 offsetLeft 값 : <span class="i6"></span>px</h2>
+            <h2>JS의 getBoundingClientRect().top 값 : <span class="i7"></span>px</h2>
+            <h2>JS의 getBoundingClientRect().left 값 : <span class="i8"></span>px</h2>
         </div>
-
-
-
     </div>
-
-</body></html>
+</body>
+</html>

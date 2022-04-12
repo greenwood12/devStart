@@ -37,10 +37,8 @@ html {
 }
 
 .main.rbx::before {
-    padding-top: 60%;
+    padding-top: 40%;
 }
-
-
 
 /* 비율유지속박스 */
 .rbxIn{
@@ -102,9 +100,6 @@ html {
 .cbx:hover::after{
     border: 5px solid lightgreen;
 }
-
-
-
 
 
  /* 3-2. 회사주소 */
