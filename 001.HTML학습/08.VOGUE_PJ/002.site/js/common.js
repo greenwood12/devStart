@@ -1,4 +1,85 @@
 // 보그 PJ 공통 JS - common.js
+$(()=>{ //////////// jQB /////////////////////////
+
+    // 햄버거 버튼 클릭시 모바일 메뉴 보이기
+    // 햄버거 버튼 -> .hbtn
+    // 모바일 메뉴 -> #mobx
+    $(".hbtn").click(()=>$("#mobx").slideToggle(300));
+
+    // 검색 버튼 클릭시 검색창 보이기
+    // 검색 버튼 -> .sbtn
+    // 검색창 -> .mos
+    $(".sbtn").click(()=>$(".mos").slideToggle(300));
+
+    // 로그인, 회원가입, 갤러리 html 코드
+    let htcode = `
+                <a href="#" class="fi fi-laptop" title="로그인">
+                    <span class="ir">
+                        로그인
+                    </span>
+                </a>
+                <a href="#" class="fi fi-user-secret" title="회원가입">
+                    <span class="ir">
+                        회원가입
+                    </span>
+                </a>
+                <a href="#" class="fi fi-camera" title="갤러리">
+                    <span class="ir">
+                        갤러리
+                    </span>
+                </a>
+            `;
+
+
+
+
+    // 로그인, 회원가입, 갤러리 아이콘 넣기
+    // 대상: .sns a:last-child 
+    // 변경: 대상요소 앞에 a요소 삽입하기
+    // 메서드: before(요소) -> 선택요소 앞에 형제삽입
+    // -> 참고비교) after(요소) -> 선택요소 뒤에 형제삽입
+    $(".sns a")
+    .each(function(){
+        // a요소 각각에 title로 내부글자를 넣어준다!
+        $(this).attr("title",$(this).text().trim());
+    }) ///// each //////
+    .last().before(htcode); 
+    ////////// before ///////////////////
+
+    // 모바일에 요소 추가!
+    // 선택자.마지막().이전요소추가(코드)
+    $(".mosns a").last().before(htcode)    
+    // 부모().찾기("a").순번(4번째).다음요소추가("<br>")
+    .parent().find("a").eq(3).after("<br>");
+
+    // 로그인, 회원가입, 갤러리 클릭시 페이지이동하기
+    // 클릭시 구조가 동일한 모바일도 그룹셋팅!
+    $(".sns a, .mosns a").click(function(e){
+        // 1. 기본기능막기
+        e.preventDefault();
+
+        // 2. 내부 텍스트 읽어오기
+        let txt = $(this).text().trim();
+        console.log("sns텍스트:",txt);
+
+        // 3. 분기하기
+        let url;
+        switch(txt){
+            case "로그인": url="login"; break;
+            case "회원가입": url="member"; break;
+            case "갤러리": url="gallery"; break;
+            default: url="esc";
+        } ////////// switch case /////////
+
+        // 4. 페이지 이동하기
+        if(url!=="esc")
+            location.href = url+".html";
+
+
+    }); ///////// click ////////////
+}); ///////////////// jQB ////////////////////////
+
+
 
 /////// 로드 구역 ////////////////////////////////////////
 window.addEventListener("DOMContentLoaded",()=>{
@@ -15,11 +96,23 @@ window.addEventListener("DOMContentLoaded",()=>{
     let tbtn = document.querySelector(".tbtn");
     // 위로가기 버튼 클릭시 맨위로 이동하기 /////////////////////
     // 부드러운 스크롤 위치 변수 pos값을 0 주면됨!
-    tbtn.onclick = ()=>{
-        pos = 0; // 맨위로 가기!
-        return false;
-        // a요소 기본이동 막기
-    };
+
+    // 모바일에서 스크롤 없이 스와이퍼 이동시 무작동해결!
+    $(".tbtn").click(()=>{
+        $("html,body").animate({
+            scrollTop:"0"
+        },300);
+        // 스크롤 위치값 업데이트
+        pos = 0;
+    });
+    // click ////////////////////////////////////////////
+
+
+    // tbtn.onclick = ()=>{
+    //     pos = 0; // 맨위로 가기!
+    //     return false;
+    //     // a요소 기본이동 막기
+    // };
     /// click ////////////////////////////////////////////////
 
     /********************************************************

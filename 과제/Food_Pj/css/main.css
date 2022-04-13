@@ -239,14 +239,15 @@
     display: flex;
 }
 
-.bener_li {    
-    overflow: hidden;
+.bener_li {
+    display: list-item;
+    overflow: hidden;    
 }
 
 .bener_Text {
     margin-left: 55px;
     margin-top: 15px;
-    font-size: 19px;
+    font-size: 1rem;
     width: 245%;
     font-family: 'Nanum Pen Script', cursive;
 }

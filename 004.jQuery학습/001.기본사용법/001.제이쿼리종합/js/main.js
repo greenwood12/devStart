@@ -41,9 +41,10 @@ $(()=>{
     **************************************************************/ 
     // 2-1. 버튼셋팅 : 모든버튼 숨기고 첫번째만 보이게 함
     // 버튼들.숨겨().첫번째().보여()
-    // btns.hide().first().show();
+    btns.hide().first().show();
     // 중간 테스트를 위한 버튼 보이기 셋팅
-    btns.hide().eq(0).show();
+    //btns.hide().eq(0).show();
+    //btns.hide().eq(5).show();
 
     //빌딩 숫자 셋팅 :
     //-> 모든 빌딩 li를 순서대로 돌면서 순번넣기 + 좀비넣기
@@ -309,14 +310,39 @@ $(()=>{
     .next().click(function(){
         // 콜백함수 : 이동후 실행함수 //
         let callFn = ()=>{
-            // 1. 메시지 변경
-            //메시지 나타내기
-            msg.text("옆방으로!").fadeIn(200);
-            // 2. 다음버튼 보이기
-            // delay(시간) -> 애니메이션 메서드 앞에 사용!
-            // -> 애니메이션 메서드 앞에 사용!
-            //btns.eq(1).delay(1000).slideDown(300);            
-            $(this).next().delay(1000).slideDown(300);
+            // 1. 주사기 돌리기
+            // 주의 : transform 은  animate 에서 사용불가!
+            // transform은  css로 trasition으로 구현!
+            $(".inj").css({
+                transform:"rotate(-150deg)",
+                trasition:".5s ease-out 1s",
+                zIndex:"9999"
+            },500);
+
+            //2. 주사놓은 후(1.5초) 다시 미니언즈2(후유증)
+            setTimeout(()=>{
+                // 2-1. 미니언즈 흑백모드 풀기
+                mi.css({
+                    filter:"grayscale(0%)"
+                })
+                // 2-2. 새로운 미니언즈 이미지로 변경
+                .find("img").attr("src", "images/m2.png");
+                // 2-3. 주사기 제거하기
+                $(".inj").remove();
+                // remove() 메서드는 태그를 지운다!
+
+                // 3. 메시지 변경
+                //메시지 나타내기
+                msg.text("치료완료!").fadeIn(200).delay(1000).fadeIn(200, ()=>{
+                    msg.html("이제, 조금만 더 <br>가면 탈출이닷!");
+                    ///fadeIn /////////////////////////////////
+                });
+                // 4. 다음버튼 보이기
+                // delay(시간) -> 애니메이션 메서드 앞에 사용!
+                // -> 애니메이션 메서드 앞에 사용!
+                //btns.eq(1).delay(1000).slideDown(300);            
+                $(this).next().delay(1000).slideDown(300);
+            },1500);
         }
         //공통기능함수 호출!
         miniAct(this, 2, callFn);
@@ -329,7 +355,7 @@ $(()=>{
         let callFn = ()=>{
             // 1. 메시지 변경
             //메시지 나타내기
-            msg.text("옆방으로!").fadeIn(200);
+            msg.text("이제 곧 탈출이닷!").fadeIn(200);
             // 2. 다음버튼 보이기
             // delay(시간) -> 애니메이션 메서드 앞에 사용!
             // -> 애니메이션 메서드 앞에 사용!
@@ -347,7 +373,7 @@ $(()=>{
         let callFn = ()=>{
             // 1. 메시지 변경
             //메시지 나타내기
-            msg.text("옆방으로!").fadeIn(200);
+            msg.text("어서 헬기를 타야지!").fadeIn(200);
             // 2. 다음버튼 보이기
             // delay(시간) -> 애니메이션 메서드 앞에 사용!
             // -> 애니메이션 메서드 앞에 사용!
@@ -365,12 +391,63 @@ $(()=>{
         let callFn = ()=>{
             // 1. 메시지 변경
             //메시지 나타내기
-            msg.text("옆방으로!").fadeIn(200);
-            // 2. 다음버튼 보이기
-            // delay(시간) -> 애니메이션 메서드 앞에 사용!
-            // -> 애니메이션 메서드 앞에 사용!
-            //btns.eq(1).delay(1000).slideDown(300);            
-            $(this).next().delay(1000).slideDown(300);
+            msg.text("도와줘요~!!!").fadeIn(200);
+            //2. 좀비들 최종추적!!!
+            // -> 1번방에 숨겨진 좀비들
+            // -> bd.eq(1).find(".mz")
+            bd.eq(1).find(".mz").fadeIn(200, function(){
+                //2-1. 좀비들 움직이기
+                $(this).animate({
+                    right:bd.eq(1).width()*1.3+"px"
+                },5000,"easeInOutQuint");
+
+                //2-2. 헬기등장
+                $(".heli").animate({
+                    left:"20%"
+                },3000, "easeOutBack", function(){
+                    //콜백함수
+                    //3. 주인공이 탄 이미지로 변경
+                    $(this).attr("src", "images/heli2.png");
+                    // 4. 주인공 지우기(헬기에 탔으니까!)
+                    mi.hide(); //display:none 처리
+                    /// animate ///////////////////////////                    
+                })
+                .delay(1000)
+                .animate({
+                    left:"70%"
+                },4000,"easeInOutCubic",function(){
+                    // 끝으로이동후
+                    // 7. 헬기조종사 좀비이미지
+                    $(this).attr("src", "images/heli3.png");
+                    // animate //////////////////////////////
+                })
+                // 헬기애니 이어짐 !!!
+                // 8. 아주 천천히 화면 바깥으로 나감
+                .animate({
+                    left:"100%"
+                },10000,"easeInOutSine",()=>{
+                    // 헬기가 나간후
+                    //9. 미리지정한 class 를 타이틀에 줘서
+                    // 간편이 아래로 2단계로 떨어짐
+                    // 대상 : .tit
+                    let tit = $(".tit");
+                    // 1단계: 간판 중간 떨어짐(.on)
+                    tit.addClass("on");
+                    // 2단계 : 3초후 간판 떨어짐(.on2)
+                    setTimeout(()=>{
+                        // 간판 클래스추가
+                        tit.addClass("on2");
+
+                        //10. 건물 무너짐 클래스 넣기
+                        //대상: .building
+                        //bd변수를 이용해 보자!
+                        //bd변수 -> .building li
+                        //한단계 위인 부모로 올라감
+                        //parent() -> 부모로 올라감
+                        bd.parent().addClass("on");
+                    },3000);
+                })
+            }); /// fadeIn /////////////////////////////////
         }
         //공통기능함수 호출!
         miniAct(this, 0, callFn);

@@ -57,7 +57,7 @@ $(document).ready(function(e){
      if(dir) { // dir === 1 이면 true
          //(1) 슬라이드박스의 left값을 -100%로 이동
          bener.style.left = "-100%"
-         bener.style.transition = ".6s ease-out";
+         bener.style.transition = "1s ease-out";
 
          // 슬라이드 이동후 (2), (3)실행함
          //(2) 이동후 첫번째 슬라이드 li를 잘라서 맨뒤로 보낸다!
@@ -68,7 +68,7 @@ $(document).ready(function(e){
              bener.style.left= "0";
              bener.style.transition = "none";
              // 트랜지션 없어야 애니메이션 안보임
-         }, 600);/// 타임 아웃 ///
+         }, 1000);/// 타임 아웃 ///
      } else {
          // (1)먼저 맨뒤의 슬라이드 li를 맨 앞으로 이동시킨다!
          // insertBefore(넣을넘, 넣을놈전놈)
@@ -84,7 +84,7 @@ $(document).ready(function(e){
          // 주의 : 위의 설정코드 와 분리를 위해 setTimeout으로 약간의 시차를 줌!
          setTimeout(()=>{
              bener.style.left ="0";
-             bener.style.transition = ".6s ease-out";
+             bener.style.transition = "1s ease-out";
          }, 10);
      }
      /// if 문 ////////////////////////////////////////////////

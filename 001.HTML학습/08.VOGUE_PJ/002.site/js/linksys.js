@@ -8,7 +8,9 @@ $(()=>{
     //메인 로고 클릭시 첫페이지로 이동하기
     $(".logo a").click(()=>location.href="index.html");
 
-    $(".gnb a").click(function(e){
+    // 그룹선택으로 모바일 메뉴도 동시에 처리!
+    // .gnb a + .mognb a
+    $(".gnb a, .mognb a").click(function(e){
         // a요소 기본이동기능 막기
         e.preventDefault();
 
