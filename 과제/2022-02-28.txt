@@ -35,4 +35,8 @@ https://www.3hoursahead.com/articles/972
 https://tympanus.net/Development/BookBlock/index.html
 
 //[포트폴리오 참조용]
-https://atelier.net/social-mobility/economic-opportunities-for-our-avatars/		
+https://atelier.net/social-mobility/economic-opportunities-for-our-avatars/
+
+// c# 유트브 강의
+https://www.youtube.com/watch?v=Urw1N7tntkA&list=PLOKPEzlY4JKQNiHEQ4SDBxAFo9RDod8Tm
+// c# 유트브 강의

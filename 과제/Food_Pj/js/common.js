@@ -56,7 +56,7 @@ $(document).ready(function(e){
      //2-1. 오른쪽 버튼
      if(dir) { // dir === 1 이면 true
          //(1) 슬라이드박스의 left값을 -100%로 이동
-         bener.style.left = "-100%"
+         bener.style.left = "-111.5%"
          bener.style.transition = "1s ease-out";
 
          // 슬라이드 이동후 (2), (3)실행함
@@ -76,7 +76,7 @@ $(document).ready(function(e){
          bener.insertBefore(sli[sli.length-1], sli[0]);
 
          //(2) 이때 left -100%로 변경한다!(트랜지션 없음!)
-         bener.style.left = "-100%";
+         bener.style.left = "-111.5%";
          bener.style.transition = "none";
 
          // 이때 left -100%로 변경한다!

@@ -13,17 +13,30 @@
 
 /* 1. 상단 영역 */
 .top {
+    position: fixed;    
+    left: 0%;
+    right: 0%;
+    z-index: 9999;
+    background-color: rgba(110,0,0,0.9);
     height: 150px;
 }
 
 /* 로고 */
-.logo>img {
-    width:"242px"; 
-    height:"72px";
-    margin-top: 20px;
+.logo {
+    position: relative;
+    width: 20%;
+    margin-top: 4%;
+    padding-top: 5%;
     border: 5px solid gray;
     margin-left: 15px;
-}
+}   
+
+/* 로고 */
+.logo>img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}   
 
 .topMain {
     display: flex;    
@@ -84,7 +97,7 @@
     left: 50%;    
     /* 정중앙 위치이동 */
     transform: translate(-50%, -50%);    
-    background-color: #975a44;
+    background-color: rgba(110,0,0,0.9);;
     width: 100%;
     margin: 0 auto;
     /* 크기를 가진 블록박스 가로중앙 */    
@@ -165,13 +178,13 @@
 }
 
 /* 버튼공통 */
-.btns {
-    top: 0.5vw;
-    right: 9.5vw;
+.btns {    
+    top: 3vw;
+    right: 10vw;
     width: 45px;
     height: 45px;
     border-radius: 7px 7px 7px 7px;
-    border: 2px solid #975a44;
+    border: 2px solid rgba(110,0,0,0.9);
     background-color: #fff;
     font-size: 42px;
     line-height: 0px;
@@ -190,7 +203,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #975a44;
+    background-color:rgba(110,0,0,0.9);
     border-radius: 5px 5px 5px 5px;
     /* 원 */
     transform: scale(0);
@@ -219,6 +232,15 @@
 
 /********************************************************************************************************************************************************/
 /* 2. 메인영역 */
+
+.main_area {
+    padding-top: 16%;
+}
+
+.main2 {
+    padding-top: 2%;
+}
+
 .select {
     display: flex;    
     justify-content: space-around;
@@ -230,16 +252,17 @@
 }
 
 .bener {
+    position: relative;
     display: flex;
 }
 
 .bener_window {
-    margin-left: 2%;
     position: relative;
     display: flex;
 }
 
 .bener_li {
+    margin-left: 4.5%;
     display: list-item;
     overflow: hidden;    
 }
@@ -265,6 +288,12 @@
     position: absolute;
     margin-top: 13%;
 }
+
+
+.ab1 {
+    margin-left: 0%;
+}
+
 
 .ab2 {
     margin-left: 90%;
@@ -351,7 +380,7 @@
 /*3. 하단 영역 */
 .info {
     height: 180px;        
-    background-color: #975a44;
+    background-color: rgba(110,0,0,0.9);
     border:3px solid  #fff;
 }
 
