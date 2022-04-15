@@ -170,17 +170,18 @@
 
 /* 햄버거버튼 */
 #ham{            
-    position: fixed;
+    position: absolute;
 }
 /* 닫기버튼 */
-#cbtn{
+#cbtn{    
     position: absolute;
+    margin-right: 8vw;    
 }
 
 /* 버튼공통 */
 .btns {    
     top: 3vw;
-    right: 10vw;
+    right: 3vw;
     width: 45px;
     height: 45px;
     border-radius: 7px 7px 7px 7px;
@@ -393,6 +394,11 @@
 .addr_img {
     border: 5px solid gray;
     margin-left: 35px;
+}
+
+.addr_img>img {
+    width: 100%;
+    height: 100%;    
 }
 
 .addr_btm div {
