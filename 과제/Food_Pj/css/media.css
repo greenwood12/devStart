@@ -48,4 +48,9 @@
     .main.rbx::before {
         padding-top: 4%;
     }
+
+    .main .cbx {
+        width: 100vw;
+        height: 50vh;
+    }
 }

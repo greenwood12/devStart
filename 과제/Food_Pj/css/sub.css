@@ -239,17 +239,18 @@
 }
 
 .main2 {
-    padding-top: 2%;
+    padding-top: 8%;
 }
 
 .select {
     display: flex;    
     justify-content: space-around;
+    flex-direction: column;
 }
 
 .bg1 {    
     background-image: url(../images/dosilok.jpg);
-    background-position: -250px 0px;
+    background-position: -250px 0px;    
 }
 
 .bener {
@@ -419,4 +420,9 @@
     font-size: 17px;
     font-family: 'Nanum Pen Script', cursive;
     color: #fff;
+}
+
+
+.bg1 {
+    background-image: url(../images/kim1.jpg);
 }
