@@ -77,9 +77,9 @@ $(()=>{
         // 3. 분기하기
         let url;
         switch(txt){
-            case "로그인": url="login"; break;
+            case "로그인": url="login"; break;            
             case "회원가입": url="member"; break;
-            case "갤러리": url="gallery"; break;
+            case "갤러리": url="gallery"; break;            
             default: url="esc";
         } ////////// switch case /////////
 

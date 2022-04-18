@@ -43,7 +43,9 @@ $(()=>{
                     console.log(res);
                     // 3-1. 로그인 성공시
                     if(res ==="ok") {
-                        alert("로그인에 성공하였습니다!");
+                        //alert("로그인에 성공하였습니다!");
+                        // 첫페이지로 이동하기!
+                        location.href = "index.php";
                     } else if (res === "no") {
                         // 3-2. 아이가 없는 경우
                         alert("사용가능한 ID가 아닙니다.");

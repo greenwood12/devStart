@@ -18,6 +18,10 @@
         <script src="./js/smoothScroll20.js"></script>
     </head>
     <body>
+        <!-- 로그인 세션 처리 인크루드 -->
+        <?php include "inc/login_session.inc" ?>
+        <!-- 로그인 세션 처리 인크루드 -->
+
         <!-- 1. 상단영역 인클루드 -->
         <?php include "inc/top.inc" ?>
         <!-- 1. 상단영역 인클루드 -->
@@ -138,6 +142,7 @@
                 </div>
             </main>
         </div>
+
         <!-- 1. 하단영역 인클루드 -->
         <?php include "inc/info.inc" ?>
         <!-- 1. 하단영역 인클루드 -->
