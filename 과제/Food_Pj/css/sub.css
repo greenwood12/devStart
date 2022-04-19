@@ -422,7 +422,56 @@
     color: #fff;
 }
 
+.recipe {
+    display: flex;    
+    border: solid 1px red;
+}
+
+.main_set {
+    padding-top: 8%;
+    width: 1200px;
+    margin: 0 auto;
+}
 
 .bg1 {
-    background-image: url(../images/kim1.jpg);
+    width: 500px;
+    height: 366px;
+    flex-shrink: 0;
+    background:url('../images/kim1.jpg') no-repeat center center;
+
+}
+
+.bg2 {
+    width: 500px;
+    height: 366px;
+    flex-shrink: 0;    
+    background:url('../images/kim2.jpg') no-repeat center center;
+}
+
+.bg3 {
+    width: 500px;
+    height: 366px;
+    flex-shrink: 0;    
+    background:url('../images/kim3.jpg') no-repeat center center;
+}
+
+.bg4 {
+    width: 500px;
+    height: 366px;
+    flex-shrink: 0;
+    background:url('../images/kim4.jpg') no-repeat center center;
+}
+
+.bg5 {
+    width: 500px;
+    height: 366px;
+    flex-shrink: 0;
+    background:url('../images/kim5.jpg') no-repeat center center;
+}
+
+.bg6 {
+    width: 500px;
+    height: 366px;
+    flex-shrink: 0;
+    background:url('../images/kim6.jpg') no-repeat center center;
 }

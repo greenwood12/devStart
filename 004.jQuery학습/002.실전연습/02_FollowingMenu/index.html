@@ -50,6 +50,8 @@
 			/* 줄바꿈방지 */
 			z-index: 2;
 			cursor: pointer;
+			/* 더블클릭으로 선택 안되게 함! */
+			user-select: none;
 		}
 
 		#menu {
@@ -116,9 +118,98 @@
 				사용메서드: mousemove()
 			***********************************************/
 			
+			let mbx = $("#mbx");
+			// #mbx 박스 크기의 절반(가로, 세로동일)
+			let hz = mbx.width() / 2;					
+			// e 이벤트 전달변수			
+			$("body").mousemove((e)=>{
+				//0. 메뉴가 열린 상태면 아래코드 실행안함!
+				// !mw 는 mw가 false날때 true로 바꿔서 실행!
+				// mw가 false인 경우는 0 일때임!
+				if (!mw) return;
 
+				// 1. 마우스 위치값 정보 알아내기(hz 보정값 뺌)
+				// x좌표 : e.pageX / Y좌표: e.pageY				
+				let posx = e.pageX-hz;
+				let posy = e.pageY-hz;
+				//console.log(`x:${posx}/y:${posy}`);
 
-		}); //////////////////////////// jQB /////////////////////
+				// 2. 변경대상이 마우스 포인터 위치로 이동하기
+				mbx.css({
+					top: posy + "px",
+					left: posx + "px"
+				});
+			});		
+			
+			// 트랜지션 설정시 ease-out 으로 설정할것!
+			// ease-in 설정이 되면 시작할때 느려서 속터짐!
+			let menu = $("#menu");
+			let mw = 660;
+
+			// #mbx 클릭시 메뉴 보이기 ////////////////////////
+			mbx.click(()=>{
+				// 메뉴 펼치기 / 숨기기
+				// 애니앞에 stop()으로 큐 정리!
+
+				console.log("2222");
+				menu.stop().animate({
+					width: mw + "px"
+				},400, "easeOutExpo");
+
+				//토글구현 : 한번은 660 한번은 0
+				// 비? 집 : 놀이동산 ;
+				mw ===660 ? mw=0 : mw = 660;
+				console.log("mw값:", mw);
+			});
+
+			// [ 메뉴 li  마우스 오버시 opacity:1로 만들기]
+			// 이벤트 대상 : #menu li
+			// 사용 메서드 : hover(함수1, 함수2)
+			// -> 오버시 함수1, 아웃시 함수2 실행
+			menu.find("li").hover(
+				function(){ // over
+					// 자기자신(li)의 opacity를 1로 변경
+					// fadeTo(시간, 오파, 이징, 함수)
+					$(this).stop().fadeTo(200, 1);
+					// 자기자신 아래 span태그 글자보이기
+					$("span",this).stop().delay(100).fadeIn(200);
+					// $(this).find("span") === $("span", this);
+					// $(this).children("span") === $(">span", this);
+
+				}, 
+				function(){ // out
+					$(this).stop().fadeTo(200, 0.7);
+					// 자기자신 아래 span태그 글자 숨기기
+					$("span",this).stop().delay(100).fadeOut(200);
+				}
+			).click(
+					function(e){
+						// li 클릭시 상위 요소로 클릭 이벤트가 올라간다.
+						// 이런현상을 이벤트 버블링! 이라고 함
+						// 막는 방법: jQuery에서는 e.stopPropagation()
+						// JS방법은 하단에 return false로 처리!
+
+						e.stopPropagation();
+						// span 텍스트 읽어오기
+						let txt = $("span", this).text();
+						console.log("링크:", txt);
+						// 이동할 주소
+						let url;
+
+						switch(txt) {
+							case "Google" : url="https://www.Google.com"; break;
+							case "Naver" : url="https://www.naver.com"; break;
+							case "Daum" : url="https://www.daum.net"; break;
+						}
+						// url 새창열기
+						// window.open() -> 새창열기
+						// location.href => 주소 -> 페이지 이동하기
+						window.open().location.href = url;
+					}
+			);
+			/// click ////////////////////////////////////////////
+		});
+		//////////////////////////// jQB /////////////////////////
 	</script>
 </head>
 
