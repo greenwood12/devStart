@@ -141,7 +141,7 @@
     font-size: 14px;
     text-align: center;
     /* a요소 필수 재설정! 글자색+밑줄해제 */
-    color: #ffafaf;
+    color: rgb(255, 175, 175);
     text-decoration: none;
     /* 트랜지션: 속시이지 */
     transition: all .4s;
@@ -149,8 +149,8 @@
 
 /* 서브메뉴 a에 오버시 */
 .smenu a:hover {
-    background-color: #bed8b4;
-    color: #ff5411;
+    background-color: rgb(190, 216, 180);
+    color: rgb(255, 84, 17);
 }
 
 /* 출력글자 */
@@ -392,7 +392,7 @@
 }
 
 .addr_img {
-    border: 5px solid gray;
+    border: 5px solid rgb(128, 128, 128);
     margin-left: 35px;
 }
 

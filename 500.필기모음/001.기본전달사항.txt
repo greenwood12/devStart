@@ -41,7 +41,7 @@ https://github.com/
 - 개인포폴 주제선정 후 코딩하여 수료날 발표하기!
 예시)
 https://tombap8.github.io/KNG-FED211/index.html
-
+https://tombap8.github.io/KNG-FED211/800.FED211_PF/%EB%AC%B8%EC%84%B1%EC%9B%90/K2_%EB%AC%B8%EC%84%B1%EC%9B%90.pdf
 
 10. UI/UX 참고자료
 
