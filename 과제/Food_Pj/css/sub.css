@@ -423,13 +423,12 @@
 }
 
 .recipe {
-    display: flex;    
-    border: solid 1px red;
+    display: flex;
 }
 
 .main_set {
-    padding-top: 8%;
-    width: 1200px;
+    padding-top: 13%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -474,4 +473,26 @@
     height: 366px;
     flex-shrink: 0;
     background:url('../images/kim6.jpg') no-repeat center center;
+}
+
+/* 스크롤 액션 */
+
+.loAct {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+/* 원위치 복귀 등장! */
+.loAct.on{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+.textSet {
+    margin-top: 10%;
+    margin-left: 3%;
+    font-size:1.2rem;
 }

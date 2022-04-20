@@ -32,7 +32,14 @@ $(document).ready(function(e){
         함수명 : goSlide
         기능 : 슬라이드를 왼쪽/오른쪽 이동함
     ***************************************************************/ 
-   const goSlide = (dir, gb) =>{ 
+   const goSlide = (dir, gb) =>{
+       
+    let widthVal = window.innerWidth;
+    console.log(widthVal);
+    if(widthVal <= 1140) {
+        return false;
+    } 
+
     // dir - 이동방향(1:오른쪽,0:왼쪽)
     // gb - 구분코드(인터발호출일때만 값이 전달됨)
      console.log("잠금상태:", prot);
@@ -118,7 +125,6 @@ $(document).ready(function(e){
         2. 사용자가 버튼조작을 할 경우 자동멈춤
         3. 일정시간 버튼조작이 없으면 다시 자동
     **************************************************************/
-
     let autoI;
     /////////////////////
     // 인터발 호출 함수 //
@@ -130,7 +136,7 @@ $(document).ready(function(e){
     };
     /// autoCall 함수 ///////////////////////////////////////////////
     // 인터발 호출함수 최초 호출!
-    ///autoCall();
+    autoCall();
 
     // 타임아웃용 변수
     let autoT;
